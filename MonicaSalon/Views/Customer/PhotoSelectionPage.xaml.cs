@@ -7,7 +7,7 @@ public partial class PhotoSelectionPage : ContentPage
 
     private async void OnBackClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//simulation-intro");
+        await Shell.Current.GoToAsync("simulation-intro");
     }
 
     private void OnTakePhotoClicked(object? sender, EventArgs e)
@@ -38,11 +38,11 @@ public partial class PhotoSelectionPage : ContentPage
 
     private async void OnContinueClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//hair-editor");
+        await Shell.Current.GoToAsync("hair-editor");
     }
 
     private async void OnCancelClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//home");
+        await Shell.Current.GoToAsync("home");
     }
 }

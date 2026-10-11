@@ -4,7 +4,7 @@ public partial class TransactionDetailsPage : ContentPage
 {
     public TransactionDetailsPage() => InitializeComponent();
 
-    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-transactions");
+    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-transactions");
 
     private async void OnPrintReceipt(object sender, EventArgs e)
     {

@@ -23,6 +23,6 @@ public partial class AdminHeaderView : ContentView
 
     private async void OnDashboardClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-dashboard");
+        await Shell.Current.GoToAsync("admin-dashboard");
     }
 }

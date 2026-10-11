@@ -65,11 +65,11 @@ public partial class AdminCreateBookingPage : ContentPage
 
     private async void OnBack(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-dashboard");
+        await Shell.Current.GoToAsync("admin-dashboard");
     }
 
     private async void OnSave(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-booking-details");
+        await Shell.Current.GoToAsync("admin-booking-details");
     }
 }

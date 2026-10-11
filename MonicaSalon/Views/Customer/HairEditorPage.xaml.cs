@@ -96,16 +96,16 @@ public partial class HairEditorPage : ContentPage
 
     private async void OnBackClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//photo-selection");
+        await Shell.Current.GoToAsync("photo-selection");
     }
 
     private async void OnSaveClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//simulation-result");
+        await Shell.Current.GoToAsync("simulation-result");
     }
 
     private async void OnDeleteClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//photo-selection");
+        await Shell.Current.GoToAsync("photo-selection");
     }
 }

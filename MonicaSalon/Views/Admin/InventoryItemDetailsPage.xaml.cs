@@ -10,26 +10,26 @@ public partial class InventoryItemDetailsPage : ContentPage
 
     private async void OnBackClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-inventory");
+        await Shell.Current.GoToAsync("admin-inventory");
     }
 
     private async void OnEditClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-inventory-edit");
+        await Shell.Current.GoToAsync("admin-inventory-edit");
     }
 
     private async void OnViewAllClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-inventory-history");
+        await Shell.Current.GoToAsync("admin-inventory-history");
     }
 
     private async void OnStockInClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-stock-in");
+        await Shell.Current.GoToAsync("admin-stock-in");
     }
 
     private async void OnStockOutClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-stock-out");
+        await Shell.Current.GoToAsync("admin-stock-out");
     }
 }

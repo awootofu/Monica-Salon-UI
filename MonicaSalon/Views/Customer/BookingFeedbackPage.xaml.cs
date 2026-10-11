@@ -7,7 +7,7 @@ public partial class BookingFeedbackPage : ContentPage
 
     private async void OnBack(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//booking-details");
+        await Shell.Current.GoToAsync("booking-details");
     }
 
     private async void OnRescheduleOption(object sender, EventArgs e)
@@ -39,6 +39,6 @@ public partial class BookingFeedbackPage : ContentPage
 
     private async void OnBackToHistory(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//history");
+        await Shell.Current.GoToAsync("history");
     }
 }

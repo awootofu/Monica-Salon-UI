@@ -11,6 +11,15 @@ public partial class App : Application
 
 	protected override Window CreateWindow(IActivationState? activationState)
 	{
-		return new Window(new AppShell());
+		var window = new Window(new AppShell())
+		{
+			Width = 400,
+			Height = 900,
+			MinimumWidth = 360,
+			MaximumWidth = 480,
+			MinimumHeight = 700,
+			MaximumHeight = 960,
+		};
+		return window;
 	}
 }

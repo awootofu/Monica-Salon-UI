@@ -23,26 +23,26 @@ public partial class AdminBottomNav : ContentView
 
     private async void OnDashboardClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-dashboard");
+        await Shell.Current.GoToAsync("admin-dashboard");
     }
 
     private async void OnBookingsClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-bookings");
+        await Shell.Current.GoToAsync("admin-bookings");
     }
 
     private async void OnCashierClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-cashier");
+        await Shell.Current.GoToAsync("admin-cashier");
     }
 
     private async void OnInventoryClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-inventory");
+        await Shell.Current.GoToAsync("admin-inventory");
     }
 
     private async void OnMoreClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-more");
+        await Shell.Current.GoToAsync("admin-more");
     }
 }

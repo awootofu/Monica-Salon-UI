@@ -5,11 +5,11 @@ public partial class SimulationIntroPage : ContentPage
 
     private async void OnStartClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//photo-selection");
+        await Shell.Current.GoToAsync("photo-selection");
     }
 
     private async void OnBackClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//home");
+        await Shell.Current.GoToAsync("home");
     }
 }

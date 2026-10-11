@@ -27,7 +27,7 @@ public partial class FinancialRecordsPage : ContentPage
             DisplayAmount = (r.Type == "income" ? "+" : "-") + MockDataService.FormatRupiah(r.Amount)
         }).ToList();
     }
-    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-finance");
+    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-finance");
     private async void OnCategoryAll(object sender, EventArgs e)
     {
         _categoryFilter = "All";
@@ -75,6 +75,6 @@ public partial class FinancialRecordsPage : ContentPage
     {
         if (e.CurrentSelection.Count == 0) return;
         ((CollectionView)sender).SelectedItem = null;
-        await Shell.Current.GoToAsync("//admin-financial-details");
+        await Shell.Current.GoToAsync("admin-financial-details");
     }
 }

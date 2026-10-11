@@ -141,12 +141,12 @@ public partial class CashierPage : ContentPage
 
     private async void OnProceed(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-transaction-review");
+        await Shell.Current.GoToAsync("admin-transaction-review");
     }
 
-    private async void OnNavDashboard(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-dashboard");
-    private async void OnNavBookings(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-bookings");
-    private async void OnNavCashier(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-cashier");
-    private async void OnNavInventory(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-inventory");
-    private async void OnNavMore(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-more");
+    private async void OnNavDashboard(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-dashboard");
+    private async void OnNavBookings(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-bookings");
+    private async void OnNavCashier(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-cashier");
+    private async void OnNavInventory(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-inventory");
+    private async void OnNavMore(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-more");
 }

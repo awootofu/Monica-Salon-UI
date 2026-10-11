@@ -23,6 +23,6 @@ public partial class CustomerHeaderView : ContentView
 
     private async void OnHomeClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//home");
+        await Shell.Current.GoToAsync("home");
     }
 }

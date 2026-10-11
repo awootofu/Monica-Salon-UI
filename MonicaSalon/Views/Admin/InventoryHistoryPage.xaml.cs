@@ -27,6 +27,6 @@ public partial class InventoryHistoryPage : ContentPage
 
     private async void OnBackClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-inventory");
+        await Shell.Current.GoToAsync("admin-inventory");
     }
 }

@@ -5,6 +5,6 @@ public partial class CoverPage : ContentPage
 
     private async void OnContinue(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//roles");
+        await Shell.Current.GoToAsync("roles");
     }
 }

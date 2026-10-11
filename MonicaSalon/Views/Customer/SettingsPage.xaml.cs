@@ -5,7 +5,7 @@ public partial class SettingsPage : ContentPage
 
     private async void OnBack(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//profile");
+        await Shell.Current.GoToAsync("profile");
     }
 
     private async void OnDeletePhoto(object sender, EventArgs e)
@@ -28,7 +28,7 @@ public partial class SettingsPage : ContentPage
 
     private async void OnConfirmLogout(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//login");
+        await Shell.Current.GoToAsync("login");
     }
 
     private async void OnStay(object sender, EventArgs e)

@@ -12,11 +12,11 @@ public partial class EditInventoryPage : ContentPage
 
     private async void OnBackClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-inventory-details");
+        await Shell.Current.GoToAsync("admin-inventory-details");
     }
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-inventory-details");
+        await Shell.Current.GoToAsync("admin-inventory-details");
     }
 }

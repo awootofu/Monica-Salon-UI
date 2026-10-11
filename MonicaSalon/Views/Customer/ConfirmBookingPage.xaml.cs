@@ -5,11 +5,11 @@ public partial class ConfirmBookingPage : ContentPage
 
     private async void OnBack(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//schedule");
+        await Shell.Current.GoToAsync("schedule");
     }
 
     private async void OnSubmit(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//booking-success");
+        await Shell.Current.GoToAsync("booking-success");
     }
 }

@@ -33,7 +33,7 @@ public partial class StockOutPage : ContentPage
 
     private async void OnBackClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-inventory-details");
+        await Shell.Current.GoToAsync("admin-inventory-details");
     }
 
     private void OnSaveClicked(object sender, EventArgs e)
@@ -52,6 +52,6 @@ public partial class StockOutPage : ContentPage
 
     private async void OnViewInventoryClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-inventory");
+        await Shell.Current.GoToAsync("admin-inventory");
     }
 }

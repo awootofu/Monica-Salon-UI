@@ -73,11 +73,11 @@ public partial class AdminReschedulePage : ContentPage
 
     private async void OnBack(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-booking-details");
+        await Shell.Current.GoToAsync("admin-booking-details");
     }
 
     private async void OnBackToDetail(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-booking-details");
+        await Shell.Current.GoToAsync("admin-booking-details");
     }
 }

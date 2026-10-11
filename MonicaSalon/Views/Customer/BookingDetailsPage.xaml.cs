@@ -5,16 +5,16 @@ public partial class BookingDetailsPage : ContentPage
 
     private async void OnBack(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//history");
+        await Shell.Current.GoToAsync("history");
     }
 
     private async void OnReschedule(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//booking-feedback");
+        await Shell.Current.GoToAsync("booking-feedback");
     }
 
     private async void OnCancel(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//booking-feedback");
+        await Shell.Current.GoToAsync("booking-feedback");
     }
 }

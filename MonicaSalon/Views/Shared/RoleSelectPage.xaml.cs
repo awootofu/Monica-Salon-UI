@@ -25,13 +25,13 @@ public partial class RoleSelectPage : ContentPage
     private async void OnContinue(object sender, EventArgs e)
     {
         if (_isCustomer)
-            await Shell.Current.GoToAsync("//welcome");
+            await Shell.Current.GoToAsync("welcome");
         else
-            await Shell.Current.GoToAsync("//admin-login");
+            await Shell.Current.GoToAsync("admin-login");
     }
 
     private async void OnBack(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//cover");
+        await Shell.Current.GoToAsync("cover");
     }
 }

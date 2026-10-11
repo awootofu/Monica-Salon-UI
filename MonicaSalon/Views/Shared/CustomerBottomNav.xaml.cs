@@ -23,26 +23,26 @@ public partial class CustomerBottomNav : ContentView
 
     private async void OnHomeClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//home");
+        await Shell.Current.GoToAsync("home");
     }
 
     private async void OnServicesClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//catalogue");
+        await Shell.Current.GoToAsync("catalogue");
     }
 
     private async void OnBookingClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//schedule");
+        await Shell.Current.GoToAsync("schedule");
     }
 
     private async void OnHistoryClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//history");
+        await Shell.Current.GoToAsync("history");
     }
 
     private async void OnProfileClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//profile");
+        await Shell.Current.GoToAsync("profile");
     }
 }

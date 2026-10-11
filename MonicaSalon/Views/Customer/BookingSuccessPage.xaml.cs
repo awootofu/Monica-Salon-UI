@@ -5,11 +5,11 @@ public partial class BookingSuccessPage : ContentPage
 
     private async void OnViewBookings(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//history");
+        await Shell.Current.GoToAsync("history");
     }
 
     private async void OnReturnHome(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//home");
+        await Shell.Current.GoToAsync("home");
     }
 }

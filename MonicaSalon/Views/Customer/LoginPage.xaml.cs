@@ -5,7 +5,7 @@ public partial class LoginPage : ContentPage
 
     private async void OnBack(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//welcome");
+        await Shell.Current.GoToAsync("welcome");
     }
 
     private async void OnLogin(object sender, EventArgs e)
@@ -23,7 +23,7 @@ public partial class LoginPage : ContentPage
             return;
         }
         ErrorLabel.IsVisible = false;
-        await Shell.Current.GoToAsync("//home");
+        await Shell.Current.GoToAsync("home");
     }
 
     private void OnForgot(object sender, EventArgs e)
@@ -33,7 +33,7 @@ public partial class LoginPage : ContentPage
 
     private async void OnGoRegister(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//register");
+        await Shell.Current.GoToAsync("register");
     }
 
     private void ShowError(string msg)

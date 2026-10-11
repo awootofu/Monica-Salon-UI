@@ -5,7 +5,7 @@ public partial class AdminLoginPage : ContentPage
 
     private async void OnBack(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//roles");
+        await Shell.Current.GoToAsync("roles");
     }
 
     private async void OnLogin(object sender, EventArgs e)
@@ -23,7 +23,7 @@ public partial class AdminLoginPage : ContentPage
             return;
         }
         ErrorLabel.IsVisible = false;
-        await Shell.Current.GoToAsync("//admin-dashboard");
+        await Shell.Current.GoToAsync("admin-dashboard");
     }
 
     private void ShowError(string msg)

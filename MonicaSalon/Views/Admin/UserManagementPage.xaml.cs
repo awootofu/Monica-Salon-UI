@@ -2,7 +2,7 @@ namespace MonicaSalon.Views.Admin;
 public partial class UserManagementPage : ContentPage
 {
     public UserManagementPage() => InitializeComponent();
-    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-more");
+    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-more");
     private async void OnAddUser(object sender, EventArgs e)
     {
         FormTitle.Text = "Add User";

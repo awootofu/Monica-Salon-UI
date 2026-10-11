@@ -26,9 +26,9 @@ public partial class ServiceManagementPage : ContentPage
         ServicesList.ItemsSource = _rows;
         CountLabel.Text = $"{_rows.Count} services";
     }
-    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-more");
-    private async void OnAddService(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-service-form");
-    private async void OnEdit(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-service-form");
+    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-more");
+    private async void OnAddService(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-service-form");
+    private async void OnEdit(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-service-form");
     private async void OnToggleActive(object sender, EventArgs e)
     {
         var btn = (Button)sender;

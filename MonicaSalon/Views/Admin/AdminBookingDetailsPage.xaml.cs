@@ -58,11 +58,11 @@ public partial class AdminBookingDetailsPage : ContentPage
         await Task.CompletedTask;
     }
 
-    private async void OnCashier(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-cashier");
-    private async void OnReschedule(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-reschedule");
+    private async void OnCashier(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-cashier");
+    private async void OnReschedule(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-reschedule");
 
     private async void OnBack(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-bookings");
+        await Shell.Current.GoToAsync("admin-bookings");
     }
 }

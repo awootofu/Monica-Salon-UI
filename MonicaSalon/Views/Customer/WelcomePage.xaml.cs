@@ -5,11 +5,11 @@ public partial class WelcomePage : ContentPage
 
     private async void OnGetStarted(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//register");
+        await Shell.Current.GoToAsync("register");
     }
 
     private async void OnLogin(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//login");
+        await Shell.Current.GoToAsync("login");
     }
 }

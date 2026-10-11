@@ -58,7 +58,7 @@ public partial class PaymentPage : ContentPage
         }
     }
 
-    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-transaction-review");
+    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-transaction-review");
 
     private async void OnMethodSelected(object sender, EventArgs e)
     {
@@ -82,5 +82,5 @@ public partial class PaymentPage : ContentPage
         await Task.CompletedTask;
     }
 
-    private async void OnComplete(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-transaction-success");
+    private async void OnComplete(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-transaction-success");
 }

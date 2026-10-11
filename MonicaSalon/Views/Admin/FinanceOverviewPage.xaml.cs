@@ -19,15 +19,15 @@ public partial class FinanceOverviewPage : ContentPage
             DisplayAmount = (r.Type == "income" ? "+" : "-") + MockDataService.FormatRupiah(r.Amount)
         }).ToList();
     }
-    private async void OnAddIncome(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-add-income");
-    private async void OnAddExpense(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-add-expense");
-    private async void OnIncomeDetails(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-financial-records");
-    private async void OnExpenseDetails(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-financial-records");
-    private async void OnViewAll(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-financial-records");
-    private async void OnExport(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-export-config");
-    private async void OnNavDashboard(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-dashboard");
-    private async void OnNavBookings(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-bookings");
-    private async void OnNavCashier(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-cashier");
-    private async void OnNavInventory(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-inventory");
-    private async void OnNavMore(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-more");
+    private async void OnAddIncome(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-add-income");
+    private async void OnAddExpense(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-add-expense");
+    private async void OnIncomeDetails(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-financial-records");
+    private async void OnExpenseDetails(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-financial-records");
+    private async void OnViewAll(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-financial-records");
+    private async void OnExport(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-export-config");
+    private async void OnNavDashboard(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-dashboard");
+    private async void OnNavBookings(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-bookings");
+    private async void OnNavCashier(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-cashier");
+    private async void OnNavInventory(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-inventory");
+    private async void OnNavMore(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-more");
 }

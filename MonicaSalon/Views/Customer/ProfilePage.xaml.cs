@@ -17,12 +17,12 @@ public partial class ProfilePage : ContentPage
 
     private async void OnHistoryShortcut(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//history");
+        await Shell.Current.GoToAsync("history");
     }
 
     private async void OnSettingsShortcut(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//settings");
+        await Shell.Current.GoToAsync("settings");
     }
 
     private async void OnLogout(object sender, EventArgs e)
@@ -33,7 +33,7 @@ public partial class ProfilePage : ContentPage
 
     private async void OnConfirmLogout(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//login");
+        await Shell.Current.GoToAsync("login");
     }
 
     private async void OnStay(object sender, EventArgs e)
@@ -42,9 +42,9 @@ public partial class ProfilePage : ContentPage
         await Task.CompletedTask;
     }
 
-    private async void OnHome(object sender, EventArgs e) => await Shell.Current.GoToAsync("//home");
-    private async void OnCatalogue(object sender, EventArgs e) => await Shell.Current.GoToAsync("//catalogue");
-    private async void OnBooking(object sender, EventArgs e) => await Shell.Current.GoToAsync("//schedule");
-    private async void OnHistory(object sender, EventArgs e) => await Shell.Current.GoToAsync("//history");
-    private async void OnProfile(object sender, EventArgs e) => await Shell.Current.GoToAsync("//profile");
+    private async void OnHome(object sender, EventArgs e) => await Shell.Current.GoToAsync("home");
+    private async void OnCatalogue(object sender, EventArgs e) => await Shell.Current.GoToAsync("catalogue");
+    private async void OnBooking(object sender, EventArgs e) => await Shell.Current.GoToAsync("schedule");
+    private async void OnHistory(object sender, EventArgs e) => await Shell.Current.GoToAsync("history");
+    private async void OnProfile(object sender, EventArgs e) => await Shell.Current.GoToAsync("profile");
 }

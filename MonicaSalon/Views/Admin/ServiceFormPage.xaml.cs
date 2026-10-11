@@ -2,7 +2,7 @@ namespace MonicaSalon.Views.Admin;
 public partial class ServiceFormPage : ContentPage
 {
     public ServiceFormPage() => InitializeComponent();
-    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-services");
+    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-services");
     private async void OnCategory(object sender, EventArgs e)
     {
         var b = (Button)sender;
@@ -16,5 +16,5 @@ public partial class ServiceFormPage : ContentPage
         ServiceImage.IsVisible = e.Value;
         await Task.CompletedTask;
     }
-    private async void OnSave(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-services");
+    private async void OnSave(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-services");
 }

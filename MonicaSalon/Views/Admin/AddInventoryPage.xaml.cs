@@ -17,11 +17,11 @@ public partial class AddInventoryPage : ContentPage
 
     private async void OnBackClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-inventory");
+        await Shell.Current.GoToAsync("admin-inventory");
     }
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//admin-inventory");
+        await Shell.Current.GoToAsync("admin-inventory");
     }
 }

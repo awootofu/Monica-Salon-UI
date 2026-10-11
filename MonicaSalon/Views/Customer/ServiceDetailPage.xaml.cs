@@ -5,11 +5,11 @@ public partial class ServiceDetailPage : ContentPage
 
     private async void OnBack(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//catalogue");
+        await Shell.Current.GoToAsync("catalogue");
     }
 
     private async void OnBook(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//schedule");
+        await Shell.Current.GoToAsync("schedule");
     }
 }

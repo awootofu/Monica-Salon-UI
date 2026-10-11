@@ -3,7 +3,7 @@ public partial class AddIncomePage : ContentPage
 {
     private string _category = string.Empty;
     public AddIncomePage() => InitializeComponent();
-    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-finance");
+    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-finance");
     private async void OnCategory(object sender, EventArgs e)
     {
         var b = (Button)sender;
@@ -21,6 +21,6 @@ public partial class AddIncomePage : ContentPage
             ErrorLabel.Text = "Please select category, enter amount more than 0, and fill description.";
             return;
         }
-        await Shell.Current.GoToAsync("//admin-financial-records");
+        await Shell.Current.GoToAsync("admin-financial-records");
     }
 }

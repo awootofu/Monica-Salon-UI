@@ -7,7 +7,7 @@ public partial class SimulationResultPage : ContentPage
 
     private async void OnBackClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//hair-editor");
+        await Shell.Current.GoToAsync("hair-editor");
     }
 
     private void OnSaveClicked(object? sender, EventArgs e)
@@ -19,16 +19,16 @@ public partial class SimulationResultPage : ContentPage
 
     private async void OnReturnToEditingClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//hair-editor");
+        await Shell.Current.GoToAsync("hair-editor");
     }
 
     private async void OnDeleteClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//photo-selection");
+        await Shell.Current.GoToAsync("photo-selection");
     }
 
     private async void OnHomeClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//home");
+        await Shell.Current.GoToAsync("home");
     }
 }

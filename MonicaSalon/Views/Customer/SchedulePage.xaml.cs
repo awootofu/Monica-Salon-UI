@@ -52,11 +52,11 @@ public partial class SchedulePage : ContentPage
 
     private async void OnBack(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//details");
+        await Shell.Current.GoToAsync("details");
     }
 
     private async void OnContinue(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//confirm");
+        await Shell.Current.GoToAsync("confirm");
     }
 }

@@ -53,7 +53,7 @@ public partial class TransactionReviewPage : ContentPage
         ContinueBtn.IsEnabled = lines.Count > 0;
     }
 
-    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-cashier");
+    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-cashier");
 
     private async void OnPlus(object? sender, EventArgs e)
     {
@@ -79,5 +79,5 @@ public partial class TransactionReviewPage : ContentPage
         await Task.CompletedTask;
     }
 
-    private async void OnContinue(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-payment");
+    private async void OnContinue(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-payment");
 }

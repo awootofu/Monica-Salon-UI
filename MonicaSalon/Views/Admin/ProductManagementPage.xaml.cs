@@ -23,9 +23,9 @@ public partial class ProductManagementPage : ContentPage
         ProductsList.ItemsSource = _all;
         CountLabel.Text = $"{_all.Count} products";
     }
-    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-more");
-    private async void OnAddProduct(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-product-form");
-    private async void OnEdit(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-product-form");
+    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-more");
+    private async void OnAddProduct(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-product-form");
+    private async void OnEdit(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-product-form");
     private async void OnToggleActive(object sender, EventArgs e)
     {
         var btn = (Button)sender;

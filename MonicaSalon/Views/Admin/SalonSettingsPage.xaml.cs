@@ -3,7 +3,7 @@ public partial class SalonSettingsPage : ContentPage
 {
     private int _chairs = 6;
     public SalonSettingsPage() => InitializeComponent();
-    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("//admin-more");
+    private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-more");
     private async void OnEditHours(object sender, EventArgs e) => await Task.CompletedTask;
     private async void OnMinus(object sender, EventArgs e)
     {
