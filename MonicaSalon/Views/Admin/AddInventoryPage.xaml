@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.AddInventoryPage"
+             Title="Add Inventory Item"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBackClicked" />
+            <Label Text="A14 • Inventory" Style="{StaticResource Eyebrow}" />
+            <Label Text="Add Inventory Item" Style="{StaticResource ScreenTitle}" />
+            <Label Text="Catat item stok baru untuk retail atau material." Style="{StaticResource BodyCopy}" />
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Nama item" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Entry x:Name="NameEntry" Placeholder="cth: Conditioner Repair" Style="{StaticResource FieldEntry}" TextChanged="OnNameChanged" />
+
+                    <Label Text="Kategori" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Picker x:Name="CategoryPicker" Title="Pilih kategori" />
+
+                    <Label Text="Satuan" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Picker x:Name="UnitPicker" Title="Pilih satuan" />
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="Stok awal" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                            <Entry x:Name="OpeningEntry" Placeholder="0" Keyboard="Numeric" Style="{StaticResource FieldEntry}" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="Minimum" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                            <Entry x:Name="MinimumEntry" Placeholder="cth: 5" Keyboard="Numeric" Style="{StaticResource FieldEntry}" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Label Text="Catatan" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Editor x:Name="NotesEditor" Placeholder="Catatan (opsional)" AutoSize="TextChanges" />
+
+                    <Label Text="Rule: minimum memicu badge Stok Rendah saat stok kurang dari atau sama dengan minimum." Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button x:Name="SaveButton" Text="Save Item" Style="{StaticResource PrimaryButton}" IsEnabled="False" Clicked="OnSaveClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

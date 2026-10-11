@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.SchedulePage"
+             Title="Pilih Jadwal"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="Langkah 1 dari 3" Style="{StaticResource Eyebrow}" />
+            <Label Text="Pilih Jadwal" Style="{StaticResource ScreenTitle}" />
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="1 Waktu" FontAttributes="Bold" FontSize="12" TextColor="{StaticResource DeepCocoa}" />
+                <Label Text="/" Style="{StaticResource MutedCopy}" />
+                <Label Text="2 Konfirmasi" Style="{StaticResource MutedCopy}" />
+                <Label Text="/" Style="{StaticResource MutedCopy}" />
+                <Label Text="3 Terkirim" Style="{StaticResource MutedCopy}" />
+            </HorizontalStackLayout>
+            <Border Style="{StaticResource CardFrame}">
+                <HorizontalStackLayout Spacing="12">
+                    <Image Source="color.jpg" WidthRequest="64" HeightRequest="64" Aspect="AspectFill" />
+                    <VerticalStackLayout Spacing="2" VerticalOptions="Center">
+                        <Label Text="Pewarnaan Rambut" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                        <Label Text="2-3 jam • Coloring" Style="{StaticResource MutedCopy}" />
+                        <Label Text="Rp 200.000" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Pilih Tanggal" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Oktober 2026" Style="{StaticResource MutedCopy}" />
+                    <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Start" AlignItems="Start">
+                        <Button x:Name="DateBtn11" Text="11 Min" IsEnabled="False" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
+                        <Button x:Name="DateBtn12" Text="12 Sen" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
+                        <Button x:Name="DateBtn13" Text="13 Sel" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
+                        <Button x:Name="DateBtn14" Text="14 Rab" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
+                        <Button x:Name="DateBtn15" Text="15 Kam" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
+                        <Button x:Name="DateBtn16" Text="16 Jum" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
+                        <Button x:Name="DateBtn17" Text="17 Sab" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
+                        <Button x:Name="DateBtn18" Text="18 Min" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
+                    </FlexLayout>
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Pilih Jam" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Start" AlignItems="Start">
+                        <Button x:Name="TimeBtn0900" Text="09.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
+                        <Button x:Name="TimeBtn1000" Text="10.00 penuh" IsEnabled="False" WidthRequest="100" HeightRequest="44" FontSize="12" Margin="0,0,6,6" />
+                        <Button x:Name="TimeBtn1100" Text="11.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
+                        <Button x:Name="TimeBtn1300" Text="13.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
+                        <Button x:Name="TimeBtn1400" Text="14.00 penuh" IsEnabled="False" WidthRequest="100" HeightRequest="44" FontSize="12" Margin="0,0,6,6" />
+                        <Button x:Name="TimeBtn1530" Text="15.30" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
+                        <Button x:Name="TimeBtn1700" Text="17.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
+                        <Button x:Name="TimeBtn1800" Text="18.00 penuh" IsEnabled="False" WidthRequest="100" HeightRequest="44" FontSize="12" Margin="0,0,6,6" />
+                    </FlexLayout>
+                </VerticalStackLayout>
+            </Border>
+            <Label x:Name="SummaryLabel" Text="Pilih tanggal dan jam dahulu." Style="{StaticResource MutedCopy}" />
+            <Button Text="Lanjut" Style="{StaticResource PrimaryButton}" Clicked="OnContinue" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

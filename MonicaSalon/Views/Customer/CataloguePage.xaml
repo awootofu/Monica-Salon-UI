@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.CataloguePage"
+             Title="Daftar Layanan"
+             BackgroundColor="{StaticResource Ivory}">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20" Spacing="12">
+                <Label Text="Katalog" Style="{StaticResource Eyebrow}" />
+                <Label Text="Daftar Layanan" Style="{StaticResource ScreenTitle}" />
+                <SearchBar x:Name="CatalogueSearch" Placeholder="Cari layanan..." TextChanged="OnSearchChanged" />
+                <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Start" AlignItems="Center">
+                    <Button Text="Semua" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" CommandParameter="Semua" Clicked="OnFilter" />
+                    <Button Text="Haircut" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" CommandParameter="Haircut" Clicked="OnFilter" />
+                    <Button Text="Treatment" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" CommandParameter="Treatment" Clicked="OnFilter" />
+                    <Button Text="Styling" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" CommandParameter="Styling" Clicked="OnFilter" />
+                    <Button Text="Coloring" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" CommandParameter="Coloring" Clicked="OnFilter" />
+                    <Button Text="Facial" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" CommandParameter="Facial" Clicked="OnFilter" />
+                </FlexLayout>
+                <CollectionView x:Name="ServiceList" SelectionMode="Single" SelectionChanged="OnServiceSelected">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource CardFrame}" Margin="0,4">
+                                <HorizontalStackLayout Spacing="10">
+                                    <Image Source="{Binding Image}" WidthRequest="64" HeightRequest="64" Aspect="AspectFill" />
+                                    <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                                        <Label Text="{Binding Price}" TextColor="{StaticResource RoseDark}" FontAttributes="Bold" FontSize="13" />
+                                        <Label Text="{Binding Duration}" Style="{StaticResource MutedCopy}" />
+                                        <Label Text="{Binding Category}" Style="{StaticResource MutedCopy}" FontSize="11" />
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="8,6" BackgroundColor="White">
+            <Button Grid.Column="0" Text="Home" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavHome" />
+            <Button Grid.Column="1" Text="Services" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavServices" />
+            <Button Grid.Column="2" Text="Booking" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavBooking" />
+            <Button Grid.Column="3" Text="History" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavHistory" />
+            <Button Grid.Column="4" Text="Profile" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavProfile" />
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.FinancialRecordsPage"
+             Title="Financial Records"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="A23 • FINANCE" Style="{StaticResource Eyebrow}" />
+            <Label Text="Financial Records" Style="{StaticResource ScreenTitle}" />
+            <Border Style="{StaticResource CardFrame}">
+                <HorizontalStackLayout Spacing="8">
+                    <Label Text="Date:" Style="{StaticResource MutedCopy}" VerticalOptions="Center" />
+                    <Label Text="8-14 Okt 2026" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Category" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="12" />
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <Button Grid.Column="0" x:Name="CatAllBtn" Text="All" Style="{StaticResource PrimaryButton}" HeightRequest="44" FontSize="12" Clicked="OnCategoryAll" />
+                        <Button Grid.Column="1" x:Name="CatInvBtn" Text="Inventory Purchase" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnCategoryInv" />
+                    </Grid>
+                    <Label Text="Type" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="12" />
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                        <Button Grid.Column="0" x:Name="TypeAllBtn" Text="All" Style="{StaticResource PrimaryButton}" HeightRequest="44" FontSize="12" Clicked="OnTypeAll" />
+                        <Button Grid.Column="1" x:Name="TypeIncomeBtn" Text="Income" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnTypeIncome" />
+                        <Button Grid.Column="2" x:Name="TypeExpenseBtn" Text="Expense" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnTypeExpense" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+            <CollectionView x:Name="RecordsList" SelectionMode="Single" SelectionChanged="OnRecordSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource CardFrame}" Margin="0,4">
+                            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                                <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                    <Label Text="{Binding Date}" Style="{StaticResource MutedCopy}" FontSize="11" />
+                                    <Label Text="{Binding Category}" FontSize="11" FontAttributes="Bold" TextColor="{StaticResource RoseDark}" />
+                                    <Label Text="{Binding Description}" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                                    <Label Text="{Binding Reference}" Style="{StaticResource MutedCopy}" FontSize="11" />
+                                </VerticalStackLayout>
+                                <Label Grid.Column="1" Text="{Binding DisplayAmount}" FontAttributes="Bold" FontSize="13" VerticalOptions="Center" TextColor="{StaticResource Charcoal}" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

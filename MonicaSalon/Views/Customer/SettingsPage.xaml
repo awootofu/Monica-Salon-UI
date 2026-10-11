@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.SettingsPage"
+             Title="Pengaturan"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="Preferensi" Style="{StaticResource Eyebrow}" />
+            <Label Text="Pengaturan" Style="{StaticResource ScreenTitle}" />
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Preferensi Umum" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Bahasa Indonesia &amp; IDR" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
+                        <Switch IsToggled="True" Grid.Column="1" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Notifikasi booking" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
+                        <Switch IsToggled="True" Grid.Column="1" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Update salon" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
+                        <Switch IsToggled="False" Grid.Column="1" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Kontak" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="WhatsApp" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
+                        <Switch IsToggled="True" Grid.Column="1" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Email" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
+                        <Switch IsToggled="True" Grid.Column="1" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Privasi Foto" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label x:Name="PhotoStatusLabel" Text="Foto simulasi tersimpan di perangkat ini." Style="{StaticResource MutedCopy}" />
+                    <Button x:Name="DeletePhotoButton" Text="Delete Simulation Photo" Style="{StaticResource SecondaryButton}" Clicked="OnDeletePhoto" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Akun" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Button Text="Ubah Kata Sandi" Style="{StaticResource SecondaryButton}" Clicked="OnStub" />
+                    <Button Text="Hapus Akun" Style="{StaticResource SecondaryButton}" Clicked="OnStub" />
+                </VerticalStackLayout>
+            </Border>
+            <Button Text="Logout" Style="{StaticResource GhostButton}" Clicked="OnLogout" />
+            <Border x:Name="LogoutConfirm" Style="{StaticResource CardFrame}" IsVisible="False">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Logout dari Monica Salon?" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Button Text="Confirm Logout" Style="{StaticResource PrimaryButton}" Clicked="OnConfirmLogout" />
+                    <Button Text="Stay" Style="{StaticResource SecondaryButton}" Clicked="OnStay" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

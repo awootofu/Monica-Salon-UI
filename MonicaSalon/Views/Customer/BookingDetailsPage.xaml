@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.BookingDetailsPage"
+             Title="Detail Booking"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="Detail Booking" Style="{StaticResource ScreenTitle}" />
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="MON-261014-028" Style="{StaticResource MutedCopy}" />
+                    <Label Text="Menunggu Konfirmasi" FontAttributes="Bold" FontSize="12" TextColor="{StaticResource PendingText}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <HorizontalStackLayout Spacing="12">
+                    <Image Source="color.jpg" WidthRequest="64" HeightRequest="64" Aspect="AspectFill" />
+                    <VerticalStackLayout Spacing="2" VerticalOptions="Center">
+                        <Label Text="Pewarnaan Rambut" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                        <Label Text="2-3 jam • Coloring" Style="{StaticResource MutedCopy}" />
+                        <Label Text="Rp 200.000" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Jadwal &amp; Harga" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Rabu, 14 Oktober 2026 • 11.00 WIB" Style="{StaticResource BodyCopy}" />
+                    <Label Text="Estimasi total: Rp 200.000" Style="{StaticResource BodyCopy}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Salon" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Monica Salon" Style="{StaticResource BodyCopy}" />
+                    <Label Text="Jl. Melati No. 18, Jakarta" Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Permintaan Khusus" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Warna cokelat natural, kulit sensitif." Style="{StaticResource BodyCopy}" />
+                </VerticalStackLayout>
+            </Border>
+            <Button Text="Ubah Jadwal" Style="{StaticResource SecondaryButton}" Clicked="OnReschedule" />
+            <Button Text="Batalkan" Style="{StaticResource GhostButton}" Clicked="OnCancel" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

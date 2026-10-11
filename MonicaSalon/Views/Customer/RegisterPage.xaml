@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.RegisterPage"
+             Title="Buat Akun"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="← Kembali" Style="{StaticResource GhostButton}" Clicked="OnBack" HorizontalOptions="Start" />
+            <Label Text="Daftar" Style="{StaticResource Eyebrow}" />
+            <Label Text="Buat akun cantikmu." Style="{StaticResource ScreenTitle}" />
+            <Label Text="Isi data di bawah untuk mulai booking dan mencoba simulasi."
+                   Style="{StaticResource BodyCopy}" />
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Nama lengkap" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="NameEntry" Placeholder="Bella Anisa" />
+                    <Label Text="No. HP" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="PhoneEntry" Placeholder="08xx xxxx xxxx" Keyboard="Telephone" />
+                    <Label Text="Email" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="EmailEntry" Placeholder="nama@email.com" Keyboard="Email" />
+                    <Label Text="Password" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="PasswordEntry" Placeholder="Minimal 6 karakter" IsPassword="True" />
+                    <Label Text="Konfirmasi password" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="ConfirmEntry" Placeholder="Ulangi password" IsPassword="True" />
+                    <HorizontalStackLayout Spacing="8">
+                        <CheckBox x:Name="TermsCheck" Color="{StaticResource DustyRose}" VerticalOptions="Center" />
+                        <Label Text="Saya setuju dengan syarat &amp; ketentuan." Style="{StaticResource MutedCopy}" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                    <Label x:Name="ErrorLabel" Text="" TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="False" />
+                    <Button Text="Daftar" Style="{StaticResource PrimaryButton}" Clicked="OnRegister" />
+                </VerticalStackLayout>
+            </Border>
+            <HorizontalStackLayout Spacing="4" HorizontalOptions="Center">
+                <Label Text="Sudah punya akun?" Style="{StaticResource MutedCopy}" VerticalOptions="Center" />
+                <Button Text="Login" Style="{StaticResource GhostButton}" Clicked="OnGoLogin" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

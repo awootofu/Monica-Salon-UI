@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.ProfilePage"
+             Title="Profil"
+             BackgroundColor="{StaticResource Ivory}">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20" Spacing="12">
+                <Label Text="Akun" Style="{StaticResource Eyebrow}" />
+                <Label Text="Profil Saya" Style="{StaticResource ScreenTitle}" />
+                <Border Style="{StaticResource CardFrame}">
+                    <HorizontalStackLayout Spacing="12">
+                        <Image Source="welcome.jpg" WidthRequest="64" HeightRequest="64" Aspect="AspectFill" />
+                        <VerticalStackLayout Spacing="2" VerticalOptions="Center">
+                            <Label Text="Bella Anisa" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource DeepCocoa}" />
+                            <Label Text="Monica Member sejak 2026" Style="{StaticResource MutedCopy}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="8">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Data Pribadi" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                            <Button x:Name="EditButton" Text="Edit" Style="{StaticResource GhostButton}" Grid.Column="1" Clicked="OnEdit" />
+                        </Grid>
+                        <Label Text="Nama" Style="{StaticResource MutedCopy}" />
+                        <Entry x:Name="NameEntry" Text="Bella Anisa" IsEnabled="False" />
+                        <Label Text="Telepon" Style="{StaticResource MutedCopy}" />
+                        <Entry x:Name="PhoneEntry" Text="+62 812-3456-7890" IsEnabled="False" />
+                        <Label Text="Email" Style="{StaticResource MutedCopy}" />
+                        <Entry x:Name="EmailEntry" Text="bella@example.com" IsEnabled="False" />
+                    </VerticalStackLayout>
+                </Border>
+                <Button Text="Booking History" Style="{StaticResource SecondaryButton}" Clicked="OnHistoryShortcut" />
+                <Button Text="Settings &amp; Privacy" Style="{StaticResource SecondaryButton}" Clicked="OnSettingsShortcut" />
+                <Button Text="Logout" Style="{StaticResource GhostButton}" Clicked="OnLogout" />
+                <Border x:Name="LogoutConfirm" Style="{StaticResource CardFrame}" IsVisible="False">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Logout dari Monica Salon?" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                        <Button Text="Confirm Logout" Style="{StaticResource PrimaryButton}" Clicked="OnConfirmLogout" />
+                        <Button Text="Stay" Style="{StaticResource SecondaryButton}" Clicked="OnStay" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" BackgroundColor="White" Padding="4,8">
+            <Button Text="Home" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="0" Clicked="OnHome" />
+            <Button Text="Services" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="1" Clicked="OnCatalogue" />
+            <Button Text="Booking" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="2" Clicked="OnBooking" />
+            <Button Text="History" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="3" Clicked="OnHistory" />
+            <Button Text="Profile" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="4" Clicked="OnProfile" />
+        </Grid>
+    </Grid>
+</ContentPage>

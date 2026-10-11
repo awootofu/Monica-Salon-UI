@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.BookingFeedbackPage"
+             Title="Ubah / Batalkan"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="Pengajuan" Style="{StaticResource Eyebrow}" />
+            <Label Text="Ubah atau Batalkan" Style="{StaticResource ScreenTitle}" />
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="MON-261014-028" Style="{StaticResource MutedCopy}" />
+                    <Label Text="Pewarnaan Rambut" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="14 Okt 2026 • 11.00" Style="{StaticResource BodyCopy}" />
+                </VerticalStackLayout>
+            </Border>
+            <VerticalStackLayout x:Name="OptionsLayout" Spacing="12">
+                <Button Text="Ajukan ubah jadwal" Style="{StaticResource SecondaryButton}" Clicked="OnRescheduleOption" />
+                <Button Text="Ajukan pembatalan" Style="{StaticResource SecondaryButton}" Clicked="OnCancelOption" />
+            </VerticalStackLayout>
+            <VerticalStackLayout x:Name="ConfirmLayout" Spacing="12" IsVisible="False">
+                <Border Style="{StaticResource CardFrame}">
+                    <Label x:Name="ConfirmLabel" Text="Konfirmasi pengajuan" Style="{StaticResource BodyCopy}" />
+                </Border>
+                <Button Text="Ya, Ajukan" Style="{StaticResource PrimaryButton}" Clicked="OnConfirmSubmit" />
+            </VerticalStackLayout>
+            <VerticalStackLayout x:Name="SuccessLayout" Spacing="12" IsVisible="False">
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="✓" FontSize="32" HorizontalOptions="Center" TextColor="{StaticResource Sage}" />
+                        <Label Text="Pengajuan terkirim. Tim kami akan menghubungi Anda." Style="{StaticResource BodyCopy}" HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </Border>
+                <Button Text="Kembali ke Booking Saya" Style="{StaticResource PrimaryButton}" Clicked="OnBackToHistory" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Shared.FlowsPage"
+             Title="Prototype &amp; User Flows"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Label Text="Flows" Style="{StaticResource Eyebrow}" />
+            <Label Text="Prototype &amp; User Flows" Style="{StaticResource ScreenTitle}" />
+            <Label Text="Pilih alur untuk menjelajahi prototipe aplikasi."
+                   Style="{StaticResource BodyCopy}" />
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="18 CUSTOMER SCREENS" Style="{StaticResource Eyebrow}" />
+                    <Label Text="Alur pelanggan: welcome hingga pengaturan akun." Style="{StaticResource BodyCopy}" />
+                    <Button Text="Start Customer Flow" Style="{StaticResource PrimaryButton}" Clicked="OnCustomerFlow" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="34 ADMIN SCREENS" Style="{StaticResource Eyebrow}" />
+                    <Label Text="Alur admin: login, dashboard, kasir, inventori, dan keuangan." Style="{StaticResource BodyCopy}" />
+                    <Button Text="Start Admin Flow" Style="{StaticResource SecondaryButton}" Clicked="OnAdminFlow" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

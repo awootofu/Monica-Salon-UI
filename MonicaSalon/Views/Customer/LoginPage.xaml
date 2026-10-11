@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.LoginPage"
+             Title="Login"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="← Kembali" Style="{StaticResource GhostButton}" Clicked="OnBack" HorizontalOptions="Start" />
+            <Label Text="Selamat datang kembali" Style="{StaticResource Eyebrow}" />
+            <Label Text="Saatnya kembali merawat dirimu." Style="{StaticResource ScreenTitle}" />
+            <Label Text="Masuk untuk booking, melihat riwayat, dan mencoba simulasi rambut."
+                   Style="{StaticResource BodyCopy}" />
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Email / No. HP" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="EmailEntry" Placeholder="nama@email.com" Keyboard="Email" />
+                    <Label Text="Password" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="PasswordEntry" Placeholder="Minimal 6 karakter" IsPassword="True" />
+                    <Label x:Name="ErrorLabel" Text="" TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="False" />
+                    <Button Text="Lupa password?" Style="{StaticResource GhostButton}" Clicked="OnForgot" HorizontalOptions="End" />
+                    <Button Text="Login" Style="{StaticResource PrimaryButton}" Clicked="OnLogin" />
+                </VerticalStackLayout>
+            </Border>
+            <HorizontalStackLayout Spacing="4" HorizontalOptions="Center">
+                <Label Text="Belum punya akun?" Style="{StaticResource MutedCopy}" VerticalOptions="Center" />
+                <Button Text="Daftar sekarang" Style="{StaticResource GhostButton}" Clicked="OnGoRegister" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

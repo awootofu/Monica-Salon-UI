@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.StockInPage"
+             Title="Stock-In"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBackClicked" />
+            <Label Text="A16 • Inventory" Style="{StaticResource Eyebrow}" />
+            <Label Text="Stock-In" Style="{StaticResource ScreenTitle}" />
+            <Label Text="Tambah stok masuk dari supplier atau koreksi." Style="{StaticResource BodyCopy}" />
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="Item" Style="{StaticResource MutedCopy}" />
+                    <Label Text="Conditioner Repair" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="15" />
+                    <Label Text="4 botol" Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Jumlah masuk" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Entry x:Name="QtyEntry" Placeholder="cth: 10" Keyboard="Numeric" Style="{StaticResource FieldEntry}" TextChanged="OnQtyChanged" />
+
+                    <Label Text="Tanggal" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Label Text="14 Okt 2026" Style="{StaticResource BodyCopy}" />
+
+                    <Label Text="Alasan" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Picker x:Name="ReasonPicker" Title="Pilih alasan" />
+
+                    <Label Text="Catatan" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Editor x:Name="NotesEditor" Placeholder="cth: Penerimaan INV-RCV-044" AutoSize="TextChanges" />
+
+                    <Label x:Name="PreviewLabel" Text="Stok akhir: 4 botol" Style="{StaticResource BodyCopy}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Save Stock-In" Style="{StaticResource PrimaryButton}" Clicked="OnSaveClicked" />
+
+            <Border x:Name="SavedBox" Style="{StaticResource CardFrame}" IsVisible="False">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Stock-in tersimpan." FontAttributes="Bold" TextColor="{StaticResource SuccessText}" />
+                    <Label x:Name="SavedDetailLabel" Text="Stok diperbarui." Style="{StaticResource MutedCopy}" />
+                    <Button Text="View Updated Inventory" Style="{StaticResource SecondaryButton}" Clicked="OnViewInventoryClicked" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

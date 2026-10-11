@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.AdminDashboardPage"
+             Title="Dashboard"
+             BackgroundColor="{StaticResource Ivory}">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20" Spacing="12">
+                <Label Text="Senin 14 Oktober 2026" Style="{StaticResource MutedCopy}" />
+                <Label Text="Dashboard" Style="{StaticResource ScreenTitle}" />
+                <Border Style="{StaticResource CardFrame}">
+                    <HorizontalStackLayout Spacing="12">
+                        <VerticalStackLayout Spacing="2" VerticalOptions="Center" HorizontalOptions="Fill">
+                            <Label Text="Welcome Monica Admin" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource DeepCocoa}" />
+                            <Label Text="Ringkasan operasional hari ini." Style="{StaticResource MutedCopy}" />
+                        </VerticalStackLayout>
+                        <Border BackgroundColor="{StaticResource DustyRose}" StrokeThickness="0"
+                                StrokeShape="RoundRectangle 24" WidthRequest="48" HeightRequest="48"
+                                VerticalOptions="Center">
+                            <Label Text="MA" FontAttributes="Bold" FontSize="14" TextColor="White"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                    </HorizontalStackLayout>
+                </Border>
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10" RowSpacing="10">
+                    <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource CardFrame}">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Booking hari ini" Style="{StaticResource MutedCopy}" />
+                            <Label Text="8" FontSize="22" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                            <Label Text="3 menunggu" FontSize="12" TextColor="{StaticResource PendingText}" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource CardFrame}">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Pendapatan" Style="{StaticResource MutedCopy}" />
+                            <Label Text="Rp1,25jt" FontSize="22" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                            <Label Text="Hari ini" Style="{StaticResource MutedCopy}" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource CardFrame}">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Pelanggan" Style="{StaticResource MutedCopy}" />
+                            <Label Text="126" FontSize="22" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                            <Label Text="Total terdaftar" Style="{StaticResource MutedCopy}" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource CardFrame}">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Stok menipis" Style="{StaticResource MutedCopy}" />
+                            <Label Text="3" FontSize="22" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                            <Label Text="Perlu restock" FontSize="12" TextColor="{StaticResource DangerText}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+                <Label Text="Aksi Cepat" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="8" RowSpacing="8">
+                    <Button Grid.Row="0" Grid.Column="0" Text="New Booking" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="46" Clicked="OnNewBooking" />
+                    <Button Grid.Row="0" Grid.Column="1" Text="Cashier" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="46" Clicked="OnCashier" />
+                    <Button Grid.Row="1" Grid.Column="0" Text="Inventory" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="46" Clicked="OnInventory" />
+                    <Button Grid.Row="1" Grid.Column="1" Text="Reports" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="46" Clicked="OnReports" />
+                </Grid>
+                <Label Text="Jadwal Hari Ini" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                <CollectionView x:Name="TodayList" SelectionMode="Single" SelectionChanged="OnBookingTapped">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource CardFrame}" Margin="0,0,0,10">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="{Binding Customer}" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                                    <Label Text="{Binding Service}" Style="{StaticResource BodyCopy}" />
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="{Binding Date}" Style="{StaticResource MutedCopy}" />
+                                        <Label Text="{Binding Time}" Style="{StaticResource MutedCopy}" />
+                                    </HorizontalStackLayout>
+                                    <Label Text="{Binding Status}" FontSize="12" TextColor="{StaticResource PendingText}" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Label Text="Transaksi Terbaru" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                <Border Style="{StaticResource CardFrame}">
+                    <HorizontalStackLayout Spacing="10">
+                        <VerticalStackLayout Spacing="2" HorizontalOptions="Fill">
+                            <Label Text="TRX-261014-083" Style="{StaticResource MutedCopy}" />
+                            <Label Text="Bella Anisa" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource Charcoal}" />
+                        </VerticalStackLayout>
+                        <Label Text="Rp 279.000" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <HorizontalStackLayout Spacing="10">
+                        <VerticalStackLayout Spacing="2" HorizontalOptions="Fill">
+                            <Label Text="TRX-261014-082" Style="{StaticResource MutedCopy}" />
+                            <Label Text="Siti Anisa" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource Charcoal}" />
+                        </VerticalStackLayout>
+                        <Label Text="Rp 50.000" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="4,8" BackgroundColor="White">
+            <Button Grid.Column="0" Text="Dashboard" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavDashboard" />
+            <Button Grid.Column="1" Text="Bookings" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavBookings" />
+            <Button Grid.Column="2" Text="Cashier" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavCashier" />
+            <Button Grid.Column="3" Text="Inventory" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavInventory" />
+            <Button Grid.Column="4" Text="More" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavMore" />
+        </Grid>
+    </Grid>
+</ContentPage>

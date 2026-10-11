@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.FinanceOverviewPage"
+             Title="Financial Overview"
+             BackgroundColor="{StaticResource Ivory}">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20" Spacing="12">
+                <Label Text="A20 • FINANCE" Style="{StaticResource Eyebrow}" />
+                <Label Text="Financial Overview" Style="{StaticResource ScreenTitle}" />
+                <Border Style="{StaticResource CardFrame}">
+                    <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                        <Label Text="Periode:" Style="{StaticResource MutedCopy}" VerticalOptions="Center" />
+                        <Label Text="8-14 Okt 2026" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="14" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                </Border>
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                    <Border Grid.Column="0" Style="{StaticResource CardFrame}">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Income" Style="{StaticResource MutedCopy}" FontSize="11" />
+                            <Label x:Name="IncomeLabel" Text="Rp 0" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource SuccessText}" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Column="1" Style="{StaticResource CardFrame}">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Expense" Style="{StaticResource MutedCopy}" FontSize="11" />
+                            <Label x:Name="ExpenseLabel" Text="Rp 0" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DangerText}" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Column="2" Style="{StaticResource CardFrame}">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Balance" Style="{StaticResource MutedCopy}" FontSize="11" />
+                            <Label x:Name="BalanceLabel" Text="Rp 0" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Cash Flow (Stub)" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="14" />
+                        <Label Text="7-day stub chart" Style="{StaticResource MutedCopy}" />
+                        <Grid ColumnDefinitions="*,*,*,*,*,*,*" ColumnSpacing="4" VerticalOptions="End">
+                            <VerticalStackLayout Grid.Column="0" Spacing="4" VerticalOptions="End" HorizontalOptions="Center">
+                                <BoxView Color="{StaticResource Sage}" HeightRequest="40" WidthRequest="22" CornerRadius="6" VerticalOptions="End" />
+                                <Label Text="8" FontSize="10" TextColor="{StaticResource Muted}" HorizontalTextAlignment="Center" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="End" HorizontalOptions="Center">
+                                <BoxView Color="{StaticResource Sage}" HeightRequest="70" WidthRequest="22" CornerRadius="6" VerticalOptions="End" />
+                                <Label Text="9" FontSize="10" TextColor="{StaticResource Muted}" HorizontalTextAlignment="Center" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="2" Spacing="4" VerticalOptions="End" HorizontalOptions="Center">
+                                <BoxView Color="{StaticResource DustyRose}" HeightRequest="55" WidthRequest="22" CornerRadius="6" VerticalOptions="End" />
+                                <Label Text="10" FontSize="10" TextColor="{StaticResource Muted}" HorizontalTextAlignment="Center" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="3" Spacing="4" VerticalOptions="End" HorizontalOptions="Center">
+                                <BoxView Color="{StaticResource Sage}" HeightRequest="90" WidthRequest="22" CornerRadius="6" VerticalOptions="End" />
+                                <Label Text="11" FontSize="10" TextColor="{StaticResource Muted}" HorizontalTextAlignment="Center" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="4" Spacing="4" VerticalOptions="End" HorizontalOptions="Center">
+                                <BoxView Color="{StaticResource DustyRose}" HeightRequest="65" WidthRequest="22" CornerRadius="6" VerticalOptions="End" />
+                                <Label Text="12" FontSize="10" TextColor="{StaticResource Muted}" HorizontalTextAlignment="Center" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="5" Spacing="4" VerticalOptions="End" HorizontalOptions="Center">
+                                <BoxView Color="{StaticResource Sage}" HeightRequest="80" WidthRequest="22" CornerRadius="6" VerticalOptions="End" />
+                                <Label Text="13" FontSize="10" TextColor="{StaticResource Muted}" HorizontalTextAlignment="Center" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="6" Spacing="4" VerticalOptions="End" HorizontalOptions="Center">
+                                <BoxView Color="{StaticResource Sage}" HeightRequest="50" WidthRequest="22" CornerRadius="6" VerticalOptions="End" />
+                                <Label Text="14" FontSize="10" TextColor="{StaticResource Muted}" HorizontalTextAlignment="Center" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                    <Button Grid.Column="0" Text="Add Income" Style="{StaticResource PrimaryButton}" Clicked="OnAddIncome" />
+                    <Button Grid.Column="1" Text="Add Expense" Style="{StaticResource SecondaryButton}" Clicked="OnAddExpense" />
+                </Grid>
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                    <Button Grid.Column="0" Text="Income Details" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="44" Clicked="OnIncomeDetails" />
+                    <Button Grid.Column="1" Text="Expense Details" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="44" Clicked="OnExpenseDetails" />
+                </Grid>
+                <HorizontalStackLayout HorizontalOptions="Fill" Spacing="6" VerticalOptions="Center">
+                    <Label Text="Latest Records" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="15" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                    <Button Text="View all" Style="{StaticResource GhostButton}" Clicked="OnViewAll" />
+                </HorizontalStackLayout>
+                <CollectionView x:Name="LatestList" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource CardFrame}" Margin="0,4">
+                                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                                    <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                        <Label Text="{Binding Description}" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                                        <Label Text="{Binding Subtitle}" Style="{StaticResource MutedCopy}" FontSize="11" />
+                                        <Label Text="{Binding Reference}" Style="{StaticResource MutedCopy}" FontSize="11" />
+                                    </VerticalStackLayout>
+                                    <Label Grid.Column="1" Text="{Binding DisplayAmount}" FontAttributes="Bold" FontSize="13" VerticalOptions="Center" TextColor="{StaticResource Charcoal}" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button Text="Export Data" Style="{StaticResource SecondaryButton}" Clicked="OnExport" />
+            </VerticalStackLayout>
+        </ScrollView>
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="8,6" BackgroundColor="White">
+            <Button Grid.Column="0" Text="Dashboard" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavDashboard" />
+            <Button Grid.Column="1" Text="Bookings" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavBookings" />
+            <Button Grid.Column="2" Text="Cashier" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavCashier" />
+            <Button Grid.Column="3" Text="Inventory" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavInventory" />
+            <Button Grid.Column="4" Text="More" FontSize="11" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="{StaticResource DeepCocoa}" Clicked="OnNavMore" />
+        </Grid>
+    </Grid>
+</ContentPage>

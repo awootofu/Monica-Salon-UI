@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.SimulationResultPage"
+             Title="Simulation Result"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali"
+                    Style="{StaticResource GhostButton}"
+                    HorizontalOptions="Start"
+                    Clicked="OnBackClicked" />
+            <Label Text="Simulation Result" Style="{StaticResource Eyebrow}" />
+            <Label Text="Gaya baru untuk didiskusikan." Style="{StaticResource ScreenTitle}" />
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <VerticalStackLayout Grid.Column="0" Spacing="6">
+                    <Border StrokeShape="RoundRectangle 14"
+                            Stroke="#E7DDD6"
+                            StrokeThickness="1"
+                            Padding="0">
+                        <Image Source="welcome.jpg" HeightRequest="160" Aspect="AspectFill" />
+                    </Border>
+                    <Label Text="Before" Style="{StaticResource MutedCopy}" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" Spacing="6">
+                    <Border StrokeShape="RoundRectangle 14"
+                            Stroke="#E7DDD6"
+                            StrokeThickness="1"
+                            Padding="0">
+                        <Image Source="welcome.jpg" HeightRequest="160" Aspect="AspectFill" />
+                    </Border>
+                    <Label Text="After" Style="{StaticResource MutedCopy}" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Grid>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Pilihanmu" Style="{StaticResource Eyebrow}" />
+                    <Label Text="Soft Layer" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Mocha Brown" FontSize="13" TextColor="{StaticResource Charcoal}" />
+                    <Label Text="Template manual, bukan potongan sebenarnya."
+                           Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border BackgroundColor="{StaticResource PendingBg}"
+                    Stroke="Transparent"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 18"
+                    Padding="14">
+                <Label Text="Preview simulasi, bukan hasil AI. Diskusikan dengan stylist untuk hasil akhir."
+                       FontSize="12"
+                       TextColor="{StaticResource PendingText}" />
+            </Border>
+            <Label x:Name="SavedLabel"
+                   Text="Saved."
+                   FontAttributes="Bold"
+                   FontSize="13"
+                   TextColor="{StaticResource SuccessText}"
+                   IsVisible="False"
+                   HorizontalOptions="Center" />
+            <Button Text="Save Temporary Preview"
+                    Style="{StaticResource PrimaryButton}"
+                    Clicked="OnSaveClicked" />
+            <Button Text="Return to Editing"
+                    Style="{StaticResource SecondaryButton}"
+                    Clicked="OnReturnToEditingClicked" />
+            <Button Text="Delete"
+                    Style="{StaticResource GhostButton}"
+                    Clicked="OnDeleteClicked" />
+            <Button Text="Kembali ke Home"
+                    Style="{StaticResource GhostButton}"
+                    Clicked="OnHomeClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

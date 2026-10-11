@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.HairEditorPage"
+             Title="Hair Editor"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Grid ColumnDefinitions="Auto,*,Auto">
+                <Button Grid.Column="0"
+                        Text="‹ Kembali"
+                        Style="{StaticResource GhostButton}"
+                        Clicked="OnBackClicked" />
+                <Label Grid.Column="1"
+                       Text="Hair Editor"
+                       FontAttributes="Bold"
+                       FontSize="16"
+                       TextColor="{StaticResource DeepCocoa}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+                <Button Grid.Column="2"
+                        Text="Reset"
+                        Style="{StaticResource GhostButton}"
+                        Clicked="OnResetClicked" />
+            </Grid>
+            <Border StrokeShape="RoundRectangle 18"
+                    Stroke="#E7DDD6"
+                    StrokeThickness="1"
+                    Padding="0"
+                    BackgroundColor="White">
+                <Grid>
+                    <Image Source="welcome.jpg"
+                           HeightRequest="240"
+                           Aspect="AspectFill" />
+                    <Border BackgroundColor="#80000000"
+                            Stroke="Transparent"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 12"
+                            Padding="8,4"
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            Margin="0,0,0,12">
+                        <Label Text="Template overlay adjustable"
+                               TextColor="White"
+                               FontSize="12" />
+                    </Border>
+                </Grid>
+            </Border>
+            <Label Text="Hairstyle" Style="{StaticResource Eyebrow}" />
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" RowSpacing="10">
+                <Button x:Name="StyleSoftLayer"
+                        Grid.Row="0" Grid.Column="0"
+                        Text="Soft Layer"
+                        Style="{StaticResource SecondaryButton}"
+                        Clicked="OnStyleClicked" />
+                <Button x:Name="StyleLongWave"
+                        Grid.Row="0" Grid.Column="1"
+                        Text="Long Wave"
+                        Style="{StaticResource SecondaryButton}"
+                        Clicked="OnStyleClicked" />
+                <Button x:Name="StyleSleek"
+                        Grid.Row="1" Grid.Column="0"
+                        Text="Sleek"
+                        Style="{StaticResource SecondaryButton}"
+                        Clicked="OnStyleClicked" />
+                <Button x:Name="StyleShoulder"
+                        Grid.Row="1" Grid.Column="1"
+                        Text="Shoulder"
+                        Style="{StaticResource SecondaryButton}"
+                        Clicked="OnStyleClicked" />
+            </Grid>
+            <Label Text="Hair Color" Style="{StaticResource Eyebrow}" />
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" RowSpacing="10">
+                <Button x:Name="ColorNatural"
+                        Grid.Row="0" Grid.Column="0"
+                        Text="● Natural"
+                        Style="{StaticResource SecondaryButton}"
+                        Clicked="OnColorClicked" />
+                <Button x:Name="ColorMocha"
+                        Grid.Row="0" Grid.Column="1"
+                        Text="● Mocha"
+                        Style="{StaticResource SecondaryButton}"
+                        Clicked="OnColorClicked" />
+                <Button x:Name="ColorCocoa"
+                        Grid.Row="1" Grid.Column="0"
+                        Text="● Cocoa"
+                        Style="{StaticResource SecondaryButton}"
+                        Clicked="OnColorClicked" />
+                <Button x:Name="ColorAuburn"
+                        Grid.Row="1" Grid.Column="1"
+                        Text="● Auburn"
+                        Style="{StaticResource SecondaryButton}"
+                        Clicked="OnColorClicked" />
+            </Grid>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="10">
+                    <Grid ColumnDefinitions="*,Auto,Auto,Auto">
+                        <Label Grid.Column="0"
+                               Text="Position"
+                               FontAttributes="Bold"
+                               FontSize="14"
+                               TextColor="{StaticResource DeepCocoa}"
+                               VerticalOptions="Center" />
+                        <Button Grid.Column="1"
+                                Text="-"
+                                Style="{StaticResource GhostButton}"
+                                Clicked="OnPositionMinusClicked" />
+                        <Label Grid.Column="2"
+                               x:Name="PositionDots"
+                               Text="2 / 4"
+                               FontSize="13"
+                               TextColor="{StaticResource Muted}"
+                               VerticalOptions="Center" />
+                        <Button Grid.Column="3"
+                                Text="+"
+                                Style="{StaticResource GhostButton}"
+                                Clicked="OnPositionPlusClicked" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto,Auto,Auto">
+                        <Label Grid.Column="0"
+                               Text="Size"
+                               FontAttributes="Bold"
+                               FontSize="14"
+                               TextColor="{StaticResource DeepCocoa}"
+                               VerticalOptions="Center" />
+                        <Button Grid.Column="1"
+                                Text="-"
+                                Style="{StaticResource GhostButton}"
+                                Clicked="OnSizeMinusClicked" />
+                        <Label Grid.Column="2"
+                               x:Name="SizeDots"
+                               Text="2 / 4"
+                               FontSize="13"
+                               TextColor="{StaticResource Muted}"
+                               VerticalOptions="Center" />
+                        <Button Grid.Column="3"
+                                Text="+"
+                                Style="{StaticResource GhostButton}"
+                                Clicked="OnSizePlusClicked" />
+                    </Grid>
+                    <Button Text="Reset"
+                            Style="{StaticResource GhostButton}"
+                            Clicked="OnResetClicked" />
+                </VerticalStackLayout>
+            </Border>
+            <Label Text="Before &amp; After" Style="{StaticResource Eyebrow}" />
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <VerticalStackLayout Grid.Column="0" Spacing="6">
+                    <Border StrokeShape="RoundRectangle 14"
+                            Stroke="#E7DDD6"
+                            StrokeThickness="1"
+                            Padding="0">
+                        <Image Source="welcome.jpg" HeightRequest="140" Aspect="AspectFill" />
+                    </Border>
+                    <Label Text="Before" Style="{StaticResource MutedCopy}" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" Spacing="6">
+                    <Border StrokeShape="RoundRectangle 14"
+                            Stroke="#E7DDD6"
+                            StrokeThickness="1"
+                            Padding="0">
+                        <Image Source="welcome.jpg" HeightRequest="140" Aspect="AspectFill" />
+                    </Border>
+                    <Label Text="After" Style="{StaticResource MutedCopy}" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Grid>
+            <Button Text="Save Preview"
+                    Style="{StaticResource PrimaryButton}"
+                    Clicked="OnSaveClicked" />
+            <Button Text="Delete Photo"
+                    Style="{StaticResource GhostButton}"
+                    Clicked="OnDeleteClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.AdminLoginPage"
+             Title="Owner-Admin Panel"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Border BackgroundColor="{StaticResource DustyRose}"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 28"
+                    WidthRequest="56" HeightRequest="56"
+                    HorizontalOptions="Start">
+                <Label Text="M" FontSize="24" FontAttributes="Bold" TextColor="White"
+                       HorizontalOptions="Center" VerticalOptions="Center" />
+            </Border>
+            <Label Text="OWNER-ADMIN PANEL" Style="{StaticResource Eyebrow}" />
+            <Label Text="Kelola salon dengan lebih tenang." Style="{StaticResource ScreenTitle}" />
+            <Label Text="Masuk untuk mengelola booking, kasir, inventori, dan laporan salon."
+                   Style="{StaticResource BodyCopy}" />
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Username" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="UsernameEntry" Placeholder="monica.admin" />
+                    <Label Text="Password" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="PasswordEntry" Placeholder="Minimal 6 karakter" IsPassword="True" />
+                    <Label x:Name="ErrorLabel" Text="" TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="False" />
+                    <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                        <CheckBox x:Name="RememberCheck" Color="{StaticResource DustyRose}" />
+                        <Label Text="Ingat saya" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                    <Button Text="Login to Admin Panel" Style="{StaticResource PrimaryButton}" Clicked="OnLogin" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Keamanan" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Akun admin hanya untuk pemilik dan staf terotorisasi. Jangan bagikan password Anda."
+                           Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

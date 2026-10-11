@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.UserManagementPage"
+             Title="Users"
+             BackgroundColor="{StaticResource Ivory}">
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="12">
+                <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+                <Label Text="OPERATIONS • USERS" Style="{StaticResource Eyebrow}" />
+                <Label Text="User Management" Style="{StaticResource ScreenTitle}" />
+                <Button Text="+ Add User" Style="{StaticResource PrimaryButton}" Clicked="OnAddUser" />
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="6">
+                            <VerticalStackLayout HorizontalOptions="StartAndExpand" Spacing="2">
+                                <Label Text="Monica Admin" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                                <Label Text="monica@salon.id" Style="{StaticResource MutedCopy}" FontSize="11" />
+                            </VerticalStackLayout>
+                            <Border BackgroundColor="{StaticResource SuccessBg}" StrokeThickness="0" StrokeShape="RoundRectangle 10" Padding="8,4" VerticalOptions="Center">
+                                <Label Text="Owner" TextColor="{StaticResource SuccessText}" FontSize="10" FontAttributes="Bold" />
+                            </Border>
+                        </HorizontalStackLayout>
+                        <Button Text="Edit" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="12" Clicked="OnEditUser" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="6">
+                            <VerticalStackLayout HorizontalOptions="StartAndExpand" Spacing="2">
+                                <Label Text="Sari Kasir" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                                <Label Text="sari@salon.id" Style="{StaticResource MutedCopy}" FontSize="11" />
+                            </VerticalStackLayout>
+                            <Border BackgroundColor="{StaticResource PendingBg}" StrokeThickness="0" StrokeShape="RoundRectangle 10" Padding="8,4" VerticalOptions="Center">
+                                <Label Text="Cashier" TextColor="{StaticResource PendingText}" FontSize="10" FontAttributes="Bold" />
+                            </Border>
+                        </HorizontalStackLayout>
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                            <Button Grid.Column="0" Text="Edit" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="12" Clicked="OnEditUser" />
+                            <Button Grid.Column="1" Text="Deactivate" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="12" Clicked="OnDeactivateUser" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="6">
+                            <VerticalStackLayout HorizontalOptions="StartAndExpand" Spacing="2">
+                                <Label Text="Dewi Stylist" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                                <Label Text="dewi@salon.id" Style="{StaticResource MutedCopy}" FontSize="11" />
+                            </VerticalStackLayout>
+                            <Border BackgroundColor="{StaticResource PendingBg}" StrokeThickness="0" StrokeShape="RoundRectangle 10" Padding="8,4" VerticalOptions="Center">
+                                <Label Text="Staff" TextColor="{StaticResource PendingText}" FontSize="10" FontAttributes="Bold" />
+                            </Border>
+                        </HorizontalStackLayout>
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                            <Button Grid.Column="0" Text="Edit" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="12" Clicked="OnEditUser" />
+                            <Button Grid.Column="1" Text="Deactivate" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="12" Clicked="OnDeactivateUser" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="6">
+                            <VerticalStackLayout HorizontalOptions="StartAndExpand" Spacing="2">
+                                <Label Text="Rina Admin" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                                <Label Text="rina@salon.id" Style="{StaticResource MutedCopy}" FontSize="11" />
+                            </VerticalStackLayout>
+                            <Border BackgroundColor="{StaticResource PendingBg}" StrokeThickness="0" StrokeShape="RoundRectangle 10" Padding="8,4" VerticalOptions="Center">
+                                <Label Text="Admin" TextColor="{StaticResource PendingText}" FontSize="10" FontAttributes="Bold" />
+                            </Border>
+                        </HorizontalStackLayout>
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                            <Button Grid.Column="0" Text="Edit" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="12" Clicked="OnEditUser" />
+                            <Button Grid.Column="1" Text="Deactivate" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="12" Clicked="OnDeactivateUser" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Border x:Name="FormOverlay" IsVisible="False" BackgroundColor="#80000000" StrokeThickness="0" Padding="20" VerticalOptions="Fill" HorizontalOptions="Fill">
+            <Border Style="{StaticResource CardFrame}" VerticalOptions="Center">
+                <VerticalStackLayout Spacing="8">
+                    <Label x:Name="FormTitle" Text="Add User" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="16" />
+                    <Label Text="Name" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="UserNameEntry" Placeholder="Full name" Style="{StaticResource FieldEntry}" />
+                    <Label Text="Email" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="UserEmailEntry" Placeholder="user@salon.id" Keyboard="Email" Style="{StaticResource FieldEntry}" />
+                    <Label Text="Role" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="12" />
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                        <Button Grid.Column="0" Text="Admin" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnRolePicked" />
+                        <Button Grid.Column="1" Text="Cashier" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnRolePicked" />
+                        <Button Grid.Column="2" Text="Staff" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnRolePicked" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <Button Grid.Column="0" Text="Save" Style="{StaticResource PrimaryButton}" Clicked="OnFormSave" />
+                        <Button Grid.Column="1" Text="Cancel" Style="{StaticResource SecondaryButton}" Clicked="OnFormCancel" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+        </Border>
+        <Border x:Name="ConfirmOverlay" IsVisible="False" BackgroundColor="#80000000" StrokeThickness="0" Padding="20" VerticalOptions="Fill" HorizontalOptions="Fill">
+            <Border Style="{StaticResource CardFrame}" VerticalOptions="Center">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Deactivate user?" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="16" />
+                    <Label Text="This user will lose access until reactivated." Style="{StaticResource BodyCopy}" />
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <Button Grid.Column="0" Text="Confirm" Style="{StaticResource PrimaryButton}" Clicked="OnConfirmDeactivate" />
+                        <Button Grid.Column="1" Text="Cancel" Style="{StaticResource SecondaryButton}" Clicked="OnCancelDeactivate" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+        </Border>
+    </Grid>
+</ContentPage>

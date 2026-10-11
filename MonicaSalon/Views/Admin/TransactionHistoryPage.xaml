@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.TransactionHistoryPage"
+             Title="Transaction History"
+             BackgroundColor="{StaticResource Ivory}">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20" Spacing="12">
+                <Label Text="A11 • Transactions" Style="{StaticResource Eyebrow}" />
+                <Label Text="Transaction History" Style="{StaticResource ScreenTitle}" />
+                <SearchBar x:Name="HistorySearch" Placeholder="Cari ref, pelanggan, atau metode..." TextChanged="OnSearchChanged" />
+                <Label x:Name="SummaryLabel" Text="4 transaksi • Total Rp 617.000" Style="{StaticResource MutedCopy}" />
+                <CollectionView x:Name="HistoryList" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource CardFrame}" Margin="0,4">
+                                <VerticalStackLayout Spacing="4">
+                                    <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                                        <Label Text="{Binding Ref}" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" VerticalOptions="Center" />
+                                        <Border BackgroundColor="{StaticResource SuccessBg}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="10,4" VerticalOptions="Center">
+                                            <Label Text="{Binding Status}" TextColor="{StaticResource SuccessText}" FontSize="11" FontAttributes="Bold" />
+                                        </Border>
+                                    </HorizontalStackLayout>
+                                    <Label Text="{Binding Customer}" Style="{StaticResource BodyCopy}" />
+                                    <Label Text="{Binding Items}" Style="{StaticResource MutedCopy}" />
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="{Binding Date}" Style="{StaticResource MutedCopy}" />
+                                        <Label Text="•" Style="{StaticResource MutedCopy}" />
+                                        <Label Text="{Binding Method}" Style="{StaticResource MutedCopy}" />
+                                    </HorizontalStackLayout>
+                                    <Label Text="{Binding Total}" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" BackgroundColor="White" Padding="4,8">
+            <Button Text="Dashboard" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="0" Clicked="OnNavDashboard" />
+            <Button Text="Bookings" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="1" Clicked="OnNavBookings" />
+            <Button Text="Cashier" Style="{StaticResource GhostButton}" FontSize="11" FontAttributes="Bold" Grid.Column="2" Clicked="OnNavCashier" />
+            <Button Text="Inventory" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="3" Clicked="OnNavInventory" />
+            <Button Text="More" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="4" Clicked="OnNavMore" />
+        </Grid>
+    </Grid>
+</ContentPage>

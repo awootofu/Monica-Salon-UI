@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.ServiceManagementPage"
+             Title="Services"
+             BackgroundColor="{StaticResource Ivory}">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="20,12" RowSpacing="10">
+        <VerticalStackLayout Grid.Row="0" Spacing="10">
+            <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="CATALOGUE • SERVICES" Style="{StaticResource Eyebrow}" />
+            <Label Text="Service Management" Style="{StaticResource ScreenTitle}" />
+            <SearchBar x:Name="ServiceSearch" Placeholder="Search services..." TextChanged="OnSearchChanged" BackgroundColor="White" />
+            <Button Text="+ Add Service" Style="{StaticResource PrimaryButton}" Clicked="OnAddService" />
+        </VerticalStackLayout>
+        <CollectionView Grid.Row="1" x:Name="ServicesList" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource CardFrame}" Margin="0,4">
+                        <VerticalStackLayout Spacing="6">
+                            <HorizontalStackLayout Spacing="8">
+                                <VerticalStackLayout Spacing="2" HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                                    <Label Text="{Binding Subtitle}" Style="{StaticResource MutedCopy}" FontSize="12" />
+                                </VerticalStackLayout>
+                                <Border BackgroundColor="{StaticResource SuccessBg}" StrokeThickness="0" StrokeShape="RoundRectangle 10" Padding="8,4" VerticalOptions="Start">
+                                    <Label Text="{Binding Category}" TextColor="{StaticResource SuccessText}" FontSize="10" FontAttributes="Bold" />
+                                </Border>
+                            </HorizontalStackLayout>
+                            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                                <Button Grid.Column="0" Text="Edit" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="12" Clicked="OnEdit" />
+                                <Button Grid.Column="1" Text="{Binding ToggleText}" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnToggleActive" />
+                                <Label Grid.Column="2" Text="{Binding StatusText}" FontSize="11" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" TextColor="{StaticResource Muted}" />
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label Grid.Row="2" x:Name="CountLabel" Text="9 services" Style="{StaticResource MutedCopy}" HorizontalTextAlignment="Center" />
+    </Grid>
+</ContentPage>

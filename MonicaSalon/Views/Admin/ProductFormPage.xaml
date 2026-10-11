@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.ProductFormPage"
+             Title="Product Form"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="CATALOGUE • PRODUCT FORM" Style="{StaticResource Eyebrow}" />
+            <Label Text="Product Form" Style="{StaticResource ScreenTitle}" />
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Product name" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Entry x:Name="NameEntry" Text="Sampo Premium" Style="{StaticResource FieldEntry}" />
+                    <Label Text="Category" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                        <Button Grid.Column="0" Text="Retail" Style="{StaticResource PrimaryButton}" HeightRequest="40" FontSize="11" Clicked="OnCategory" />
+                        <Button Grid.Column="1" Text="Treatment" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnCategory" />
+                        <Button Grid.Column="2" Text="Coloring" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnCategory" />
+                    </Grid>
+                    <Label Text="Price (Rp)" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Entry x:Name="PriceEntry" Text="79000" Keyboard="Numeric" Style="{StaticResource FieldEntry}" />
+                    <Label Text="Description" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Editor x:Name="DescEditor" Text="Sampo premium untuk semua jenis rambut." HeightRequest="80" BackgroundColor="#FDFBF9" TextColor="{StaticResource Charcoal}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Inventory link" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <Button Grid.Column="0" Text="Linked" Style="{StaticResource PrimaryButton}" HeightRequest="40" FontSize="11" Clicked="OnLinkOption" />
+                        <Button Grid.Column="1" Text="Standalone" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnLinkOption" />
+                    </Grid>
+                    <HorizontalStackLayout Spacing="8">
+                        <Label Text="Active" Style="{StaticResource BodyCopy}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                        <CheckBox x:Name="ActiveCheck" IsChecked="True" Color="{StaticResource DustyRose}" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+            <Button Text="Save Product" Style="{StaticResource PrimaryButton}" Clicked="OnSave" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

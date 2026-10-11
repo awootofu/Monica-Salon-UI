@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.ConfirmBookingPage"
+             Title="Konfirmasi Booking"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="Langkah 2 dari 3" Style="{StaticResource Eyebrow}" />
+            <Label Text="Konfirmasi Booking" Style="{StaticResource ScreenTitle}" />
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="1 Waktu" Style="{StaticResource MutedCopy}" />
+                <Label Text="/" Style="{StaticResource MutedCopy}" />
+                <Label Text="2 Konfirmasi" FontAttributes="Bold" FontSize="12" TextColor="{StaticResource DeepCocoa}" />
+                <Label Text="/" Style="{StaticResource MutedCopy}" />
+                <Label Text="3 Terkirim" Style="{StaticResource MutedCopy}" />
+            </HorizontalStackLayout>
+            <Border Style="{StaticResource CardFrame}">
+                <HorizontalStackLayout Spacing="12">
+                    <Image Source="color.jpg" WidthRequest="64" HeightRequest="64" Aspect="AspectFill" />
+                    <VerticalStackLayout Spacing="2" VerticalOptions="Center">
+                        <Label Text="Pewarnaan Rambut" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                        <Label Text="2-3 jam • Coloring" Style="{StaticResource MutedCopy}" />
+                        <Label Text="Rp 200.000" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Detail Jadwal" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Tanggal" Style="{StaticResource MutedCopy}" />
+                    <Label Text="Rabu, 14 Oktober 2026" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Waktu" Style="{StaticResource MutedCopy}" />
+                    <Label Text="11.00 WIB" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Kontak" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Bella Anisa" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="+62 812-3456-7890" Style="{StaticResource BodyCopy}" />
+                    <Label Text="Catatan permintaan (opsional)" Style="{StaticResource MutedCopy}" />
+                    <Editor x:Name="RequestEditor" Placeholder="Contoh: warna cokelat natural, kulit sensitif..." MaxLength="180" AutoSize="TextChanges" />
+                    <Label Text="Maks 180 karakter" Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Rincian Harga" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Pewarnaan Rambut" Style="{StaticResource BodyCopy}" />
+                        <Label Text="Rp 200.000" Style="{StaticResource BodyCopy}" Grid.Column="1" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Biaya layanan" Style="{StaticResource BodyCopy}" />
+                        <Label Text="Rp 0" Style="{StaticResource BodyCopy}" Grid.Column="1" />
+                    </Grid>
+                    <BoxView HeightRequest="1" Color="#E7DDD6" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Estimasi total" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                        <Label Text="Rp 200.000" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" Grid.Column="1" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+            <Button Text="Submit Booking" Style="{StaticResource PrimaryButton}" Clicked="OnSubmit" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

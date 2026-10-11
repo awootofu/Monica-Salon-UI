@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.ServiceDetailPage"
+             Title="Pewarnaan Rambut"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+            <Grid HeightRequest="260">
+                <Image Source="color.jpg" HeightRequest="260" Aspect="AspectFill" />
+                <Button Text="← Kembali" Style="{StaticResource GhostButton}" Clicked="OnBack"
+                        HorizontalOptions="Start" VerticalOptions="Start" Margin="12"
+                        BackgroundColor="#AAFFFFFF" TextColor="{StaticResource DeepCocoa}" />
+            </Grid>
+            <VerticalStackLayout Padding="20" Spacing="12">
+                <Border BackgroundColor="{StaticResource SoftBlush}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="10,4" HorizontalOptions="Start">
+                    <Label Text="Signature Service" TextColor="{StaticResource DeepCocoa}" FontSize="11" FontAttributes="Bold" />
+                </Border>
+                <Label Text="Pewarnaan Rambut" Style="{StaticResource ScreenTitle}" />
+                <HorizontalStackLayout Spacing="12">
+                    <Label Text="Rp 200.000" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource RoseDark}" />
+                    <Label Text="2-3 jam" Style="{StaticResource MutedCopy}" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Tentang layanan" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                        <Label Text="Pewarnaan dengan bahan premium, konsultasi warna gratis, dan perawatan setelah pewarnaan agar warna tahan lama."
+                               Style="{StaticResource BodyCopy}" />
+                    </VerticalStackLayout>
+                </Border>
+                <Button Text="Book This Service" Style="{StaticResource PrimaryButton}" Clicked="OnBook" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

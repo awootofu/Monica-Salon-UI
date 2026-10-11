@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Shared.DesignSystemPage"
+             Title="Design System v1.0"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Label Text="System" Style="{StaticResource Eyebrow}" />
+            <Label Text="Design System v1.0" Style="{StaticResource ScreenTitle}" />
+            <Label Text="Referensi warna, tipografi, tombol, dan badge Monica Salon."
+                   Style="{StaticResource BodyCopy}" />
+
+            <Label Text="Warna" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+            <VerticalStackLayout Spacing="8">
+                <Border Style="{StaticResource CardFrame}">
+                    <HorizontalStackLayout Spacing="10">
+                        <BoxView Color="#F7F0E8" WidthRequest="44" HeightRequest="44" CornerRadius="10" />
+                        <VerticalStackLayout VerticalOptions="Center">
+                            <Label Text="Ivory" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                            <Label Text="#F7F0E8" Style="{StaticResource MutedCopy}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <HorizontalStackLayout Spacing="10">
+                        <BoxView Color="#E8B9B1" WidthRequest="44" HeightRequest="44" CornerRadius="10" />
+                        <VerticalStackLayout VerticalOptions="Center">
+                            <Label Text="Soft Blush" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                            <Label Text="#E8B9B1" Style="{StaticResource MutedCopy}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <HorizontalStackLayout Spacing="10">
+                        <BoxView Color="#C87570" WidthRequest="44" HeightRequest="44" CornerRadius="10" />
+                        <VerticalStackLayout VerticalOptions="Center">
+                            <Label Text="Dusty Rose" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                            <Label Text="#C87570" Style="{StaticResource MutedCopy}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <HorizontalStackLayout Spacing="10">
+                        <BoxView Color="#75463B" WidthRequest="44" HeightRequest="44" CornerRadius="10" />
+                        <VerticalStackLayout VerticalOptions="Center">
+                            <Label Text="Deep Cocoa" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                            <Label Text="#75463B" Style="{StaticResource MutedCopy}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <HorizontalStackLayout Spacing="10">
+                        <BoxView Color="#667D6B" WidthRequest="44" HeightRequest="44" CornerRadius="10" />
+                        <VerticalStackLayout VerticalOptions="Center">
+                            <Label Text="Sage" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                            <Label Text="#667D6B" Style="{StaticResource MutedCopy}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <HorizontalStackLayout Spacing="10">
+                        <BoxView Color="#D9A04F" WidthRequest="44" HeightRequest="44" CornerRadius="10" />
+                        <VerticalStackLayout VerticalOptions="Center">
+                            <Label Text="Muted Amber" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                            <Label Text="#D9A04F" Style="{StaticResource MutedCopy}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <HorizontalStackLayout Spacing="10">
+                        <BoxView Color="#38332F" WidthRequest="44" HeightRequest="44" CornerRadius="10" />
+                        <VerticalStackLayout VerticalOptions="Center">
+                            <Label Text="Charcoal" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                            <Label Text="#38332F" Style="{StaticResource MutedCopy}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <HorizontalStackLayout Spacing="10">
+                        <BoxView Color="#FFFFFF" WidthRequest="44" HeightRequest="44" CornerRadius="10" />
+                        <VerticalStackLayout VerticalOptions="Center">
+                            <Label Text="White" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                            <Label Text="#FFFFFF" Style="{StaticResource MutedCopy}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+
+            <Label Text="Tipografi" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Screen Title — 26 Bold" Style="{StaticResource ScreenTitle}" />
+                    <Label Text="EYEBROW — 11 BOLD" Style="{StaticResource Eyebrow}" />
+                    <Label Text="Body copy 13 — contoh paragraf layanan salon." Style="{StaticResource BodyCopy}" />
+                    <Label Text="Muted copy 12 — keterangan tambahan." Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Label Text="Tombol" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+            <Button Text="Primary" Style="{StaticResource PrimaryButton}" />
+            <Button Text="Secondary" Style="{StaticResource SecondaryButton}" />
+            <Button Text="Ghost" Style="{StaticResource GhostButton}" />
+
+            <Label Text="Badge" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+            <HorizontalStackLayout Spacing="8">
+                <Border BackgroundColor="{StaticResource SuccessBg}" StrokeShape="RoundRectangle 12" Padding="10,4" StrokeThickness="0">
+                    <Label Text="Dikonfirmasi" TextColor="{StaticResource SuccessText}" FontSize="11" FontAttributes="Bold" />
+                </Border>
+                <Border BackgroundColor="{StaticResource PendingBg}" StrokeShape="RoundRectangle 12" Padding="10,4" StrokeThickness="0">
+                    <Label Text="Menunggu" TextColor="{StaticResource PendingText}" FontSize="11" FontAttributes="Bold" />
+                </Border>
+                <Border BackgroundColor="{StaticResource DangerBg}" StrokeShape="RoundRectangle 12" Padding="10,4" StrokeThickness="0">
+                    <Label Text="Dibatalkan" TextColor="{StaticResource DangerText}" FontSize="11" FontAttributes="Bold" />
+                </Border>
+            </HorizontalStackLayout>
+
+            <Button Text="Kembali" Style="{StaticResource GhostButton}" Clicked="OnBack" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

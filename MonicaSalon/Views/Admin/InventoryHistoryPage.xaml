@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.InventoryHistoryPage"
+             Title="Movement History"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBackClicked" />
+            <Label Text="A18 • Inventory" Style="{StaticResource Eyebrow}" />
+            <Label Text="Movement History" Style="{StaticResource ScreenTitle}" />
+            <Label Text="Jejak stock-in, stock-out, dan retail sale." Style="{StaticResource BodyCopy}" />
+
+            <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="8">
+                <Button Grid.Column="0" Text="Semua" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnTypeClicked" />
+                <Button Grid.Column="1" Text="Stock-In" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnTypeClicked" />
+                <Button Grid.Column="2" Text="Stock-Out" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnTypeClicked" />
+                <Button Grid.Column="3" Text="Retail Sale" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnTypeClicked" />
+            </Grid>
+
+            <CollectionView x:Name="MovementList">
+                <CollectionView.EmptyView>
+                    <Label Text="Belum ada pergerakan." Style="{StaticResource MutedCopy}" HorizontalTextAlignment="Center" />
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource CardFrame}" Margin="0,4">
+                            <VerticalStackLayout Spacing="4">
+                                <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                                    <Label Text="{Binding Qty}" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="15" VerticalOptions="Center" />
+                                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="10,4" VerticalOptions="Center" BackgroundColor="{StaticResource IvoryDeep}">
+                                        <Label Text="{Binding Type}" FontSize="11" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                                    </Border>
+                                </HorizontalStackLayout>
+                                <Label Text="{Binding Item}" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="14" />
+                                <Label Text="{Binding Date}" Style="{StaticResource MutedCopy}" />
+                                <Label Text="{Binding Reason}" Style="{StaticResource BodyCopy}" />
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label Text="Related:" Style="{StaticResource MutedCopy}" />
+                                    <Label Text="{Binding Related}" Style="{StaticResource MutedCopy}" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Border Style="{StaticResource CardFrame}">
+                <Label Text="Export-ready: riwayat siap diekspor ke CSV." Style="{StaticResource MutedCopy}" />
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

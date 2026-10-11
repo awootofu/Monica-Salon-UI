@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.BookingHistoryPage"
+             Title="Booking Saya"
+             BackgroundColor="{StaticResource Ivory}">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20" Spacing="12">
+                <Label Text="Riwayat" Style="{StaticResource Eyebrow}" />
+                <Label Text="Booking Saya" Style="{StaticResource ScreenTitle}" />
+                <HorizontalStackLayout Spacing="8">
+                    <Button x:Name="FilterAll" Text="Semua" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
+                    <Button x:Name="FilterPending" Text="Menunggu Konfirmasi" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="8">
+                    <Button x:Name="FilterConfirmed" Text="Dikonfirmasi" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
+                    <Button x:Name="FilterDone" Text="Selesai" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
+                    <Button x:Name="FilterCancelled" Text="Dibatalkan" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
+                </HorizontalStackLayout>
+                <CollectionView x:Name="HistoryList" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource CardFrame}" Margin="0,0,0,10">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="{Binding Service}" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                                    <Label Text="{Binding Ref}" Style="{StaticResource MutedCopy}" />
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="{Binding Date}" Style="{StaticResource BodyCopy}" />
+                                        <Label Text="{Binding Time}" Style="{StaticResource BodyCopy}" />
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="{Binding Price}" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" />
+                                        <Label Text="{Binding Status}" FontSize="12" TextColor="{StaticResource PendingText}" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" BackgroundColor="White" Padding="4,8">
+            <Button Text="Home" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="0" Clicked="OnHome" />
+            <Button Text="Services" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="1" Clicked="OnCatalogue" />
+            <Button Text="Booking" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="2" Clicked="OnBooking" />
+            <Button Text="History" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="3" Clicked="OnHistory" />
+            <Button Text="Profile" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="4" Clicked="OnProfile" />
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Shared.CustomerBottomNav"
+             x:Name="Root">
+    <Border BackgroundColor="White"
+            Stroke="#E7DDD6"
+            StrokeThickness="1"
+            StrokeShape="RoundRectangle 18"
+            Padding="8">
+        <Grid ColumnDefinitions="*,*,*,*,*">
+            <Button Grid.Column="0" Text="Home" Style="{StaticResource GhostButton}" FontSize="12" Clicked="OnHomeClicked" />
+            <Button Grid.Column="1" Text="Services" Style="{StaticResource GhostButton}" FontSize="12" Clicked="OnServicesClicked" />
+            <Button Grid.Column="2" Text="Booking" Style="{StaticResource GhostButton}" FontSize="12" Clicked="OnBookingClicked" />
+            <Button Grid.Column="3" Text="History" Style="{StaticResource GhostButton}" FontSize="12" Clicked="OnHistoryClicked" />
+            <Button Grid.Column="4" Text="Profile" Style="{StaticResource GhostButton}" FontSize="12" Clicked="OnProfileClicked" />
+        </Grid>
+    </Border>
+</ContentView>

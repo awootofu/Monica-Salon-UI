@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.CashierPage"
+             Title="Cashier / POS"
+             BackgroundColor="{StaticResource Ivory}">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20" Spacing="12">
+                <Label Text="A07 • Cashier" Style="{StaticResource Eyebrow}" />
+                <Label Text="Cashier / POS" Style="{StaticResource ScreenTitle}" />
+
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Order origin" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" />
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                            <Button x:Name="OriginBookingBtn" Grid.Column="0" Text="From Booking" Style="{StaticResource PrimaryButton}" HeightRequest="44" FontSize="12" Clicked="OnOriginSelected" />
+                            <Button x:Name="OriginWalkinBtn" Grid.Column="1" Text="Walk-in" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnOriginSelected" />
+                        </Grid>
+                        <Label x:Name="OriginLabel" Text="Booking: MON-261014-028 • Bella Anisa" Style="{StaticResource MutedCopy}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                    <Button x:Name="TabServiceBtn" Grid.Column="0" Text="Layanan" Style="{StaticResource PrimaryButton}" HeightRequest="44" FontSize="12" Clicked="OnTabSelected" />
+                    <Button x:Name="TabProductBtn" Grid.Column="1" Text="Produk" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnTabSelected" />
+                </Grid>
+
+                <SearchBar x:Name="CatalogSearch" Placeholder="Cari layanan atau produk..." TextChanged="OnSearchChanged" />
+
+                <CollectionView x:Name="CatalogList" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource CardFrame}" Margin="0,4">
+                                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto" ColumnSpacing="8">
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource Charcoal}" />
+                                    <Label Grid.Row="1" Grid.Column="0" Text="{Binding Meta}" Style="{StaticResource MutedCopy}" />
+                                    <VerticalStackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                                        <Label Text="{Binding PriceText}" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" HorizontalTextAlignment="End" />
+                                        <Button Text="Add" FontSize="12" HeightRequest="38" Style="{StaticResource PrimaryButton}" Clicked="OnAddClicked" CommandParameter="{Binding Id}" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Selected Items" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                        <Label x:Name="EmptyCartLabel" Text="Belum ada item dipilih." Style="{StaticResource MutedCopy}" />
+                        <CollectionView x:Name="CartList" SelectionMode="None">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="*,Auto" Padding="0,6" ColumnSpacing="8">
+                                        <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource Charcoal}" />
+                                            <Label Text="{Binding LineText}" Style="{StaticResource MutedCopy}" />
+                                        </VerticalStackLayout>
+                                        <Button Grid.Column="1" Text="Hapus" FontSize="11" HeightRequest="36" Style="{StaticResource SecondaryButton}" Clicked="OnRemoveClicked" CommandParameter="{Binding Id}" VerticalOptions="Center" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <Label x:Name="TotalLabel" Text="Total: Rp 0" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                        <Label x:Name="DraftLabel" Text="Draft saved." TextColor="{StaticResource SuccessText}" FontSize="12" FontAttributes="Bold" IsVisible="False" />
+                        <Button Text="Save Transaction" Style="{StaticResource SecondaryButton}" Clicked="OnSaveDraft" />
+                        <Button x:Name="ProceedBtn" Text="Proceed to Payment" Style="{StaticResource PrimaryButton}" Clicked="OnProceed" IsEnabled="False" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" BackgroundColor="White" Padding="4,8">
+            <Button Text="Dashboard" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="0" Clicked="OnNavDashboard" />
+            <Button Text="Bookings" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="1" Clicked="OnNavBookings" />
+            <Button Text="Cashier" Style="{StaticResource GhostButton}" FontSize="11" FontAttributes="Bold" Grid.Column="2" Clicked="OnNavCashier" />
+            <Button Text="Inventory" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="3" Clicked="OnNavInventory" />
+            <Button Text="More" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="4" Clicked="OnNavMore" />
+        </Grid>
+    </Grid>
+</ContentPage>

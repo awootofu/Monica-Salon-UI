@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.AdminBookingDetailsPage"
+             Title="Detail Booking"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="Detail Booking" Style="{StaticResource ScreenTitle}" />
+            <Label Text="MON-261014-028" Style="{StaticResource MutedCopy}" />
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Status" Style="{StaticResource MutedCopy}" />
+                    <Border x:Name="StatusBadge" BackgroundColor="{StaticResource PendingBg}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="10,4" HorizontalOptions="Start">
+                        <Label x:Name="StatusLabel" Text="Menunggu Konfirmasi" TextColor="{StaticResource PendingText}" FontSize="12" FontAttributes="Bold" />
+                    </Border>
+                    <Label x:Name="CancelNote" Text="Booking dibatalkan." TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="False" />
+                    <Button x:Name="ConfirmBtn" Text="Confirm Booking" Style="{StaticResource PrimaryButton}" Clicked="OnConfirm" />
+                    <Button x:Name="CompleteBtn" Text="Mark Completed" Style="{StaticResource PrimaryButton}" IsVisible="False" Clicked="OnComplete" />
+                    <Button x:Name="CashierBtn" Text="Proceed to Cashier" Style="{StaticResource PrimaryButton}" IsVisible="False" Clicked="OnCashier" />
+                    <Button x:Name="RescheduleBtn" Text="Change Schedule" Style="{StaticResource SecondaryButton}" Clicked="OnReschedule" />
+                    <Button x:Name="CancelBtn" Text="Cancel Booking" Style="{StaticResource GhostButton}" Clicked="OnCancel" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Pelanggan" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Bella Anisa" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="+62 812-3456-7890" Style="{StaticResource BodyCopy}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <HorizontalStackLayout Spacing="12">
+                    <Image Source="color.jpg" WidthRequest="64" HeightRequest="64" Aspect="AspectFill" />
+                    <VerticalStackLayout Spacing="2" VerticalOptions="Center">
+                        <Label Text="Pewarnaan Rambut" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                        <Label Text="2-3 jam • Coloring" Style="{StaticResource MutedCopy}" />
+                        <Label Text="Rp 200.000" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Jadwal &amp; Harga" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Rabu, 14 Oktober 2026 • 11.00 WIB" Style="{StaticResource BodyCopy}" />
+                    <Label Text="Estimasi total: Rp 200.000" Style="{StaticResource BodyCopy}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Permintaan Khusus" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Warna cokelat natural, kulit sensitif." Style="{StaticResource BodyCopy}" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

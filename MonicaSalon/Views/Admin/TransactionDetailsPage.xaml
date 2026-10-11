@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.TransactionDetailsPage"
+             Title="Transaction Details"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="← Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="TRX-261014-083" Style="{StaticResource Eyebrow}" />
+            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                <Label Text="Transaction Details" Style="{StaticResource ScreenTitle}" VerticalOptions="Center" />
+                <Border BackgroundColor="{StaticResource SuccessBg}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="10,4" VerticalOptions="Center">
+                    <Label Text="Paid" TextColor="{StaticResource SuccessText}" FontSize="11" FontAttributes="Bold" />
+                </Border>
+            </HorizontalStackLayout>
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Customer dan Booking" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Bella Anisa" Style="{StaticResource BodyCopy}" />
+                    <Label Text="MON-261014-028 • 14 Okt 11.00 • Pewarnaan Rambut" Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Itemized" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0" Text="Pewarnaan x1" Style="{StaticResource BodyCopy}" />
+                        <Label Grid.Column="1" Text="Rp 200.000" Style="{StaticResource BodyCopy}" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0" Text="Sampo Premium x1" Style="{StaticResource BodyCopy}" />
+                        <Label Grid.Column="1" Text="Rp 79.000" Style="{StaticResource BodyCopy}" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0" Text="Diskon" Style="{StaticResource MutedCopy}" />
+                        <Label Grid.Column="1" Text="Rp 0" Style="{StaticResource MutedCopy}" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0" Text="Total" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                        <Label Grid.Column="1" Text="Rp 279.000" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Payment" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Metode: Cash" Style="{StaticResource BodyCopy}" />
+                    <Label Text="Diterima Rp 300.000 • Kembalian Rp 21.000" Style="{StaticResource BodyCopy}" />
+                    <Label Text="Status: Paid • 14 Okt 14.42" Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Operational" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="FIN-261014-083 recorded." Style="{StaticResource BodyCopy}" />
+                    <Label Text="Stok: Sampo -1, Hair Dye -2." Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="View / Print Receipt" Style="{StaticResource PrimaryButton}" Clicked="OnPrintReceipt" />
+            <Label x:Name="ReceiptNote" Text="" Style="{StaticResource MutedCopy}" HorizontalTextAlignment="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

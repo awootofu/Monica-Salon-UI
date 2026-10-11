@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.InventoryItemDetailsPage"
+             Title="Item Details"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBackClicked" />
+            <Label Text="A19 • Inventory" Style="{StaticResource Eyebrow}" />
+            <Label Text="Item Details" Style="{StaticResource ScreenTitle}" />
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="6">
+                    <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                        <Label Text="Conditioner Repair" FontSize="19" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" HorizontalOptions="FillAndExpand" />
+                        <Border BackgroundColor="{StaticResource DangerBg}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="10,4" VerticalOptions="Center">
+                            <Label Text="Stok Rendah" TextColor="{StaticResource DangerText}" FontSize="11" FontAttributes="Bold" />
+                        </Border>
+                    </HorizontalStackLayout>
+                    <Label Text="INV-RET-002 • Retail" Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                <Border Grid.Column="0" Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="Stok saat ini" Style="{StaticResource MutedCopy}" />
+                        <Label Text="4 botol" FontAttributes="Bold" FontSize="17" TextColor="{StaticResource Charcoal}" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Grid.Column="1" Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="Minimum" Style="{StaticResource MutedCopy}" />
+                        <Label Text="Min 5" FontAttributes="Bold" FontSize="17" TextColor="{StaticResource Charcoal}" />
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Info item" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                    <Label Text="Kategori: Retail" Style="{StaticResource BodyCopy}" />
+                    <Label Text="Satuan: botol" Style="{StaticResource BodyCopy}" />
+                    <Label Text="Catatan: Display retail, restock mingguan." Style="{StaticResource BodyCopy}" />
+                    <Button Text="Edit" Style="{StaticResource SecondaryButton}" HeightRequest="44" Clicked="OnEditClicked" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Label Text="Recent movements" FontSize="15" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+            <CollectionView x:Name="RecentList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource CardFrame}" Margin="0,4">
+                            <VerticalStackLayout Spacing="2">
+                                <HorizontalStackLayout Spacing="8">
+                                    <Label Text="{Binding Qty}" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                                    <Label Text="{Binding Type}" Style="{StaticResource MutedCopy}" />
+                                </HorizontalStackLayout>
+                                <Label Text="{Binding Item}" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label Text="{Binding Date}" Style="{StaticResource MutedCopy}" />
+                                    <Label Text="•" Style="{StaticResource MutedCopy}" />
+                                    <Label Text="{Binding Reason}" Style="{StaticResource MutedCopy}" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="View all" Style="{StaticResource GhostButton}" Clicked="OnViewAllClicked" />
+
+            <Border Style="{StaticResource CardFrame}">
+                <Label Text="Rules: stock-in menambah stok, stock-out mengurangi, retail sale tercatat otomatis di kasir." Style="{StaticResource MutedCopy}" />
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                <Button Grid.Column="0" Text="Stock-In" Style="{StaticResource PrimaryButton}" Clicked="OnStockInClicked" />
+                <Button Grid.Column="1" Text="Stock-Out" Style="{StaticResource SecondaryButton}" Clicked="OnStockOutClicked" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

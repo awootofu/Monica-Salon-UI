@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.AdminBookingsPage"
+             Title="Bookings"
+             BackgroundColor="{StaticResource Ivory}">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20" Spacing="12">
+                <Label Text="Kelola Booking" Style="{StaticResource Eyebrow}" />
+                <Label Text="Bookings" Style="{StaticResource ScreenTitle}" />
+                <SearchBar x:Name="BookingSearch" Placeholder="Cari nama, ref, layanan..." TextChanged="OnSearch" />
+                <Button Text="14 Okt 2026" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="13" Clicked="OnDateStub" />
+                <HorizontalStackLayout Spacing="8">
+                    <Button x:Name="FilterAll" Text="Semua" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
+                    <Button x:Name="FilterPending" Text="Menunggu Konfirmasi" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="8">
+                    <Button x:Name="FilterConfirmed" Text="Dikonfirmasi" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
+                    <Button x:Name="FilterDone" Text="Selesai" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
+                    <Button x:Name="FilterCancelled" Text="Dibatalkan" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
+                </HorizontalStackLayout>
+                <CollectionView x:Name="BookingsList" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource CardFrame}" Margin="0,0,0,10">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="{Binding Ref}" Style="{StaticResource MutedCopy}" />
+                                    <Label Text="{Binding Customer}" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                                    <Label Text="{Binding Service}" Style="{StaticResource BodyCopy}" />
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="{Binding Date}" Style="{StaticResource MutedCopy}" />
+                                        <Label Text="{Binding Time}" Style="{StaticResource MutedCopy}" />
+                                    </HorizontalStackLayout>
+                                    <Label Text="{Binding Status}" FontSize="12" TextColor="{StaticResource PendingText}" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button Text="+ Add Booking" Style="{StaticResource PrimaryButton}" Clicked="OnAdd" />
+            </VerticalStackLayout>
+        </ScrollView>
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="4,8" BackgroundColor="White">
+            <Button Grid.Column="0" Text="Dashboard" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavDashboard" />
+            <Button Grid.Column="1" Text="Bookings" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavBookings" />
+            <Button Grid.Column="2" Text="Cashier" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavCashier" />
+            <Button Grid.Column="3" Text="Inventory" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavInventory" />
+            <Button Grid.Column="4" Text="More" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavMore" />
+        </Grid>
+    </Grid>
+</ContentPage>

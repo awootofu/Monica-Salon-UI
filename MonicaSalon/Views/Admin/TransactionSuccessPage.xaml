@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.TransactionSuccessPage"
+             Title="Transaksi berhasil."
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12" HorizontalOptions="Fill">
+            <Label Text="✓" FontSize="48" HorizontalTextAlignment="Center" TextColor="{StaticResource SuccessText}" />
+            <Label Text="Payment complete" Style="{StaticResource Eyebrow}" HorizontalTextAlignment="Center" />
+            <Label Text="Transaksi berhasil." Style="{StaticResource ScreenTitle}" HorizontalTextAlignment="Center" />
+            <Border BackgroundColor="{StaticResource SuccessBg}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="10,4" HorizontalOptions="Center">
+                <Label Text="Paid" TextColor="{StaticResource SuccessText}" FontSize="12" FontAttributes="Bold" />
+            </Border>
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="TRX-261014-083" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="14 Okt 14.42 • Bella Anisa" Style="{StaticResource BodyCopy}" />
+                    <Label Text="Pewarnaan x1 — Rp 200.000" Style="{StaticResource BodyCopy}" />
+                    <Label Text="Sampo Premium x1 — Rp 79.000" Style="{StaticResource BodyCopy}" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0" Text="Total" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                        <Label Grid.Column="1" Text="Rp 279.000" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    </Grid>
+                    <Label Text="Cash diterima Rp 300.000 • Kembalian Rp 21.000" Style="{StaticResource BodyCopy}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="FIN-261014-083 created automatically." Style="{StaticResource BodyCopy}" />
+                    <Label Text="Stok berkurang: Sampo -1, Hair Dye -2." Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="View History" Style="{StaticResource PrimaryButton}" Clicked="OnViewHistory" />
+            <Button Text="View Financial Records" Style="{StaticResource SecondaryButton}" Clicked="OnViewFinancial" />
+            <Button Text="Return Dashboard" Style="{StaticResource GhostButton}" Clicked="OnDashboard" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

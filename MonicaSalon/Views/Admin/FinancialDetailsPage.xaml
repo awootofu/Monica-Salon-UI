@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.FinancialDetailsPage"
+             Title="Record Details"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="A24 • FINANCE" Style="{StaticResource Eyebrow}" />
+            <Label Text="Record Details" Style="{StaticResource ScreenTitle}" />
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="-Rp180.000" FontSize="26" FontAttributes="Bold" TextColor="{StaticResource DangerText}" />
+                    <Border BackgroundColor="{StaticResource PendingBg}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="10,4" HorizontalOptions="Start">
+                        <Label Text="Manual Entry" TextColor="{StaticResource PendingText}" FontSize="11" FontAttributes="Bold" />
+                    </Border>
+                    <Label Text="Listrik • 13 Okt 2026" Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <HorizontalStackLayout Spacing="6">
+                        <Label Text="Record Info" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+                        <Button x:Name="EditBtn" Text="Edit" Style="{StaticResource GhostButton}" Clicked="OnEdit" />
+                    </HorizontalStackLayout>
+                    <Label Text="Description" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="DescEntry" Text="Listrik" IsEnabled="False" Style="{StaticResource FieldEntry}" />
+                    <Label Text="Category" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="CatEntry" Text="Utilities" IsEnabled="False" Style="{StaticResource FieldEntry}" />
+                    <Label Text="Reference" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="RefEntry" Text="MAN-EXP-043" IsEnabled="False" Style="{StaticResource FieldEntry}" />
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8" x:Name="EditActions" IsVisible="False">
+                        <Button Grid.Column="0" Text="Save" Style="{StaticResource PrimaryButton}" Clicked="OnSave" />
+                        <Button Grid.Column="1" Text="Cancel" Style="{StaticResource SecondaryButton}" Clicked="OnCancel" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Audit" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Created by Monica Admin • 13 Okt 2026 18.02" Style="{StaticResource BodyCopy}" FontSize="12" />
+                    <Label Text="Source: manual entry" Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+            <Button Text="Export Data" Style="{StaticResource SecondaryButton}" Clicked="OnExport" />
+            <Button Text="Delete Record" BackgroundColor="{StaticResource DangerBg}" TextColor="{StaticResource DangerText}" CornerRadius="16" HeightRequest="52" FontAttributes="Bold" Clicked="OnDelete" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

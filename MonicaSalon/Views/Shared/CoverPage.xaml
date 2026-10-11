@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Shared.CoverPage"
+             Title="Cover"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+            <Grid HeightRequest="420">
+                <Image Source="monica_salon_interior.jpg" Aspect="AspectFill" />
+                <BoxView>
+                    <BoxView.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#66000000" Offset="0.0" />
+                            <GradientStop Color="#CC5C332D" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+                <VerticalStackLayout Padding="24" VerticalOptions="End" Spacing="6">
+                    <Label Text="MONICA SALON · INDONESIA" TextColor="White" FontSize="11" FontAttributes="Bold" Opacity="0.85" />
+                    <Label Text="Beauty, made personal." TextColor="White" FontSize="38" FontAttributes="Bold" LineHeight="1.0" />
+                    <Label Text="Perawatan penuh perhatian untuk setiap versi dirimu." TextColor="White" FontSize="13" Opacity="0.9" />
+                </VerticalStackLayout>
+            </Grid>
+            <VerticalStackLayout Padding="24" Spacing="12" BackgroundColor="{StaticResource Ivory}">
+                <HorizontalStackLayout Spacing="8" HorizontalOptions="Center">
+                    <Label Text="Monica" FontSize="30" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="SALON" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" VerticalOptions="End" />
+                </HorizontalStackLayout>
+                <Label Text="Booking lebih mudah, pelayanan lebih dekat, dan operasional salon dalam satu aplikasi."
+                       Style="{StaticResource BodyCopy}" HorizontalTextAlignment="Center" />
+                <Button Text="Mulai sekarang →" Style="{StaticResource PrimaryButton}" Clicked="OnContinue" />
+                <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+                    <Label Text="Customer" Style="{StaticResource MutedCopy}" />
+                    <Label Text="•" Style="{StaticResource MutedCopy}" />
+                    <Label Text="Owner" Style="{StaticResource MutedCopy}" />
+                    <Label Text="•" Style="{StaticResource MutedCopy}" />
+                    <Label Text="Admin" Style="{StaticResource MutedCopy}" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

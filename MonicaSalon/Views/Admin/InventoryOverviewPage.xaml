@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.InventoryOverviewPage"
+             Title="Inventory"
+             BackgroundColor="{StaticResource Ivory}">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20" Spacing="12">
+                <Label Text="A13 • Inventory" Style="{StaticResource Eyebrow}" />
+                <Label Text="Inventory" Style="{StaticResource ScreenTitle}" />
+                <Label Text="Kelola stok retail dan material salon." Style="{StaticResource BodyCopy}" />
+
+                <SearchBar x:Name="InventorySearch"
+                           Placeholder="Cari item..."
+                           TextChanged="OnSearchTextChanged" />
+
+                <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="8">
+                    <Button Grid.Column="0" Text="Semua" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnCategoryClicked" />
+                    <Button Grid.Column="1" Text="Retail" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnCategoryClicked" />
+                    <Button Grid.Column="2" Text="Coloring" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnCategoryClicked" />
+                    <Button Grid.Column="3" Text="Treatment" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnCategoryClicked" />
+                </Grid>
+
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                    <Label Text="Low Stock only" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
+                    <Switch x:Name="LowStockSwitch" Toggled="OnLowStockToggled" />
+                </HorizontalStackLayout>
+
+                <CollectionView x:Name="InventoryList" SelectionMode="Single" SelectionChanged="OnItemSelected">
+                    <CollectionView.EmptyView>
+                        <Label Text="Tidak ada item yang cocok." Style="{StaticResource MutedCopy}" HorizontalTextAlignment="Center" />
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource CardFrame}" Margin="0,4">
+                                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                                    <Label Grid.Column="0" Text="▣" FontSize="26" TextColor="{StaticResource DeepCocoa}" VerticalOptions="Center" />
+                                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="14" />
+                                        <Label Text="{Binding Category}" Style="{StaticResource MutedCopy}" />
+                                        <Label Text="{Binding Quantity, StringFormat='{0} '}" IsVisible="False" />
+                                        <HorizontalStackLayout Spacing="4">
+                                            <Label Text="{Binding Quantity}" Style="{StaticResource MutedCopy}" />
+                                            <Label Text="{Binding Unit}" Style="{StaticResource MutedCopy}" />
+                                            <Label Text="• Min:" Style="{StaticResource MutedCopy}" />
+                                            <Label Text="{Binding Minimum}" Style="{StaticResource MutedCopy}" />
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                    <Border Grid.Column="2" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="10,4" VerticalOptions="Center">
+                                        <Border.Triggers>
+                                            <DataTrigger TargetType="Border" Binding="{Binding IsLow}" Value="True">
+                                                <Setter Property="BackgroundColor" Value="{StaticResource DangerBg}" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Border" Binding="{Binding IsLow}" Value="False">
+                                                <Setter Property="BackgroundColor" Value="{StaticResource SuccessBg}" />
+                                            </DataTrigger>
+                                        </Border.Triggers>
+                                        <Label FontSize="11" FontAttributes="Bold">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label" Binding="{Binding IsLow}" Value="True">
+                                                    <Setter Property="Text" Value="Stok Rendah" />
+                                                    <Setter Property="TextColor" Value="{StaticResource DangerText}" />
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Label" Binding="{Binding IsLow}" Value="False">
+                                                    <Setter Property="Text" Value="Aman" />
+                                                    <Setter Property="TextColor" Value="{StaticResource SuccessText}" />
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <Label Text="Aksi cepat" FontSize="15" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                    <Button Grid.Column="0" Text="Add Item" Style="{StaticResource PrimaryButton}" FontSize="12" HeightRequest="48" Clicked="OnAddClicked" />
+                    <Button Grid.Column="1" Text="Stock-In" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="48" Clicked="OnStockInClicked" />
+                    <Button Grid.Column="2" Text="Stock-Out" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="48" Clicked="OnStockOutClicked" />
+                </Grid>
+
+                <Button Text="Movement History" Style="{StaticResource SecondaryButton}" Clicked="OnHistoryClicked" />
+
+                <Border Style="{StaticResource CardFrame}">
+                    <Label Text="Export-ready: daftar stok siap diekspor ke CSV." Style="{StaticResource MutedCopy}" />
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="8,6" BackgroundColor="White">
+            <Button Grid.Column="0" Text="Dashboard" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavDashboard" />
+            <Button Grid.Column="1" Text="Bookings" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavBookings" />
+            <Button Grid.Column="2" Text="Cashier" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavCashier" />
+            <Button Grid.Column="3" Text="Inventory" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavInventory" />
+            <Button Grid.Column="4" Text="More" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavMore" />
+        </Grid>
+    </Grid>
+</ContentPage>

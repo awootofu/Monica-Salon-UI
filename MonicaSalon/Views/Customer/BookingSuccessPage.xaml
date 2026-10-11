@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.BookingSuccessPage"
+             Title="Booking Terkirim"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="1 Waktu" Style="{StaticResource MutedCopy}" />
+                <Label Text="/" Style="{StaticResource MutedCopy}" />
+                <Label Text="2 Konfirmasi" Style="{StaticResource MutedCopy}" />
+                <Label Text="/" Style="{StaticResource MutedCopy}" />
+                <Label Text="3 Terkirim" FontAttributes="Bold" FontSize="12" TextColor="{StaticResource DeepCocoa}" />
+            </HorizontalStackLayout>
+            <Label Text="✓" FontSize="48" HorizontalOptions="Center" TextColor="{StaticResource Sage}" />
+            <Label Text="Permintaan terkirim" Style="{StaticResource Eyebrow}" HorizontalOptions="Center" />
+            <Label Text="Kami sedang mengecek jadwal." Style="{StaticResource ScreenTitle}" HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+            <Label Text="Menunggu Konfirmasi" FontAttributes="Bold" FontSize="12" TextColor="{StaticResource PendingText}" BackgroundColor="{StaticResource PendingBg}" Padding="12,6" HorizontalOptions="Center" />
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="MON-261014-028" Style="{StaticResource MutedCopy}" />
+                    <Label Text="Pewarnaan Rambut" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="14 Okt 2026 • 11.00 WIB" Style="{StaticResource BodyCopy}" />
+                    <Label Text="Rp 200.000" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                </VerticalStackLayout>
+            </Border>
+            <Button Text="View My Bookings" Style="{StaticResource PrimaryButton}" Clicked="OnViewBookings" />
+            <Button Text="Return Home" Style="{StaticResource SecondaryButton}" Clicked="OnReturnHome" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

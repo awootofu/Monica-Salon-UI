@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.WelcomePage"
+             Title="Selamat Datang"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+            <Image Source="welcome.jpg" HeightRequest="380" Aspect="AspectFill" />
+            <VerticalStackLayout Padding="24" Spacing="10">
+                <HorizontalStackLayout Spacing="8" HorizontalOptions="Center">
+                    <Label Text="Monica" FontSize="28" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="SALON" FontSize="13" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" VerticalOptions="End" />
+                </HorizontalStackLayout>
+                <Label Text="Ruang cantikmu" Style="{StaticResource Eyebrow}" HorizontalTextAlignment="Center" />
+                <Label Text="Ritual kecil untuk percaya diri." Style="{StaticResource ScreenTitle}" HorizontalTextAlignment="Center" />
+                <Label Text="Booking perawatan favoritmu, coba simulasi gaya rambut, dan pantau riwayat kunjungan dalam satu aplikasi."
+                       Style="{StaticResource BodyCopy}" HorizontalTextAlignment="Center" />
+                <Button Text="Get Started" Style="{StaticResource PrimaryButton}" Clicked="OnGetStarted" />
+                <Button Text="Login" Style="{StaticResource SecondaryButton}" Clicked="OnLogin" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

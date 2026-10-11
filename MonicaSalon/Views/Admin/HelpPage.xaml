@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.HelpPage"
+             Title="Help"
+             BackgroundColor="{StaticResource Ivory}">
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="12">
+                <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+                <Label Text="SUPPORT • HELP" Style="{StaticResource Eyebrow}" />
+                <Label Text="Help" Style="{StaticResource ScreenTitle}" />
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="4">
+                        <Button Text="Booking help ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnToggleBooking" />
+                        <Label x:Name="BookingBody" Text="Create, confirm, reschedule, and cancel bookings from the Bookings tab." Style="{StaticResource BodyCopy}" FontSize="12" IsVisible="False" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="4">
+                        <Button Text="Cashier help ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnToggleCashier" />
+                        <Label x:Name="CashierBody" Text="Add services and products to cart, review the transaction, then take payment." Style="{StaticResource BodyCopy}" FontSize="12" IsVisible="False" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="4">
+                        <Button Text="Inventory help ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnToggleInventory" />
+                        <Label x:Name="InventoryBody" Text="Track retail and material stock, record stock-in and stock-out movements." Style="{StaticResource BodyCopy}" FontSize="12" IsVisible="False" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="4">
+                        <Button Text="Export help ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnToggleExport" />
+                        <Label x:Name="ExportBody" Text="Pick datasets and date range in Export Config, then download the XLSX file." Style="{StaticResource BodyCopy}" FontSize="12" IsVisible="False" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Support" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                        <Label Text="Mon - Sat 09.00 - 19.00 • hello@monicasalon.id • 0812-3456-7890" Style="{StaticResource BodyCopy}" FontSize="12" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Account" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                        <Button Text="Logout" Style="{StaticResource SecondaryButton}" Clicked="OnLogout" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Border x:Name="LogoutConfirm" IsVisible="False" BackgroundColor="#80000000" StrokeThickness="0" Padding="20" VerticalOptions="Fill" HorizontalOptions="Fill">
+            <Border Style="{StaticResource CardFrame}" VerticalOptions="Center">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Logout?" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="16" />
+                    <Label Text="You will return to the admin login screen." Style="{StaticResource BodyCopy}" />
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <Button Grid.Column="0" Text="Logout" Style="{StaticResource PrimaryButton}" Clicked="OnConfirmLogout" />
+                        <Button Grid.Column="1" Text="Cancel" Style="{StaticResource SecondaryButton}" Clicked="OnCancelLogout" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+        </Border>
+    </Grid>
+</ContentPage>

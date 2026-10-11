@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.EditInventoryPage"
+             Title="Edit Inventory"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBackClicked" />
+            <Label Text="A15 • Inventory" Style="{StaticResource Eyebrow}" />
+            <Label Text="Edit Inventory" Style="{StaticResource ScreenTitle}" />
+
+            <Border Style="{StaticResource CardFrame}">
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                    <VerticalStackLayout Spacing="2" HorizontalOptions="FillAndExpand">
+                        <Label Text="Conditioner Repair" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="14" />
+                        <Label Text="Current stock 4 botol" Style="{StaticResource MutedCopy}" />
+                    </VerticalStackLayout>
+                    <Border BackgroundColor="{StaticResource DangerBg}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="10,4" VerticalOptions="Center">
+                        <Label Text="Stok Rendah" TextColor="{StaticResource DangerText}" FontSize="11" FontAttributes="Bold" />
+                    </Border>
+                </HorizontalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Nama item" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Entry x:Name="NameEntry" Text="Conditioner Repair" Style="{StaticResource FieldEntry}" />
+
+                    <Label Text="Kategori" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Picker x:Name="CategoryPicker" Title="Pilih kategori" />
+
+                    <Label Text="Satuan" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Picker x:Name="UnitPicker" Title="Pilih satuan" />
+
+                    <Label Text="Minimum" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Entry x:Name="MinimumEntry" Text="5" Keyboard="Numeric" Style="{StaticResource FieldEntry}" />
+
+                    <Label Text="Catatan" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Editor x:Name="NotesEditor" Text="Display retail, restock mingguan." AutoSize="TextChanges" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Save Changes" Style="{StaticResource PrimaryButton}" Clicked="OnSaveClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

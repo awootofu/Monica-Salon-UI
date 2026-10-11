@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.ServiceFormPage"
+             Title="Service Form"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="CATALOGUE • SERVICE FORM" Style="{StaticResource Eyebrow}" />
+            <Label Text="Service Form" Style="{StaticResource ScreenTitle}" />
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Service name" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Entry x:Name="NameEntry" Text="Potong Rambut" Style="{StaticResource FieldEntry}" />
+                    <Label Text="Category" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                        <Button Grid.Column="0" Text="Haircut" Style="{StaticResource PrimaryButton}" HeightRequest="40" FontSize="11" Clicked="OnCategory" />
+                        <Button Grid.Column="1" Text="Coloring" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnCategory" />
+                        <Button Grid.Column="2" Text="Treatment" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnCategory" />
+                    </Grid>
+                    <Label Text="Description" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Editor x:Name="DescEditor" Text="Potong rambut profesional sesuai bentuk wajah." HeightRequest="80" BackgroundColor="#FDFBF9" TextColor="{StaticResource Charcoal}" />
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="Price (Rp)" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="12" />
+                            <Entry x:Name="PriceEntry" Text="50000" Keyboard="Numeric" Style="{StaticResource FieldEntry}" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="Duration" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="12" />
+                            <Entry x:Name="DurationEntry" Text="45 menit" Style="{StaticResource FieldEntry}" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <HorizontalStackLayout Spacing="8">
+                        <Label Text="Show image" Style="{StaticResource BodyCopy}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                        <Switch x:Name="ImageSwitch" IsToggled="False" Toggled="OnImageToggled" />
+                    </HorizontalStackLayout>
+                    <Image x:Name="ServiceImage" Source="haircut.jpg" HeightRequest="120" Aspect="AspectFill" IsVisible="False" />
+                    <HorizontalStackLayout Spacing="8">
+                        <Label Text="Active" Style="{StaticResource BodyCopy}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                        <CheckBox x:Name="ActiveCheck" IsChecked="True" Color="{StaticResource DustyRose}" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+            <Button Text="Save Service" Style="{StaticResource PrimaryButton}" Clicked="OnSave" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

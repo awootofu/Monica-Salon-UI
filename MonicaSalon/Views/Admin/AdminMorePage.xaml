@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.AdminMorePage"
+             Title="More"
+             BackgroundColor="{StaticResource Ivory}">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20" Spacing="12">
+                <Label Text="MORE" Style="{StaticResource Eyebrow}" />
+                <Label Text="More" Style="{StaticResource ScreenTitle}" />
+                <Border Style="{StaticResource CardFrame}">
+                    <HorizontalStackLayout Spacing="12">
+                        <Border BackgroundColor="{StaticResource DustyRose}" StrokeThickness="0" StrokeShape="RoundRectangle 24" WidthRequest="48" HeightRequest="48" Padding="0" VerticalOptions="Center">
+                            <Label Text="MA" TextColor="White" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                        </Border>
+                        <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                            <Label Text="Monica Admin" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="15" />
+                            <Label Text="Owner • monica@salon.id" Style="{StaticResource MutedCopy}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Border>
+                <Label Text="Catalogue" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="4">
+                        <Button Text="Service Management ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnServices" />
+                        <BoxView HeightRequest="1" Color="#E7DDD6" />
+                        <Button Text="Product Management ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnProducts" />
+                    </VerticalStackLayout>
+                </Border>
+                <Label Text="Operations" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="4">
+                        <Button Text="Salon Settings ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnSalonSettings" />
+                        <BoxView HeightRequest="1" Color="#E7DDD6" />
+                        <Button Text="User Management ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnUsers" />
+                        <BoxView HeightRequest="1" Color="#E7DDD6" />
+                        <Button Text="Salon Profile ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnSalonProfile" />
+                    </VerticalStackLayout>
+                </Border>
+                <Label Text="Reports" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="4">
+                        <Button Text="Financial ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnFinance" />
+                        <BoxView HeightRequest="1" Color="#E7DDD6" />
+                        <Button Text="Export ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnExport" />
+                        <BoxView HeightRequest="1" Color="#E7DDD6" />
+                        <Button Text="Help ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnHelp" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="8,6" BackgroundColor="White">
+            <Button Grid.Column="0" Text="Dashboard" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavDashboard" />
+            <Button Grid.Column="1" Text="Bookings" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavBookings" />
+            <Button Grid.Column="2" Text="Cashier" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavCashier" />
+            <Button Grid.Column="3" Text="Inventory" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavInventory" />
+            <Button Grid.Column="4" Text="More" FontSize="11" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="{StaticResource DeepCocoa}" Clicked="OnNavMore" />
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Admin.StockOutPage"
+             Title="Stock-Out"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBackClicked" />
+            <Label Text="A17 • Inventory" Style="{StaticResource Eyebrow}" />
+            <Label Text="Stock-Out" Style="{StaticResource ScreenTitle}" />
+            <Label Text="Catat pemakaian material atau penyesuaian keluar." Style="{StaticResource BodyCopy}" />
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="Item" Style="{StaticResource MutedCopy}" />
+                    <Label Text="Hair Dye Mocha" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="15" />
+                    <Label Text="12 tube" Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Jumlah keluar" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Entry x:Name="QtyEntry" Placeholder="cth: 2" Keyboard="Numeric" Style="{StaticResource FieldEntry}" TextChanged="OnQtyChanged" />
+
+                    <Label Text="Tanggal" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Label Text="14 Okt 2026" Style="{StaticResource BodyCopy}" />
+
+                    <Label Text="Alasan" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Picker x:Name="ReasonPicker" Title="Pilih alasan" SelectedIndexChanged="OnReasonChanged" />
+
+                    <Border x:Name="RelatedBox" Style="{StaticResource CardFrame}" Padding="10">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Related booking" Style="{StaticResource MutedCopy}" />
+                            <Label Text="MON-261014-028" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Label Text="Penjelasan" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
+                    <Editor x:Name="ExplanationEditor" Placeholder="cth: Pemakaian pewarnaan Bella Anisa" AutoSize="TextChanges" />
+
+                    <Label x:Name="PreviewLabel" Text="Sisa: 12 tube" Style="{StaticResource BodyCopy}" />
+                    <Label x:Name="ErrorLabel" Text="Jumlah tidak valid. Maksimal 12 tube." TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="False" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Save Stock-Out" Style="{StaticResource PrimaryButton}" Clicked="OnSaveClicked" />
+
+            <Border x:Name="SavedBox" Style="{StaticResource CardFrame}" IsVisible="False">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Stock-out tersimpan." FontAttributes="Bold" TextColor="{StaticResource SuccessText}" />
+                    <Label x:Name="SavedDetailLabel" Text="Stok diperbarui." Style="{StaticResource MutedCopy}" />
+                    <Button Text="View Updated Inventory" Style="{StaticResource SecondaryButton}" Clicked="OnViewInventoryClicked" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
