@@ -18,7 +18,7 @@
                 </VerticalStackLayout>
             </Border>
 
-            <CollectionView x:Name="ItemsList" SelectionMode="None">
+            <CollectionView x:Name="ItemsList" SelectionMode="None" ItemsSource="{Binding Lines}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Border Style="{StaticResource CardFrame}" Margin="0,4">
@@ -37,17 +37,17 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <Label x:Name="EmptyLabel" Text="Semua item dihapus. Kembali untuk tambah item." Style="{StaticResource MutedCopy}" IsVisible="False" />
+            <Label x:Name="EmptyLabel" Text="Semua item dihapus. Kembali untuk tambah item." Style="{StaticResource MutedCopy}" IsVisible="{Binding IsEmpty}" />
 
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="6">
                     <Grid ColumnDefinitions="*,Auto">
                         <Label Grid.Column="0" Text="Subtotal layanan" Style="{StaticResource BodyCopy}" />
-                        <Label Grid.Column="1" x:Name="ServiceSubtotalLabel" Text="Rp 200.000" Style="{StaticResource BodyCopy}" />
+                        <Label Grid.Column="1" x:Name="ServiceSubtotalLabel" Text="{Binding ServiceSubtotalText}" Style="{StaticResource BodyCopy}" />
                     </Grid>
                     <Grid ColumnDefinitions="*,Auto">
                         <Label Grid.Column="0" Text="Subtotal produk" Style="{StaticResource BodyCopy}" />
-                        <Label Grid.Column="1" x:Name="ProductSubtotalLabel" Text="Rp 79.000" Style="{StaticResource BodyCopy}" />
+                        <Label Grid.Column="1" x:Name="ProductSubtotalLabel" Text="{Binding ProductSubtotalText}" Style="{StaticResource BodyCopy}" />
                     </Grid>
                     <Grid ColumnDefinitions="*,Auto">
                         <Label Grid.Column="0" Text="Diskon" Style="{StaticResource BodyCopy}" />
@@ -55,13 +55,13 @@
                     </Grid>
                     <Grid ColumnDefinitions="*,Auto">
                         <Label Grid.Column="0" Text="Grand total" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
-                        <Label Grid.Column="1" x:Name="GrandTotalLabel" Text="Rp 279.000" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                        <Label Grid.Column="1" x:Name="GrandTotalLabel" Text="{Binding GrandTotalText}" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
                     </Grid>
                 </VerticalStackLayout>
             </Border>
 
             <Label Text="Catatan: pembayaran mencatat FIN otomatis dan mengurangi stok." Style="{StaticResource MutedCopy}" />
-            <Button x:Name="ContinueBtn" Text="Lanjut ke Pembayaran" Style="{StaticResource PrimaryButton}" Clicked="OnContinue" />
+            <Button x:Name="ContinueBtn" Text="Lanjut ke Pembayaran" Style="{StaticResource PrimaryButton}" Clicked="OnContinue" IsEnabled="{Binding CanContinue}" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

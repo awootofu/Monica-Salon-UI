@@ -1,19 +1,16 @@
+using MonicaSalon.ViewModels.Customer;
 namespace MonicaSalon.Views.Customer;
 public partial class ProfilePage : ContentPage
 {
-    private bool _editing;
+    private readonly ProfileViewModel _vm = new();
 
-    public ProfilePage() => InitializeComponent();
-
-    private async void OnEdit(object sender, EventArgs e)
+    public ProfilePage()
     {
-        _editing = !_editing;
-        NameEntry.IsEnabled = _editing;
-        PhoneEntry.IsEnabled = _editing;
-        EmailEntry.IsEnabled = _editing;
-        EditButton.Text = _editing ? "Simpan" : "Edit";
-        await Task.CompletedTask;
+        InitializeComponent();
+        BindingContext = _vm;
     }
+
+    private void OnEdit(object sender, EventArgs e) => _vm.ToggleEdit();
 
     private async void OnHistoryShortcut(object sender, EventArgs e)
     {
@@ -25,22 +22,14 @@ public partial class ProfilePage : ContentPage
         await Shell.Current.GoToAsync("settings");
     }
 
-    private async void OnLogout(object sender, EventArgs e)
-    {
-        LogoutConfirm.IsVisible = true;
-        await Task.CompletedTask;
-    }
+    private void OnLogout(object sender, EventArgs e) => _vm.ShowLogout();
 
     private async void OnConfirmLogout(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("login");
     }
 
-    private async void OnStay(object sender, EventArgs e)
-    {
-        LogoutConfirm.IsVisible = false;
-        await Task.CompletedTask;
-    }
+    private void OnStay(object sender, EventArgs e) => _vm.HideLogout();
 
     private async void OnHome(object sender, EventArgs e) => await Shell.Current.GoToAsync("home");
     private async void OnCatalogue(object sender, EventArgs e) => await Shell.Current.GoToAsync("catalogue");

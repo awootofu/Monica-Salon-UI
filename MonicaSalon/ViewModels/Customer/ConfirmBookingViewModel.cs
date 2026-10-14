@@ -1,5 +1,6 @@
 using MonicaSalon.Services;
-namespace MonicaSalon.ViewModels;
+using MonicaSalon.ViewModels;
+namespace MonicaSalon.ViewModels.Customer;
 public class ConfirmBookingViewModel : BaseViewModel
 {
     private string _hairstyleName = "Tanpa referensi gaya";

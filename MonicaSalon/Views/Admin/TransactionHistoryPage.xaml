@@ -9,9 +9,9 @@
             <VerticalStackLayout Padding="20" Spacing="12">
                 <Label Text="Transaksi" Style="{StaticResource Eyebrow}" />
                 <Label Text="Riwayat Transaksi" Style="{StaticResource ScreenTitle}" />
-                <SearchBar x:Name="HistorySearch" Placeholder="Cari ref, pelanggan, atau metode..." TextChanged="OnSearchChanged" />
-                <Label x:Name="SummaryLabel" Text="4 transaksi • Total Rp 617.000" Style="{StaticResource MutedCopy}" />
-                <CollectionView x:Name="HistoryList" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+                <SearchBar x:Name="HistorySearch" Placeholder="Cari ref, pelanggan, atau metode..." Text="{Binding Query}" />
+                <Label x:Name="SummaryLabel" Text="{Binding Summary}" Style="{StaticResource MutedCopy}" />
+                <CollectionView x:Name="HistoryList" ItemsSource="{Binding Transactions}" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border Style="{StaticResource CardFrame}" Margin="0,4">

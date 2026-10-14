@@ -22,20 +22,20 @@
                     <VerticalStackLayout Spacing="8">
                         <Grid ColumnDefinitions="*,Auto">
                             <Label Text="Data Pribadi" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
-                            <Button x:Name="EditButton" Text="Edit" Style="{StaticResource GhostButton}" Grid.Column="1" Clicked="OnEdit" />
+                            <Button x:Name="EditButton" Text="{Binding EditButtonText}" Style="{StaticResource GhostButton}" Grid.Column="1" Clicked="OnEdit" />
                         </Grid>
                         <Label Text="Nama" Style="{StaticResource MutedCopy}" />
-                        <Entry x:Name="NameEntry" Text="Bella Anisa" IsEnabled="False" />
+                        <Entry x:Name="NameEntry" Text="{Binding Name}" IsEnabled="{Binding IsEditing}" />
                         <Label Text="Telepon" Style="{StaticResource MutedCopy}" />
-                        <Entry x:Name="PhoneEntry" Text="+62 812-3456-7890" IsEnabled="False" />
+                        <Entry x:Name="PhoneEntry" Text="{Binding Phone}" IsEnabled="{Binding IsEditing}" />
                         <Label Text="Email" Style="{StaticResource MutedCopy}" />
-                        <Entry x:Name="EmailEntry" Text="bella@example.com" IsEnabled="False" />
+                        <Entry x:Name="EmailEntry" Text="{Binding Email}" IsEnabled="{Binding IsEditing}" />
                     </VerticalStackLayout>
                 </Border>
                 <Button Text="Booking History" Style="{StaticResource SecondaryButton}" Clicked="OnHistoryShortcut" />
                 <Button Text="Settings &amp; Privacy" Style="{StaticResource SecondaryButton}" Clicked="OnSettingsShortcut" />
                 <Button Text="Logout" Style="{StaticResource GhostButton}" Clicked="OnLogout" />
-                <Border x:Name="LogoutConfirm" Style="{StaticResource CardFrame}" IsVisible="False">
+                <Border x:Name="LogoutConfirm" Style="{StaticResource CardFrame}" IsVisible="{Binding IsLogoutVisible}">
                     <VerticalStackLayout Spacing="8">
                         <Label Text="Logout dari Monica Salon?" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" HorizontalTextAlignment="Center" />
                         <Grid ColumnDefinitions="*,*" ColumnSpacing="8">

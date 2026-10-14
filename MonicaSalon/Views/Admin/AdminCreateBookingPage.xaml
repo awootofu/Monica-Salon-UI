@@ -12,23 +12,59 @@
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Pelanggan" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
-                    <Button Style="{StaticResource SlotButton}" x:Name="CustomerBtnSiti" Text="Siti Anisa" FontSize="13" HeightRequest="46" Clicked="OnCustomerSelected" />
-                    <Button Style="{StaticResource SlotButton}" x:Name="CustomerBtnRachel" Text="Rachel Putri" FontSize="13" HeightRequest="46" Clicked="OnCustomerSelected" />
-                    <Button Style="{StaticResource SlotButton}" x:Name="CustomerBtnNew" Text="Pelanggan baru" FontSize="13" HeightRequest="46" Clicked="OnCustomerSelected" />
-                    <VerticalStackLayout x:Name="NewCustomerFields" Spacing="8" IsVisible="False">
+                    <Button Style="{StaticResource SlotButton}" x:Name="CustomerBtnSiti" Text="Siti Anisa" FontSize="13" HeightRequest="46" Clicked="OnCustomerSelected" CommandParameter="Siti Anisa">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" Binding="{Binding SelectedCustomer}" Value="Siti Anisa">
+                                <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <Button Style="{StaticResource SlotButton}" x:Name="CustomerBtnRachel" Text="Rachel Putri" FontSize="13" HeightRequest="46" Clicked="OnCustomerSelected" CommandParameter="Rachel Putri">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" Binding="{Binding SelectedCustomer}" Value="Rachel Putri">
+                                <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <Button Style="{StaticResource SlotButton}" x:Name="CustomerBtnNew" Text="Pelanggan baru" FontSize="13" HeightRequest="46" Clicked="OnCustomerSelected" CommandParameter="Pelanggan baru">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" Binding="{Binding SelectedCustomer}" Value="Pelanggan baru">
+                                <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <VerticalStackLayout x:Name="NewCustomerFields" Spacing="8" IsVisible="{Binding IsNewCustomer}">
                         <Label Text="Nama pelanggan" Style="{StaticResource MutedCopy}" />
-                        <Entry x:Name="NewNameEntry" Placeholder="Nama lengkap" />
+                        <Entry x:Name="NewNameEntry" Placeholder="Nama lengkap" Text="{Binding NewName}" />
                         <Label Text="No. HP" Style="{StaticResource MutedCopy}" />
-                        <Entry x:Name="NewPhoneEntry" Placeholder="+62 8xx-xxxx-xxxx" Keyboard="Telephone" />
+                        <Entry x:Name="NewPhoneEntry" Placeholder="+62 8xx-xxxx-xxxx" Keyboard="Telephone" Text="{Binding NewPhone}" />
                     </VerticalStackLayout>
                 </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Layanan" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
-                    <Button Style="{StaticResource SlotButton}" x:Name="ServiceBtnCut" Text="Potong Rambut • Rp 50.000" FontSize="13" HeightRequest="46" Clicked="OnServiceSelected" />
-                    <Button Style="{StaticResource SlotButton}" x:Name="ServiceBtnCream" Text="Creambath • Rp 80.000" FontSize="13" HeightRequest="46" Clicked="OnServiceSelected" />
-                    <Button Style="{StaticResource SlotButton}" x:Name="ServiceBtnColor" Text="Pewarnaan Rambut • Rp 200.000" FontSize="13" HeightRequest="46" Clicked="OnServiceSelected" />
+                    <Button Style="{StaticResource SlotButton}" x:Name="ServiceBtnCut" Text="Potong Rambut • Rp 50.000" FontSize="13" HeightRequest="46" Clicked="OnServiceSelected" CommandParameter="cut">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" Binding="{Binding SelectedServiceKey}" Value="cut">
+                                <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <Button Style="{StaticResource SlotButton}" x:Name="ServiceBtnCream" Text="Creambath • Rp 80.000" FontSize="13" HeightRequest="46" Clicked="OnServiceSelected" CommandParameter="cream">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" Binding="{Binding SelectedServiceKey}" Value="cream">
+                                <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <Button Style="{StaticResource SlotButton}" x:Name="ServiceBtnColor" Text="Pewarnaan Rambut • Rp 200.000" FontSize="13" HeightRequest="46" Clicked="OnServiceSelected" CommandParameter="color">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" Binding="{Binding SelectedServiceKey}" Value="color">
+                                <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
                 </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">
@@ -36,22 +72,46 @@
                     <Label Text="Jadwal" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
                     <Label Text="Rabu, 14 Oktober 2026" Style="{StaticResource MutedCopy}" />
                     <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Start" AlignItems="Start">
-                        <Button Style="{StaticResource SlotButton}" x:Name="Slot0900" Text="09.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnSlotSelected" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="Slot0900" Text="09.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnSlotSelected" CommandParameter="09.00">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedSlot}" Value="09.00">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
                         <Button Style="{StaticResource SlotButton}" x:Name="Slot1000" Text="10.00 penuh" IsEnabled="False" WidthRequest="100" HeightRequest="44" FontSize="12" Margin="0,0,6,6" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="Slot1130" Text="11.30" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnSlotSelected" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="Slot1300" Text="13.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnSlotSelected" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="Slot1130" Text="11.30" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnSlotSelected" CommandParameter="11.30">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedSlot}" Value="11.30">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+                        <Button Style="{StaticResource SlotButton}" x:Name="Slot1300" Text="13.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnSlotSelected" CommandParameter="13.00">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedSlot}" Value="13.00">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
                         <Button Style="{StaticResource SlotButton}" x:Name="Slot1400" Text="14.00 penuh" IsEnabled="False" WidthRequest="100" HeightRequest="44" FontSize="12" Margin="0,0,6,6" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="Slot1600" Text="16.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnSlotSelected" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="Slot1600" Text="16.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnSlotSelected" CommandParameter="16.00">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedSlot}" Value="16.00">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
                     </FlexLayout>
                 </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="6">
                     <Label Text="Catatan" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
-                    <Editor x:Name="NotesEditor" Placeholder="Contoh: pelanggan sensitif pewarna..." AutoSize="TextChanges" />
+                    <Editor x:Name="NotesEditor" Placeholder="Contoh: pelanggan sensitif pewarna..." AutoSize="TextChanges" Text="{Binding Notes}" />
                 </VerticalStackLayout>
             </Border>
-            <Label x:Name="SummaryLabel" Text="Pilih pelanggan, layanan, dan jam dahulu." Style="{StaticResource MutedCopy}" />
+            <Label x:Name="SummaryLabel" Text="{Binding SummaryText}" Style="{StaticResource MutedCopy}" />
             <Button Text="Simpan Booking" Style="{StaticResource PrimaryButton}" Clicked="OnSave" />
         </VerticalStackLayout>
     </ScrollView>

@@ -29,7 +29,7 @@
                 </Border>
 
                 <Label Text="Layanan populer" FontSize="17" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
-                <CollectionView x:Name="PopularList" SelectionMode="Single" SelectionChanged="OnServiceSelected">
+                <CollectionView x:Name="PopularList" ItemsSource="{Binding PopularServices}" SelectionMode="Single" SelectionChanged="OnServiceSelected">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border Style="{StaticResource CardFrame}" Margin="0,4">

@@ -1,23 +1,11 @@
-using MonicaSalon.Services;
+using MonicaSalon.ViewModels.Admin;
 namespace MonicaSalon.Views.Admin;
 public partial class FinanceOverviewPage : ContentPage
 {
     public FinanceOverviewPage()
     {
         InitializeComponent();
-        var records = MockDataService.FinancialRecords;
-        int income = records.Where(r => r.Type == "income").Sum(r => r.Amount);
-        int expense = records.Where(r => r.Type == "expense").Sum(r => r.Amount);
-        IncomeLabel.Text = MockDataService.FormatRupiah(income);
-        ExpenseLabel.Text = MockDataService.FormatRupiah(expense);
-        BalanceLabel.Text = MockDataService.FormatRupiah(income - expense);
-        LatestList.ItemsSource = records.TakeLast(3).Reverse().Select(r => new
-        {
-            r.Description,
-            Subtitle = $"{r.Date} • {r.Category}",
-            r.Reference,
-            DisplayAmount = (r.Type == "income" ? "+" : "-") + MockDataService.FormatRupiah(r.Amount)
-        }).ToList();
+        BindingContext = new FinanceOverviewViewModel();
     }
     private async void OnAddIncome(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-add-income");
     private async void OnAddExpense(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-add-expense");

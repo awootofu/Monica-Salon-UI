@@ -28,18 +28,18 @@
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Nominal (Rp)" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
-                    <Entry x:Name="AmountEntry" Placeholder="cth: 150000" Keyboard="Numeric" Style="{StaticResource FieldEntry}" />
+                    <Entry x:Name="AmountEntry" Placeholder="cth: 150000" Keyboard="Numeric" Style="{StaticResource FieldEntry}" Text="{Binding AmountText}" />
                     <Label Text="Keterangan (wajib)" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
-                    <Editor x:Name="DescEditor" Placeholder="Jelaskan pemasukan..." HeightRequest="80" BackgroundColor="#FDFBF9" TextColor="{StaticResource Charcoal}" />
+                    <Editor x:Name="DescEditor" Placeholder="Jelaskan pemasukan..." HeightRequest="80" BackgroundColor="#FDFBF9" TextColor="{StaticResource Charcoal}" Text="{Binding Description}" />
                     <Label Text="Referensi (opsional)" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
-                    <Entry x:Name="RefEntry" Placeholder="cth: MAN-INC-016" Style="{StaticResource FieldEntry}" />
+                    <Entry x:Name="RefEntry" Placeholder="cth: MAN-INC-016" Style="{StaticResource FieldEntry}" Text="{Binding Reference}" />
                 </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}" BackgroundColor="{StaticResource PendingBg}">
                 <Label Text="Lengkapi kategori, nominal lebih dari 0, dan keterangan sebelum menyimpan." Style="{StaticResource BodyCopy}" FontSize="12" />
             </Border>
             <Button Text="Simpan Pemasukan" Style="{StaticResource PrimaryButton}" Clicked="OnSave" />
-            <Label x:Name="ErrorLabel" Text="" TextColor="{StaticResource DangerText}" FontSize="12" />
+            <Label x:Name="ErrorLabel" Text="{Binding ErrorMessage}" TextColor="{StaticResource DangerText}" FontSize="12" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

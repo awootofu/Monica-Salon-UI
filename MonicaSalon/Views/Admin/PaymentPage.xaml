@@ -25,33 +25,33 @@
                 <Button x:Name="QrisBtn" Grid.Column="2" Text="QRIS" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnMethodSelected" />
             </Grid>
 
-            <VerticalStackLayout x:Name="CashBox" Spacing="8">
+            <VerticalStackLayout x:Name="CashBox" Spacing="8" IsVisible="{Binding IsCash}">
                 <Border Style="{StaticResource CardFrame}">
                     <VerticalStackLayout Spacing="8">
                         <Label Text="Nominal diterima" Style="{StaticResource MutedCopy}" />
-                        <Entry x:Name="CashEntry" Placeholder="cth 300000" Keyboard="Numeric" Style="{StaticResource FieldEntry}" TextChanged="OnCashChanged" />
+                        <Entry x:Name="CashEntry" Placeholder="cth 300000" Keyboard="Numeric" Style="{StaticResource FieldEntry}" Text="{Binding CashText}" />
                         <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="8">
                             <Button Grid.Column="0" Text="279rb" FontSize="11" HeightRequest="40" Style="{StaticResource SecondaryButton}" CommandParameter="279000" Clicked="OnQuickCash" />
                             <Button Grid.Column="1" Text="300rb" FontSize="11" HeightRequest="40" Style="{StaticResource SecondaryButton}" CommandParameter="300000" Clicked="OnQuickCash" />
                             <Button Grid.Column="2" Text="350rb" FontSize="11" HeightRequest="40" Style="{StaticResource SecondaryButton}" CommandParameter="350000" Clicked="OnQuickCash" />
                             <Button Grid.Column="3" Text="500rb" FontSize="11" HeightRequest="40" Style="{StaticResource SecondaryButton}" CommandParameter="500000" Clicked="OnQuickCash" />
                         </Grid>
-                        <Label x:Name="CashStatusLabel" Text="Masukkan nominal ≥ total." Style="{StaticResource MutedCopy}" />
+                        <Label x:Name="CashStatusLabel" Text="{Binding CashStatusText}" Style="{StaticResource MutedCopy}" />
                     </VerticalStackLayout>
                 </Border>
             </VerticalStackLayout>
 
-            <VerticalStackLayout x:Name="RefBox" Spacing="8" IsVisible="False">
+            <VerticalStackLayout x:Name="RefBox" Spacing="8" IsVisible="{Binding IsNonCash}">
                 <Border Style="{StaticResource CardFrame}">
                     <VerticalStackLayout Spacing="8">
                         <Label Text="No. referensi / ID transaksi" Style="{StaticResource MutedCopy}" />
-                        <Entry x:Name="RefEntry" Placeholder="cth TRF-2026-0001" Style="{StaticResource FieldEntry}" />
+                        <Entry x:Name="RefEntry" Placeholder="cth TRF-2026-0001" Style="{StaticResource FieldEntry}" Text="{Binding ReferenceText}" />
                         <Label Text="Pembayaran diverifikasi via gateway sebelum menyimpan." Style="{StaticResource MutedCopy}" />
                     </VerticalStackLayout>
                 </Border>
             </VerticalStackLayout>
 
-            <Button x:Name="PayBtn" Text="Selesaikan Pembayaran" Style="{StaticResource PrimaryButton}" Clicked="OnComplete" IsEnabled="False" />
+            <Button x:Name="PayBtn" Text="Selesaikan Pembayaran" Style="{StaticResource PrimaryButton}" Clicked="OnComplete" IsEnabled="{Binding CanPay}" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

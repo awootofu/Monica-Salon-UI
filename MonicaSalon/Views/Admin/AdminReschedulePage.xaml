@@ -20,9 +20,27 @@
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Tanggal Baru" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
                     <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Start" AlignItems="Start">
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn15" Text="15 Kam" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn16" Text="16 Jum" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn17" Text="17 Sab" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn15" Text="15 Kam" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" CommandParameter="15 Kam">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedDate}" Value="15 Kam">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn16" Text="16 Jum" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" CommandParameter="16 Jum">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedDate}" Value="16 Jum">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn17" Text="17 Sab" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" CommandParameter="17 Sab">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedDate}" Value="17 Sab">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
                         <Button Style="{StaticResource SlotButton}" x:Name="DateBtn18" Text="18 Min" IsEnabled="False" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" />
                     </FlexLayout>
                 </VerticalStackLayout>
@@ -31,18 +49,57 @@
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Jam Baru" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
                     <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Start" AlignItems="Start">
-                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn0900" Text="09.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn1000" Text="10.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn1130" Text="11.30" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn0900" Text="09.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" CommandParameter="09.00">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedTime}" Value="09.00">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn1000" Text="10.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" CommandParameter="10.00">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedTime}" Value="10.00">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn1130" Text="11.30" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" CommandParameter="11.30">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedTime}" Value="11.30">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
                         <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn1300" Text="13.00 penuh" IsEnabled="False" WidthRequest="100" HeightRequest="44" FontSize="12" Margin="0,0,6,6" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn1400" Text="14.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn1600" Text="16.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn1400" Text="14.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" CommandParameter="14.00">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedTime}" Value="14.00">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn1600" Text="16.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" CommandParameter="16.00">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedTime}" Value="16.00">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
                     </FlexLayout>
-                    <Label x:Name="ConflictLabel" Text="Pilih tanggal dan jam baru." Style="{StaticResource MutedCopy}" />
+                    <Label x:Name="ConflictLabel" Text="{Binding ConflictText}" Style="{StaticResource MutedCopy}">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding IsConflict}" Value="True">
+                                <Setter Property="TextColor" Value="{StaticResource DangerText}" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Label" Binding="{Binding IsReady}" Value="True">
+                                <Setter Property="TextColor" Value="{StaticResource SuccessText}" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
                 </VerticalStackLayout>
             </Border>
-            <Button x:Name="SaveBtn" Text="Simpan Perubahan" Style="{StaticResource PrimaryButton}" Clicked="OnSave" />
-            <Border x:Name="SuccessBox" Style="{StaticResource CardFrame}" IsVisible="False">
+            <Button x:Name="SaveBtn" Text="Simpan Perubahan" Style="{StaticResource PrimaryButton}" Clicked="OnSave" IsEnabled="{Binding CanSave}" />
+            <Border x:Name="SuccessBox" Style="{StaticResource CardFrame}" IsVisible="{Binding IsSaved}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Jadwal berhasil diubah." FontAttributes="Bold" FontSize="14" TextColor="{StaticResource SuccessText}" />
                     <Button Text="Kembali ke Detail" Style="{StaticResource SecondaryButton}" Clicked="OnBackToDetail" />

@@ -1,44 +1,11 @@
-using MonicaSalon.Services;
+using MonicaSalon.ViewModels.Admin;
 namespace MonicaSalon.Views.Admin;
 public partial class AdminBookingsPage : ContentPage
 {
-    private string _filter = "Semua";
-    private string _query = string.Empty;
-
     public AdminBookingsPage()
     {
         InitializeComponent();
-        StatusPicker.ItemsSource = new List<string> { "Semua", "Menunggu Konfirmasi", "Dikonfirmasi", "Selesai", "Dibatalkan" };
-        StatusPicker.SelectedIndex = 0;
-        ApplyFilter();
-    }
-
-    private void ApplyFilter()
-    {
-        var list = MockDataService.AdminBookings.AsEnumerable();
-        if (_filter != "Semua")
-            list = list.Where(x => x.Status == _filter);
-        if (!string.IsNullOrWhiteSpace(_query))
-        {
-            var q = _query.ToLowerInvariant();
-            list = list.Where(x => x.Customer.ToLowerInvariant().Contains(q)
-                || x.Ref.ToLowerInvariant().Contains(q)
-                || x.Service.ToLowerInvariant().Contains(q));
-        }
-        BookingsList.ItemsSource = list.ToList();
-    }
-
-    private async void OnSearch(object sender, TextChangedEventArgs e)
-    {
-        _query = e.NewTextValue ?? string.Empty;
-        ApplyFilter();
-        await Task.CompletedTask;
-    }
-
-    private void OnStatusChanged(object sender, EventArgs e)
-    {
-        _filter = StatusPicker.SelectedItem?.ToString() ?? "Semua";
-        ApplyFilter();
+        BindingContext = new AdminBookingsPageViewModel();
     }
 
     private async void OnDateSelected(object sender, EventArgs e)

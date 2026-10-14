@@ -42,7 +42,7 @@
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Referensi Gaya" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
-                    <Label x:Name="HairstyleStatusLabel" Text="Belum ada gaya favorit dipilih." Style="{StaticResource MutedCopy}" />
+                    <Label x:Name="HairstyleStatusLabel" Text="{Binding HairstyleStatusText}" Style="{StaticResource MutedCopy}" />
                     <Button x:Name="BrowseStyleButton" Text="Lihat Buku Gaya" Style="{StaticResource SecondaryButton}" Clicked="OnBrowseStyles" />
                 </VerticalStackLayout>
             </Border>
@@ -54,7 +54,7 @@
                 </VerticalStackLayout>
             </Border>
             <Button Text="Logout" Style="{StaticResource GhostButton}" Clicked="OnLogout" />
-            <Border x:Name="LogoutConfirm" Style="{StaticResource CardFrame}" IsVisible="False">
+            <Border x:Name="LogoutConfirm" Style="{StaticResource CardFrame}" IsVisible="{Binding IsLogoutVisible}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Logout dari Monica Salon?" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" HorizontalTextAlignment="Center" />
                     <Grid ColumnDefinitions="*,*" ColumnSpacing="8">

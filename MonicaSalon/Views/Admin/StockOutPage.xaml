@@ -22,15 +22,15 @@
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Jumlah keluar" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
-                    <Entry x:Name="QtyEntry" Placeholder="cth: 2" Keyboard="Numeric" Style="{StaticResource FieldEntry}" TextChanged="OnQtyChanged" />
+                    <Entry x:Name="QtyEntry" Placeholder="cth: 2" Keyboard="Numeric" Style="{StaticResource FieldEntry}" Text="{Binding QtyText}" />
 
                     <Label Text="Tanggal" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
                     <Label Text="14 Okt 2026" Style="{StaticResource BodyCopy}" />
 
                     <Label Text="Alasan" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
-                    <Picker x:Name="ReasonPicker" Title="Pilih alasan" SelectedIndexChanged="OnReasonChanged" />
+                    <Picker x:Name="ReasonPicker" Title="Pilih alasan" ItemsSource="{Binding Reasons}" SelectedItem="{Binding SelectedReason}" />
 
-                    <Border x:Name="RelatedBox" Style="{StaticResource CardFrame}" Padding="10">
+                    <Border x:Name="RelatedBox" Style="{StaticResource CardFrame}" Padding="10" IsVisible="{Binding IsRelatedVisible}">
                         <VerticalStackLayout Spacing="2">
                             <Label Text="Related booking" Style="{StaticResource MutedCopy}" />
                             <Label Text="MON-261014-028" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
@@ -40,17 +40,17 @@
                     <Label Text="Penjelasan" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
                     <Editor x:Name="ExplanationEditor" Placeholder="cth: Pemakaian pewarnaan Bella Anisa" AutoSize="TextChanges" />
 
-                    <Label x:Name="PreviewLabel" Text="Sisa: 12 tube" Style="{StaticResource BodyCopy}" />
-                    <Label x:Name="ErrorLabel" Text="Jumlah tidak valid. Maksimal 12 tube." TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="False" />
+                    <Label x:Name="PreviewLabel" Text="{Binding PreviewText}" Style="{StaticResource BodyCopy}" />
+                    <Label x:Name="ErrorLabel" Text="{Binding ErrorText}" TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="{Binding HasError}" />
                 </VerticalStackLayout>
             </Border>
 
             <Button Text="Simpan Stok Keluar" Style="{StaticResource PrimaryButton}" Clicked="OnSaveClicked" />
 
-            <Border x:Name="SavedBox" Style="{StaticResource CardFrame}" IsVisible="False">
+            <Border x:Name="SavedBox" Style="{StaticResource CardFrame}" IsVisible="{Binding IsSaved}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Stock-out tersimpan." FontAttributes="Bold" TextColor="{StaticResource SuccessText}" />
-                    <Label x:Name="SavedDetailLabel" Text="Stok diperbarui." Style="{StaticResource MutedCopy}" />
+                    <Label x:Name="SavedDetailLabel" Text="{Binding SavedDetail}" Style="{StaticResource MutedCopy}" />
                     <Button Text="View Updated Inventory" Style="{StaticResource SecondaryButton}" Clicked="OnViewInventoryClicked" />
                 </VerticalStackLayout>
             </Border>

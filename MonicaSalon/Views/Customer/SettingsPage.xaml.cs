@@ -1,7 +1,14 @@
+using MonicaSalon.ViewModels.Customer;
 namespace MonicaSalon.Views.Customer;
 public partial class SettingsPage : ContentPage
 {
-    public SettingsPage() => InitializeComponent();
+    private readonly SettingsViewModel _vm = new();
+
+    public SettingsPage()
+    {
+        InitializeComponent();
+        BindingContext = _vm;
+    }
 
     private async void OnBack(object sender, EventArgs e)
     {
@@ -11,10 +18,7 @@ public partial class SettingsPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        var h = Services.BookingContext.SelectedHairstyle;
-        HairstyleStatusLabel.Text = h == null
-            ? "Belum ada gaya favorit dipilih."
-            : $"Favorit: {h.Name} • {h.Category}";
+        _vm.Refresh();
     }
 
     private async void OnBrowseStyles(object sender, EventArgs e)
@@ -28,20 +32,12 @@ public partial class SettingsPage : ContentPage
         await Task.CompletedTask;
     }
 
-    private async void OnLogout(object sender, EventArgs e)
-    {
-        LogoutConfirm.IsVisible = true;
-        await Task.CompletedTask;
-    }
+    private void OnLogout(object sender, EventArgs e) => _vm.ShowLogout();
 
     private async void OnConfirmLogout(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("login");
     }
 
-    private async void OnStay(object sender, EventArgs e)
-    {
-        LogoutConfirm.IsVisible = false;
-        await Task.CompletedTask;
-    }
+    private void OnStay(object sender, EventArgs e) => _vm.HideLogout();
 }

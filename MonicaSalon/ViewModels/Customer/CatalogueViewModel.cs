@@ -1,6 +1,7 @@
 using MonicaSalon.Models;
 using MonicaSalon.Services;
-namespace MonicaSalon.ViewModels;
+using MonicaSalon.ViewModels;
+namespace MonicaSalon.ViewModels.Customer;
 public class CatalogueViewModel : BaseViewModel
 {
     public List<string> Categories { get; } = new()

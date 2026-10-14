@@ -13,24 +13,24 @@
 
                 <SearchBar x:Name="InventorySearch"
                            Placeholder="Cari item..."
-                           TextChanged="OnSearchTextChanged" />
+                           Text="{Binding Query}" />
 
                 <Border Style="{StaticResource CardFrame}" Padding="12,4">
-                    <Picker x:Name="CategoryPicker"
-                            FontSize="14"
+                    <Picker FontSize="14"
                             TextColor="{StaticResource DeepCocoa}"
                             HeightRequest="48"
                             VerticalOptions="CenterAndExpand"
                             VerticalTextAlignment="Center"
-                            SelectedIndexChanged="OnCategoryChanged" />
+                            ItemsSource="{Binding Categories}"
+                            SelectedItem="{Binding SelectedCategory}" />
                 </Border>
 
                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
                     <Label Text="Hanya stok mau habis" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
-                    <Switch x:Name="LowStockSwitch" Toggled="OnLowStockToggled" />
+                    <Switch x:Name="LowStockSwitch" IsToggled="{Binding ShowLowOnly}" />
                 </HorizontalStackLayout>
 
-                <CollectionView x:Name="InventoryList" SelectionMode="Single" SelectionChanged="OnItemSelected">
+                <CollectionView x:Name="InventoryList" ItemsSource="{Binding Items}" SelectionMode="Single" SelectionChanged="OnItemSelected">
                     <CollectionView.EmptyView>
                         <Label Text="Tidak ada item yang cocok." Style="{StaticResource MutedCopy}" HorizontalTextAlignment="Center" />
                     </CollectionView.EmptyView>

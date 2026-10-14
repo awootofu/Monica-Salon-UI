@@ -1,15 +1,19 @@
+using MonicaSalon.ViewModels.Customer;
 namespace MonicaSalon.Views.Customer;
 public partial class BookingSuccessPage : ContentPage
 {
-    public BookingSuccessPage() => InitializeComponent();
+    private readonly BookingSuccessViewModel _vm = new();
+
+    public BookingSuccessPage()
+    {
+        InitializeComponent();
+        BindingContext = _vm;
+    }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        var h = Services.BookingContext.SelectedHairstyle;
-        HairstyleRefLabel.Text = h == null
-            ? "Referensi gaya: tanpa referensi"
-            : $"Referensi gaya: {h.Name} • {h.Category}";
+        _vm.Refresh();
     }
 
     private async void OnViewBookings(object sender, EventArgs e)

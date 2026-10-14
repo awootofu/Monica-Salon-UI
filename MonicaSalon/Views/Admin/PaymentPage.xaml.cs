@@ -1,25 +1,14 @@
-using MonicaSalon.Services;
+using MonicaSalon.ViewModels.Admin;
 namespace MonicaSalon.Views.Admin;
 
 public partial class PaymentPage : ContentPage
 {
-    private const int Total = 279000;
-    private string _method = "Cash";
+    private PaymentViewModel Vm => (PaymentViewModel)BindingContext;
 
     public PaymentPage()
     {
         InitializeComponent();
-        Refresh();
-    }
-
-    private void Refresh()
-    {
-        CashBox.IsVisible = _method == "Cash";
-        RefBox.IsVisible = _method != "Cash";
-        PaintMethod(CashBtn, _method == "Cash");
-        PaintMethod(TransferBtn, _method == "Transfer");
-        PaintMethod(QrisBtn, _method == "QRIS");
-        Validate();
+        BindingContext = new PaymentViewModel();
     }
 
     private void PaintMethod(Button b, bool active)
@@ -28,34 +17,11 @@ public partial class PaymentPage : ContentPage
             b.Style = st;
     }
 
-    private static int ParseAmount(string? text)
+    private void RepaintMethods()
     {
-        if (string.IsNullOrWhiteSpace(text)) return 0;
-        var digits = new string(text.Where(char.IsDigit).ToArray());
-        return int.TryParse(digits, out var v) ? v : 0;
-    }
-
-    private void Validate()
-    {
-        if (_method != "Cash")
-        {
-            PayBtn.IsEnabled = true;
-            return;
-        }
-        int received = ParseAmount(CashEntry?.Text);
-        if (received >= Total && received > 0)
-        {
-            CashStatusLabel.Text = $"Kembalian {MockDataService.FormatRupiah(received - Total)}";
-            PayBtn.IsEnabled = true;
-        }
-        else
-        {
-            int due = Total - received;
-            CashStatusLabel.Text = received <= 0
-                ? "Masukkan nominal ≥ total."
-                : $"Kurang {MockDataService.FormatRupiah(due)}";
-            PayBtn.IsEnabled = false;
-        }
+        PaintMethod(CashBtn, Vm.Method == "Cash");
+        PaintMethod(TransferBtn, Vm.Method == "Transfer");
+        PaintMethod(QrisBtn, Vm.Method == "QRIS");
     }
 
     private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-transaction-review");
@@ -63,22 +29,15 @@ public partial class PaymentPage : ContentPage
     private async void OnMethodSelected(object sender, EventArgs e)
     {
         if (sender is not Button b) return;
-        _method = b.Text;
-        Refresh();
+        Vm.SelectMethod(b.Text);
+        RepaintMethods();
         await Task.CompletedTask;
     }
 
     private async void OnQuickCash(object? sender, EventArgs e)
     {
         if (sender is not Button b || b.CommandParameter is not string amount) return;
-        CashEntry.Text = amount;
-        Validate();
-        await Task.CompletedTask;
-    }
-
-    private async void OnCashChanged(object sender, TextChangedEventArgs e)
-    {
-        Validate();
+        Vm.SetQuickCash(amount);
         await Task.CompletedTask;
     }
 

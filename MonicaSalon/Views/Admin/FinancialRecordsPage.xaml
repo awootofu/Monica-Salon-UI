@@ -18,19 +18,16 @@
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Kategori" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="12" />
-                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
-                        <Button Grid.Column="0" x:Name="CatAllBtn" Text="All" Style="{StaticResource PrimaryButton}" HeightRequest="44" FontSize="12" Clicked="OnCategoryAll" />
-                        <Button Grid.Column="1" x:Name="CatInvBtn" Text="Belanja Stok" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnCategoryInv" />
-                    </Grid>
+                    <Border Style="{StaticResource CardFrame}" Padding="12,4">
+                        <Picker FontSize="14" TextColor="{StaticResource DeepCocoa}" HeightRequest="48" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" />
+                    </Border>
                     <Label Text="Type" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="12" />
-                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
-                        <Button Grid.Column="0" x:Name="TypeAllBtn" Text="All" Style="{StaticResource PrimaryButton}" HeightRequest="44" FontSize="12" Clicked="OnTypeAll" />
-                        <Button Grid.Column="1" x:Name="TypeIncomeBtn" Text="Pemasukan" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnTypeIncome" />
-                        <Button Grid.Column="2" x:Name="TypeExpenseBtn" Text="Pengeluaran" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnTypeExpense" />
-                    </Grid>
+                    <Border Style="{StaticResource CardFrame}" Padding="12,4">
+                        <Picker FontSize="14" TextColor="{StaticResource DeepCocoa}" HeightRequest="48" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" ItemsSource="{Binding Types}" SelectedItem="{Binding SelectedType}" />
+                    </Border>
                 </VerticalStackLayout>
             </Border>
-            <CollectionView x:Name="RecordsList" SelectionMode="Single" SelectionChanged="OnRecordSelected">
+            <CollectionView x:Name="RecordsList" ItemsSource="{Binding Records}" SelectionMode="Single" SelectionChanged="OnRecordSelected">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Border Style="{StaticResource CardFrame}" Margin="0,4">

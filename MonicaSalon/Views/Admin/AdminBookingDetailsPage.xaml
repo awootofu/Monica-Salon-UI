@@ -13,14 +13,43 @@
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Status" Style="{StaticResource MutedCopy}" />
                     <Border x:Name="StatusBadge" BackgroundColor="{StaticResource PendingBg}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="10,4" HorizontalOptions="Start">
-                        <Label x:Name="StatusLabel" Text="Menunggu Konfirmasi" TextColor="{StaticResource PendingText}" FontSize="12" FontAttributes="Bold" />
+                        <Border.Triggers>
+                            <DataTrigger TargetType="Border" Binding="{Binding Status}" Value="Menunggu Konfirmasi">
+                                <Setter Property="BackgroundColor" Value="{StaticResource PendingBg}" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Border" Binding="{Binding Status}" Value="Dibatalkan">
+                                <Setter Property="BackgroundColor" Value="{StaticResource DangerBg}" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Border" Binding="{Binding Status}" Value="Dikonfirmasi">
+                                <Setter Property="BackgroundColor" Value="{StaticResource SuccessBg}" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Border" Binding="{Binding Status}" Value="Selesai">
+                                <Setter Property="BackgroundColor" Value="{StaticResource SuccessBg}" />
+                            </DataTrigger>
+                        </Border.Triggers>
+                        <Label x:Name="StatusLabel" Text="{Binding Status}" TextColor="{StaticResource PendingText}" FontSize="12" FontAttributes="Bold">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Menunggu Konfirmasi">
+                                    <Setter Property="TextColor" Value="{StaticResource PendingText}" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Dibatalkan">
+                                    <Setter Property="TextColor" Value="{StaticResource DangerText}" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Dikonfirmasi">
+                                    <Setter Property="TextColor" Value="{StaticResource SuccessText}" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Selesai">
+                                    <Setter Property="TextColor" Value="{StaticResource SuccessText}" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
                     </Border>
-                    <Label x:Name="CancelNote" Text="Booking dibatalkan." TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="False" />
-                    <Button x:Name="ConfirmBtn" Text="Konfirmasi Booking" Style="{StaticResource PrimaryButton}" Clicked="OnConfirm" />
-                    <Button x:Name="CompleteBtn" Text="Tandai Selesai" Style="{StaticResource PrimaryButton}" IsVisible="False" Clicked="OnComplete" />
-                    <Button x:Name="CashierBtn" Text="Lanjut ke Kasir" Style="{StaticResource PrimaryButton}" IsVisible="False" Clicked="OnCashier" />
-                    <Button x:Name="RescheduleBtn" Text="Ubah Jadwal" Style="{StaticResource SecondaryButton}" Clicked="OnReschedule" />
-                    <Button x:Name="CancelBtn" Text="Batalkan Booking" Style="{StaticResource GhostButton}" Clicked="OnCancel" />
+                    <Label x:Name="CancelNote" Text="Booking dibatalkan." TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="{Binding ShowCancelNote}" />
+                    <Button x:Name="ConfirmBtn" Text="Konfirmasi Booking" Style="{StaticResource PrimaryButton}" Clicked="OnConfirm" IsVisible="{Binding ShowConfirm}" />
+                    <Button x:Name="CompleteBtn" Text="Tandai Selesai" Style="{StaticResource PrimaryButton}" IsVisible="{Binding ShowComplete}" Clicked="OnComplete" />
+                    <Button x:Name="CashierBtn" Text="Lanjut ke Kasir" Style="{StaticResource PrimaryButton}" IsVisible="{Binding ShowCashier}" Clicked="OnCashier" />
+                    <Button x:Name="RescheduleBtn" Text="Ubah Jadwal" Style="{StaticResource SecondaryButton}" Clicked="OnReschedule" IsVisible="{Binding ShowReschedule}" />
+                    <Button x:Name="CancelBtn" Text="Batalkan Booking" Style="{StaticResource GhostButton}" Clicked="OnCancel" IsVisible="{Binding ShowCancel}" />
                 </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">

@@ -14,20 +14,20 @@
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Nama lengkap" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="NameEntry" Placeholder="Bella Anisa" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
+                    <Entry x:Name="NameEntry" Placeholder="Bella Anisa" Text="{Binding Name}" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
                     <Label Text="No. HP" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="PhoneEntry" Placeholder="08xx xxxx xxxx" Keyboard="Telephone" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
+                    <Entry x:Name="PhoneEntry" Placeholder="08xx xxxx xxxx" Keyboard="Telephone" Text="{Binding Phone}" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
                     <Label Text="Email" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="EmailEntry" Placeholder="nama@email.com" Keyboard="Email" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
+                    <Entry x:Name="EmailEntry" Placeholder="nama@email.com" Keyboard="Email" Text="{Binding Email}" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
                     <Label Text="Password" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="PasswordEntry" Placeholder="Minimal 6 karakter" IsPassword="True" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
+                    <Entry x:Name="PasswordEntry" Placeholder="Minimal 6 karakter" IsPassword="True" Text="{Binding Password}" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
                     <Label Text="Konfirmasi password" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="ConfirmEntry" Placeholder="Ulangi password" IsPassword="True" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
+                    <Entry x:Name="ConfirmEntry" Placeholder="Ulangi password" IsPassword="True" Text="{Binding Confirm}" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
                     <HorizontalStackLayout Spacing="8">
-                        <CheckBox x:Name="TermsCheck" Color="{StaticResource DustyRose}" VerticalOptions="Center" />
+                        <CheckBox x:Name="TermsCheck" Color="{StaticResource DustyRose}" VerticalOptions="Center" IsChecked="{Binding AcceptedTerms}" />
                         <Label Text="Saya setuju dengan syarat &amp; ketentuan." Style="{StaticResource MutedCopy}" VerticalOptions="Center" />
                     </HorizontalStackLayout>
-                    <Label x:Name="ErrorLabel" Text="" TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="False" />
+                    <Label x:Name="ErrorLabel" Text="{Binding ErrorMessage}" TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="{Binding HasError}" />
                     <Button Text="Daftar" Style="{StaticResource PrimaryButton}" Clicked="OnRegister" />
                 </VerticalStackLayout>
             </Border>

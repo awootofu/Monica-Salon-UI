@@ -1,5 +1,5 @@
 using MonicaSalon.Services;
-using MonicaSalon.ViewModels;
+using MonicaSalon.ViewModels.Customer;
 namespace MonicaSalon.Views.Customer;
 public partial class ConfirmBookingPage : ContentPage
 {

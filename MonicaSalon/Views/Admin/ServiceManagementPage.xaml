@@ -9,10 +9,10 @@
             <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
             <Label Text="Katalog" Style="{StaticResource Eyebrow}" />
             <Label Text="Kelola Layanan" Style="{StaticResource ScreenTitle}" />
-            <SearchBar x:Name="ServiceSearch" Placeholder="Cari layanan..." TextChanged="OnSearchChanged" BackgroundColor="White" />
+            <SearchBar x:Name="ServiceSearch" Placeholder="Cari layanan..." Text="{Binding Query}" BackgroundColor="White" />
             <Button Text="+ Tambah Layanan" Style="{StaticResource PrimaryButton}" Clicked="OnAddService" />
         </VerticalStackLayout>
-        <CollectionView Grid.Row="1" x:Name="ServicesList" SelectionMode="None">
+        <CollectionView Grid.Row="1" x:Name="ServicesList" ItemsSource="{Binding FilteredServices}" SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Border Style="{StaticResource CardFrame}" Margin="0,4">
@@ -36,6 +36,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label Grid.Row="2" x:Name="CountLabel" Text="9 services" Style="{StaticResource MutedCopy}" HorizontalTextAlignment="Center" />
+        <Label Grid.Row="2" x:Name="CountLabel" Text="{Binding CountText}" Style="{StaticResource MutedCopy}" HorizontalTextAlignment="Center" />
     </Grid>
 </ContentPage>

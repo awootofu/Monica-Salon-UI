@@ -17,7 +17,7 @@
                             <Button x:Name="OriginBookingBtn" Grid.Column="0" Text="Dari Booking" Style="{StaticResource PrimaryButton}" HeightRequest="44" FontSize="12" Clicked="OnOriginSelected" />
                             <Button x:Name="OriginWalkinBtn" Grid.Column="1" Text="Walk-in" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnOriginSelected" />
                         </Grid>
-                        <Label x:Name="OriginLabel" Text="Booking: MON-261014-028 • Bella Anisa" Style="{StaticResource MutedCopy}" />
+                        <Label x:Name="OriginLabel" Text="{Binding OriginText}" Style="{StaticResource MutedCopy}" />
                     </VerticalStackLayout>
                 </Border>
 
@@ -26,9 +26,9 @@
                     <Button x:Name="TabProductBtn" Grid.Column="1" Text="Produk" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnTabSelected" />
                 </Grid>
 
-                <SearchBar x:Name="CatalogSearch" Placeholder="Cari layanan atau produk..." TextChanged="OnSearchChanged" />
+                <SearchBar x:Name="CatalogSearch" Placeholder="Cari layanan atau produk..." Text="{Binding Query}" />
 
-                <CollectionView x:Name="CatalogList" SelectionMode="None">
+                <CollectionView x:Name="CatalogList" SelectionMode="None" ItemsSource="{Binding CatalogRows}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border Style="{StaticResource CardFrame}" Margin="0,4">
@@ -48,8 +48,8 @@
                 <Border Style="{StaticResource CardFrame}">
                     <VerticalStackLayout Spacing="8">
                         <Label Text="Item Dipilih" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
-                        <Label x:Name="EmptyCartLabel" Text="Belum ada item dipilih." Style="{StaticResource MutedCopy}" />
-                        <CollectionView x:Name="CartList" SelectionMode="None">
+                        <Label x:Name="EmptyCartLabel" Text="Belum ada item dipilih." Style="{StaticResource MutedCopy}" IsVisible="{Binding IsCartEmpty}" />
+                        <CollectionView x:Name="CartList" SelectionMode="None" ItemsSource="{Binding CartLines}">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid ColumnDefinitions="*,Auto" Padding="0,6" ColumnSpacing="8">
@@ -62,10 +62,10 @@
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>
-                        <Label x:Name="TotalLabel" Text="Total: Rp 0" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
-                        <Label x:Name="DraftLabel" Text="Draf tersimpan." TextColor="{StaticResource SuccessText}" FontSize="12" FontAttributes="Bold" IsVisible="False" />
+                        <Label x:Name="TotalLabel" Text="{Binding TotalText}" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                        <Label x:Name="DraftLabel" Text="Draf tersimpan." TextColor="{StaticResource SuccessText}" FontSize="12" FontAttributes="Bold" IsVisible="{Binding IsDraftSaved}" />
                         <Button Text="Simpan Transaksi" Style="{StaticResource SecondaryButton}" Clicked="OnSaveDraft" />
-                        <Button x:Name="ProceedBtn" Text="Lanjut ke Pembayaran" Style="{StaticResource PrimaryButton}" Clicked="OnProceed" IsEnabled="False" />
+                        <Button x:Name="ProceedBtn" Text="Lanjut ke Pembayaran" Style="{StaticResource PrimaryButton}" Clicked="OnProceed" IsEnabled="{Binding CanProceed}" />
                     </VerticalStackLayout>
                 </Border>
             </VerticalStackLayout>

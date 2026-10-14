@@ -1,47 +1,11 @@
-using MonicaSalon.Services;
+using MonicaSalon.ViewModels.Admin;
 namespace MonicaSalon.Views.Admin;
 public partial class InventoryOverviewPage : ContentPage
 {
-    private string _category = "Semua";
-    private string _search = string.Empty;
-    private bool _lowOnly;
-
     public InventoryOverviewPage()
     {
         InitializeComponent();
-        CategoryPicker.ItemsSource = new List<string> { "Semua", "Retail", "Coloring", "Treatment" };
-        CategoryPicker.SelectedIndex = 0;
-        ApplyFilters();
-    }
-
-    private void ApplyFilters()
-    {
-        var q = MockDataService.Inventory.AsEnumerable();
-        if (_category != "Semua")
-            q = q.Where(i => i.Category == _category);
-        if (!string.IsNullOrWhiteSpace(_search))
-            q = q.Where(i => i.Name.Contains(_search, StringComparison.OrdinalIgnoreCase));
-        if (_lowOnly)
-            q = q.Where(i => i.IsLow);
-        InventoryList.ItemsSource = q.ToList();
-    }
-
-    private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
-    {
-        _search = e.NewTextValue ?? string.Empty;
-        ApplyFilters();
-    }
-
-    private void OnCategoryChanged(object sender, EventArgs e)
-    {
-        _category = CategoryPicker.SelectedItem?.ToString() ?? "Semua";
-        ApplyFilters();
-    }
-
-    private void OnLowStockToggled(object sender, ToggledEventArgs e)
-    {
-        _lowOnly = e.Value;
-        ApplyFilters();
+        BindingContext = new InventoryOverviewPageViewModel();
     }
 
     private async void OnItemSelected(object sender, SelectionChangedEventArgs e)

@@ -1,4 +1,4 @@
-using MonicaSalon.ViewModels;
+using MonicaSalon.ViewModels.Customer;
 namespace MonicaSalon.Views.Customer;
 public partial class CataloguePage : ContentPage
 {

@@ -9,10 +9,10 @@
             <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
             <Label Text="Katalog" Style="{StaticResource Eyebrow}" />
             <Label Text="Kelola Produk" Style="{StaticResource ScreenTitle}" />
-            <SearchBar x:Name="ProductSearch" Placeholder="Cari produk..." TextChanged="OnSearchChanged" BackgroundColor="White" />
+            <SearchBar x:Name="ProductSearch" Placeholder="Cari produk..." Text="{Binding Query}" BackgroundColor="White" />
             <Button Text="+ Tambah Produk" Style="{StaticResource PrimaryButton}" Clicked="OnAddProduct" />
         </VerticalStackLayout>
-        <CollectionView Grid.Row="1" x:Name="ProductsList" SelectionMode="None">
+        <CollectionView Grid.Row="1" x:Name="ProductsList" ItemsSource="{Binding FilteredProducts}" SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Border Style="{StaticResource CardFrame}" Margin="0,4">
@@ -36,6 +36,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label Grid.Row="2" x:Name="CountLabel" Text="5 products" Style="{StaticResource MutedCopy}" HorizontalTextAlignment="Center" />
+        <Label Grid.Row="2" x:Name="CountLabel" Text="{Binding CountText}" Style="{StaticResource MutedCopy}" HorizontalTextAlignment="Center" />
     </Grid>
 </ContentPage>

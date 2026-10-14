@@ -1,5 +1,6 @@
 using MonicaSalon.Models;
-namespace MonicaSalon.ViewModels;
+using MonicaSalon.ViewModels;
+namespace MonicaSalon.ViewModels.Customer;
 public class HairstyleDetailViewModel : BaseViewModel
 {
     private string _image = "haircut.jpg";

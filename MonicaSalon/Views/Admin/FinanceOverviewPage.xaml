@@ -19,19 +19,19 @@
                     <Border Grid.Column="0" Style="{StaticResource CardFrame}">
                         <VerticalStackLayout Spacing="2">
                             <Label Text="Pemasukan" Style="{StaticResource MutedCopy}" FontSize="11" />
-                            <Label x:Name="IncomeLabel" Text="Rp 0" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource SuccessText}" />
+                            <Label x:Name="IncomeLabel" Text="{Binding IncomeText}" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource SuccessText}" />
                         </VerticalStackLayout>
                     </Border>
                     <Border Grid.Column="1" Style="{StaticResource CardFrame}">
                         <VerticalStackLayout Spacing="2">
                             <Label Text="Pengeluaran" Style="{StaticResource MutedCopy}" FontSize="11" />
-                            <Label x:Name="ExpenseLabel" Text="Rp 0" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DangerText}" />
+                            <Label x:Name="ExpenseLabel" Text="{Binding ExpenseText}" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DangerText}" />
                         </VerticalStackLayout>
                     </Border>
                     <Border Grid.Column="2" Style="{StaticResource CardFrame}">
                         <VerticalStackLayout Spacing="2">
                             <Label Text="Saldo" Style="{StaticResource MutedCopy}" FontSize="11" />
-                            <Label x:Name="BalanceLabel" Text="Rp 0" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" />
+                            <Label x:Name="BalanceLabel" Text="{Binding BalanceText}" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" />
                         </VerticalStackLayout>
                     </Border>
                 </Grid>
@@ -83,7 +83,7 @@
                     <Label Text="Catatan Terakhir" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="15" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
                     <Button Text="Lihat semua" Style="{StaticResource GhostButton}" Clicked="OnViewAll" />
                 </HorizontalStackLayout>
-                <CollectionView x:Name="LatestList" SelectionMode="None">
+                <CollectionView x:Name="LatestList" ItemsSource="{Binding LatestRecords}" SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border Style="{StaticResource CardFrame}" Margin="0,4">

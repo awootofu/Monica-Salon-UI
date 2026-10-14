@@ -16,17 +16,17 @@
                     <Label Text="14 Okt 2026 • 11.00" Style="{StaticResource BodyCopy}" />
                 </VerticalStackLayout>
             </Border>
-            <VerticalStackLayout x:Name="OptionsLayout" Spacing="12">
+            <VerticalStackLayout x:Name="OptionsLayout" Spacing="12" IsVisible="{Binding IsOptionsVisible}">
                 <Button Text="Ajukan ubah jadwal" Style="{StaticResource SecondaryButton}" Clicked="OnRescheduleOption" />
                 <Button Text="Ajukan pembatalan" Style="{StaticResource SecondaryButton}" Clicked="OnCancelOption" />
             </VerticalStackLayout>
-            <VerticalStackLayout x:Name="ConfirmLayout" Spacing="12" IsVisible="False">
+            <VerticalStackLayout x:Name="ConfirmLayout" Spacing="12" IsVisible="{Binding IsConfirmVisible}">
                 <Border Style="{StaticResource CardFrame}">
-                    <Label x:Name="ConfirmLabel" Text="Konfirmasi pengajuan" Style="{StaticResource BodyCopy}" />
+                    <Label x:Name="ConfirmLabel" Text="{Binding ConfirmMessage}" Style="{StaticResource BodyCopy}" />
                 </Border>
                 <Button Text="Ya, Ajukan" Style="{StaticResource PrimaryButton}" Clicked="OnConfirmSubmit" />
             </VerticalStackLayout>
-            <VerticalStackLayout x:Name="SuccessLayout" Spacing="12" IsVisible="False">
+            <VerticalStackLayout x:Name="SuccessLayout" Spacing="12" IsVisible="{Binding IsSuccessVisible}">
                 <Border Style="{StaticResource CardFrame}">
                     <VerticalStackLayout Spacing="4">
                         <Label Text="✓" FontSize="32" HorizontalOptions="Center" TextColor="{StaticResource Sage}" />

@@ -1,11 +1,11 @@
-using MonicaSalon.Services;
+using MonicaSalon.ViewModels.Customer;
 namespace MonicaSalon.Views.Customer;
 public partial class HomePage : ContentPage
 {
     public HomePage()
     {
         InitializeComponent();
-        PopularList.ItemsSource = MockDataService.Services.Take(3).ToList();
+        BindingContext = new HomeViewModel();
     }
 
     private async void OnSimulate(object sender, EventArgs e)

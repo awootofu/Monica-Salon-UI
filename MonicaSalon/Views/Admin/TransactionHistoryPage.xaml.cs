@@ -1,4 +1,4 @@
-using MonicaSalon.Services;
+using MonicaSalon.ViewModels.Admin;
 namespace MonicaSalon.Views.Admin;
 
 public partial class TransactionHistoryPage : ContentPage
@@ -6,24 +6,7 @@ public partial class TransactionHistoryPage : ContentPage
     public TransactionHistoryPage()
     {
         InitializeComponent();
-        HistoryList.ItemsSource = MockDataService.Transactions;
-    }
-
-    private async void OnSearchChanged(object sender, TextChangedEventArgs e)
-    {
-        string q = e.NewTextValue ?? string.Empty;
-        if (string.IsNullOrWhiteSpace(q))
-            HistoryList.ItemsSource = MockDataService.Transactions;
-        else
-            HistoryList.ItemsSource = MockDataService.Transactions
-                .Where(t => t.Ref.Contains(q, StringComparison.OrdinalIgnoreCase)
-                    || t.Customer.Contains(q, StringComparison.OrdinalIgnoreCase)
-                    || t.Items.Contains(q, StringComparison.OrdinalIgnoreCase)
-                    || t.Method.Contains(q, StringComparison.OrdinalIgnoreCase))
-                .ToList();
-        int count = ((System.Collections.IEnumerable)HistoryList.ItemsSource).Cast<object>().Count();
-        SummaryLabel.Text = $"{count} transaksi • Total Rp 617.000";
-        await Task.CompletedTask;
+        BindingContext = new TransactionHistoryPageViewModel();
     }
 
     private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)

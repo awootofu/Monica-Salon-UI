@@ -1,26 +1,25 @@
+using MonicaSalon.ViewModels.Admin;
 namespace MonicaSalon.Views.Admin;
 public partial class AddIncomePage : ContentPage
 {
-    private string _category = string.Empty;
-    public AddIncomePage() => InitializeComponent();
+    private AddIncomeViewModel Vm => (AddIncomeViewModel)BindingContext;
+    public AddIncomePage()
+    {
+        InitializeComponent();
+        BindingContext = new AddIncomeViewModel();
+    }
     private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-finance");
-    private async void OnCategory(object sender, EventArgs e)
+    private void OnCategory(object sender, EventArgs e)
     {
         var b = (Button)sender;
-        _category = b.Text;
+        Vm.SelectCategory(b.Text);
         foreach (var btn in new[] { CatOther, CatCapital, CatAdj })
-            btn.BackgroundColor = btn == b ? (Color)Application.Current.Resources["DustyRose"] : Colors.White;
-        await Task.CompletedTask;
+            btn.BackgroundColor = btn == b ? (Color)Application.Current!.Resources["DustyRose"] : Colors.White;
     }
     private async void OnSave(object sender, EventArgs e)
     {
-        bool amountOk = int.TryParse(AmountEntry.Text, out int amt) && amt > 0;
-        bool descOk = !string.IsNullOrWhiteSpace(DescEditor.Text);
-        if (string.IsNullOrEmpty(_category) || !amountOk || !descOk)
-        {
-            ErrorLabel.Text = "Please select category, enter amount more than 0, and fill description.";
+        if (!Vm.TrySave())
             return;
-        }
         await Shell.Current.GoToAsync("admin-financial-records");
     }
 }
