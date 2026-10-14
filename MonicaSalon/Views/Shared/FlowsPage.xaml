@@ -13,7 +13,7 @@
 
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
-                    <Label Text="18 CUSTOMER SCREENS" Style="{StaticResource Eyebrow}" />
+                    <Label Text="PELANGGAN" Style="{StaticResource Eyebrow}" />
                     <Label Text="Alur pelanggan: welcome hingga pengaturan akun." Style="{StaticResource BodyCopy}" />
                     <Button Text="Start Customer Flow" Style="{StaticResource PrimaryButton}" Clicked="OnCustomerFlow" />
                 </VerticalStackLayout>
@@ -21,7 +21,7 @@
 
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
-                    <Label Text="34 ADMIN SCREENS" Style="{StaticResource Eyebrow}" />
+                    <Label Text="ADMIN" Style="{StaticResource Eyebrow}" />
                     <Label Text="Alur admin: login, dashboard, kasir, inventori, dan keuangan." Style="{StaticResource BodyCopy}" />
                     <Button Text="Start Admin Flow" Style="{StaticResource SecondaryButton}" Clicked="OnAdminFlow" />
                 </VerticalStackLayout>

@@ -8,11 +8,19 @@ public partial class SettingsPage : ContentPage
         await Shell.Current.GoToAsync("profile");
     }
 
-    private async void OnDeletePhoto(object sender, EventArgs e)
+    protected override void OnAppearing()
     {
-        PhotoStatusLabel.Text = "Photo Deleted";
-        DeletePhotoButton.IsEnabled = false;
-        await Task.CompletedTask;
+        base.OnAppearing();
+        var h = Services.BookingContext.SelectedHairstyle;
+        HairstyleStatusLabel.Text = h == null
+            ? "Belum ada gaya favorit dipilih."
+            : $"Favorit: {h.Name} • {h.Category}";
+    }
+
+    private async void OnBrowseStyles(object sender, EventArgs e)
+    {
+        Services.BookingContext.HairstyleReturnTo = "settings";
+        await Shell.Current.GoToAsync("hairstyle-book");
     }
 
     private async void OnStub(object sender, EventArgs e)

@@ -6,14 +6,14 @@
              BackgroundColor="{StaticResource Ivory}">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="12">
-            <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
-            <Label Text="CATALOGUE • SERVICE FORM" Style="{StaticResource Eyebrow}" />
-            <Label Text="Service Form" Style="{StaticResource ScreenTitle}" />
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="Katalog" Style="{StaticResource Eyebrow}" />
+            <Label Text="Form Layanan" Style="{StaticResource ScreenTitle}" />
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Service name" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
                     <Entry x:Name="NameEntry" Text="Potong Rambut" Style="{StaticResource FieldEntry}" />
-                    <Label Text="Category" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Kategori" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
                     <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
                         <Button Grid.Column="0" Text="Haircut" Style="{StaticResource PrimaryButton}" HeightRequest="40" FontSize="11" Clicked="OnCategory" />
                         <Button Grid.Column="1" Text="Coloring" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnCategory" />
@@ -46,7 +46,7 @@
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
             </Border>
-            <Button Text="Save Service" Style="{StaticResource PrimaryButton}" Clicked="OnSave" />
+            <Button Text="Simpan Layanan" Style="{StaticResource PrimaryButton}" Clicked="OnSave" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

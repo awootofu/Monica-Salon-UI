@@ -30,10 +30,10 @@
 
                 <Border Style="{StaticResource CardFrame}">
                     <VerticalStackLayout Spacing="8">
-                        <Image Source="color.jpg" HeightRequest="140" Aspect="AspectFill" />
-                        <Label Text="Coba gaya baru" FontSize="17" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
-                        <Label Text="Simulasi warna dan potongan rambut sebelum booking." Style="{StaticResource BodyCopy}" />
-                        <Button Text="Coba Simulasi" Style="{StaticResource PrimaryButton}" Clicked="OnSimulate" />
+                        <Image Source="haircut.jpg" HeightRequest="140" Aspect="AspectFill" />
+                        <Label Text="Buku gaya rambut" FontSize="17" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                        <Label Text="Lihat contoh gaya seperti buku di salon, pilih referensi sebelum booking." Style="{StaticResource BodyCopy}" />
+                        <Button Text="Lihat Buku Gaya" Style="{StaticResource PrimaryButton}" Clicked="OnSimulate" />
                     </VerticalStackLayout>
                 </Border>
 

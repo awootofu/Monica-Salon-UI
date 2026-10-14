@@ -7,8 +7,8 @@
     <Grid RowDefinitions="*,Auto">
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Padding="20" Spacing="12">
-                <Label Text="A11 • Transactions" Style="{StaticResource Eyebrow}" />
-                <Label Text="Transaction History" Style="{StaticResource ScreenTitle}" />
+                <Label Text="Transaksi" Style="{StaticResource Eyebrow}" />
+                <Label Text="Riwayat Transaksi" Style="{StaticResource ScreenTitle}" />
                 <SearchBar x:Name="HistorySearch" Placeholder="Cari ref, pelanggan, atau metode..." TextChanged="OnSearchChanged" />
                 <Label x:Name="SummaryLabel" Text="4 transaksi • Total Rp 617.000" Style="{StaticResource MutedCopy}" />
                 <CollectionView x:Name="HistoryList" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
@@ -38,12 +38,12 @@
             </VerticalStackLayout>
         </ScrollView>
 
-        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" BackgroundColor="White" Padding="4,8">
-            <Button Text="Dashboard" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="0" Clicked="OnNavDashboard" />
-            <Button Text="Bookings" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="1" Clicked="OnNavBookings" />
-            <Button Text="Cashier" Style="{StaticResource GhostButton}" FontSize="11" FontAttributes="Bold" Grid.Column="2" Clicked="OnNavCashier" />
-            <Button Text="Inventory" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="3" Clicked="OnNavInventory" />
-            <Button Text="More" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="4" Clicked="OnNavMore" />
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" BackgroundColor="White" Padding="8,6">
+            <Button Text="Beranda" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="0" Clicked="OnNavDashboard" />
+            <Button Text="Booking" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="1" Clicked="OnNavBookings" />
+            <Button Text="Kasir" Style="{StaticResource GhostButton}" FontSize="11" FontAttributes="Bold" Grid.Column="2" Clicked="OnNavCashier" />
+            <Button Text="Inventaris" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="3" Clicked="OnNavInventory" />
+            <Button Text="Lainnya" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="4" Clicked="OnNavMore" />
         </Grid>
     </Grid>
 </ContentPage>

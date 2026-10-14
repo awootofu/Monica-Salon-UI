@@ -6,9 +6,9 @@
              BackgroundColor="{StaticResource Ivory}">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="12">
-            <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
-            <Label Text="A25 • EXPORT" Style="{StaticResource Eyebrow}" />
-            <Label Text="Export Config" Style="{StaticResource ScreenTitle}" />
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="Laporan" Style="{StaticResource Eyebrow}" />
+            <Label Text="Ekspor Data" Style="{StaticResource ScreenTitle}" />
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="4">
                     <Label Text="Format" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
@@ -26,7 +26,7 @@
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Datasets" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
                     <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8" RowSpacing="8" RowDefinitions="Auto,Auto,Auto,Auto">
-                        <Label Grid.Row="0" Grid.Column="0" Text="Cashier" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
+                        <Label Grid.Row="0" Grid.Column="0" Text="Kasir" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
                         <Switch Grid.Row="0" Grid.Column="1" x:Name="CashierSwitch" IsToggled="True" Toggled="OnDatasetToggled" />
                         <Label Grid.Row="1" Grid.Column="0" Text="Financial (required)" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
                         <Switch Grid.Row="1" Grid.Column="1" x:Name="FinancialSwitch" IsToggled="True" IsEnabled="False" Toggled="OnDatasetToggled" />

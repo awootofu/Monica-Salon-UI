@@ -7,14 +7,14 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="12">
             <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBackClicked" />
-            <Label Text="A18 • Inventory" Style="{StaticResource Eyebrow}" />
-            <Label Text="Movement History" Style="{StaticResource ScreenTitle}" />
+            <Label Text="Inventaris" Style="{StaticResource Eyebrow}" />
+            <Label Text="Riwayat Stok" Style="{StaticResource ScreenTitle}" />
             <Label Text="Jejak stock-in, stock-out, dan retail sale." Style="{StaticResource BodyCopy}" />
 
             <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="8">
                 <Button Grid.Column="0" Text="Semua" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnTypeClicked" />
-                <Button Grid.Column="1" Text="Stock-In" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnTypeClicked" />
-                <Button Grid.Column="2" Text="Stock-Out" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnTypeClicked" />
+                <Button Grid.Column="1" Text="Stok Masuk" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnTypeClicked" />
+                <Button Grid.Column="2" Text="Stok Keluar" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnTypeClicked" />
                 <Button Grid.Column="3" Text="Retail Sale" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnTypeClicked" />
             </Grid>
 
@@ -46,7 +46,7 @@
             </CollectionView>
 
             <Border Style="{StaticResource CardFrame}">
-                <Label Text="Export-ready: riwayat siap diekspor ke CSV." Style="{StaticResource MutedCopy}" />
+                <Label Text="Riwayat siap diekspor ke CSV." Style="{StaticResource MutedCopy}" />
             </Border>
         </VerticalStackLayout>
     </ScrollView>

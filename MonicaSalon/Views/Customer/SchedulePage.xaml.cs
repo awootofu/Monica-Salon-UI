@@ -1,15 +1,21 @@
+using MonicaSalon.ViewModels;
 namespace MonicaSalon.Views.Customer;
 public partial class SchedulePage : ContentPage
 {
-    private string _selectedDate = string.Empty;
-    private string _selectedTime = string.Empty;
+    private readonly ScheduleViewModel _vm = new();
     private Button? _selectedDateBtn;
     private Button? _selectedTimeBtn;
 
     public SchedulePage()
     {
         InitializeComponent();
-        UpdateSummary();
+        BindingContext = _vm;
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        _vm.Refresh();
     }
 
     private void Highlight(Button btn, ref Button? current, Color selected, Color normal)
@@ -18,14 +24,14 @@ public partial class SchedulePage : ContentPage
             current.BackgroundColor = normal;
         current = btn;
         btn.BackgroundColor = selected;
-        UpdateSummary();
     }
 
     private async void OnDateSelected(object sender, EventArgs e)
     {
         if (sender is Button b)
         {
-            _selectedDate = b.Text.Replace(" Sen", "").Replace(" Sel", "").Replace(" Rab", "").Replace(" Kam", "").Replace(" Jum", "").Replace(" Sab", "").Replace(" Min", "");
+            var date = b.Text.Replace(" Sen", "").Replace(" Sel", "").Replace(" Rab", "").Replace(" Kam", "").Replace(" Jum", "").Replace(" Sab", "").Replace(" Min", "");
+            _vm.SelectDate(date);
             Highlight(b, ref _selectedDateBtn, (Color)Application.Current!.Resources["DustyRose"], Colors.White);
         }
         await Task.CompletedTask;
@@ -35,20 +41,19 @@ public partial class SchedulePage : ContentPage
     {
         if (sender is Button b)
         {
-            _selectedTime = b.Text;
+            _vm.SelectTime(b.Text);
             Highlight(b, ref _selectedTimeBtn, (Color)Application.Current!.Resources["DustyRose"], Colors.White);
         }
         await Task.CompletedTask;
     }
 
-    private void UpdateSummary()
+    private async void OnBrowseStyles(object sender, EventArgs e)
     {
-        if (SummaryLabel == null) return;
-        if (!string.IsNullOrEmpty(_selectedDate) && !string.IsNullOrEmpty(_selectedTime))
-            SummaryLabel.Text = $"Dipilih: {_selectedDate} Oktober 2026 • {_selectedTime} WIB • Pewarnaan Rambut Rp 200.000";
-        else
-            SummaryLabel.Text = "Pilih tanggal dan jam dahulu.";
+        Services.BookingContext.HairstyleReturnTo = "schedule";
+        await Shell.Current.GoToAsync("hairstyle-book");
     }
+
+    private void OnClearStyle(object sender, EventArgs e) => _vm.ClearHairstyle();
 
     private async void OnBack(object sender, EventArgs e)
     {

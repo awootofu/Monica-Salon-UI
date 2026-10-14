@@ -9,16 +9,17 @@
             <VerticalStackLayout Padding="20" Spacing="12">
                 <Label Text="Riwayat" Style="{StaticResource Eyebrow}" />
                 <Label Text="Booking Saya" Style="{StaticResource ScreenTitle}" />
-                <HorizontalStackLayout Spacing="8">
-                    <Button x:Name="FilterAll" Text="Semua" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
-                    <Button x:Name="FilterPending" Text="Menunggu Konfirmasi" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Spacing="8">
-                    <Button x:Name="FilterConfirmed" Text="Dikonfirmasi" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
-                    <Button x:Name="FilterDone" Text="Selesai" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
-                    <Button x:Name="FilterCancelled" Text="Dibatalkan" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
-                </HorizontalStackLayout>
-                <CollectionView x:Name="HistoryList" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+                <Border Style="{StaticResource CardFrame}" Padding="12,0">
+                    <Picker x:Name="StatusPicker"
+                            Title="Semua status"
+                            FontSize="14"
+                            TextColor="{StaticResource DeepCocoa}"
+                            HeightRequest="48"
+                            VerticalOptions="Center"
+                            ItemsSource="{Binding Statuses}"
+                            SelectedItem="{Binding SelectedStatus}" />
+                </Border>
+                <CollectionView x:Name="HistoryList" ItemsSource="{Binding Bookings}" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border Style="{StaticResource CardFrame}" Margin="0,0,0,10">
@@ -40,7 +41,7 @@
                 </CollectionView>
             </VerticalStackLayout>
         </ScrollView>
-        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" BackgroundColor="White" Padding="4,8">
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" BackgroundColor="White" Padding="8,6">
             <Button Text="Home" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="0" Clicked="OnHome" />
             <Button Text="Services" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="1" Clicked="OnCatalogue" />
             <Button Text="Booking" Style="{StaticResource GhostButton}" FontSize="11" Grid.Column="2" Clicked="OnBooking" />

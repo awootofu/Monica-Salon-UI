@@ -29,6 +29,7 @@
                     </VerticalStackLayout>
                 </Border>
                 <Button Text="Book This Service" Style="{StaticResource PrimaryButton}" Clicked="OnBook" />
+                <Button Text="Lihat Buku Gaya" Style="{StaticResource SecondaryButton}" Clicked="OnBrowseStyles" />
             </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>

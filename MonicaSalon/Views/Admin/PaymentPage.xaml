@@ -2,13 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MonicaSalon.Views.Admin.PaymentPage"
-             Title="Payment"
+             Title="Pembayaran"
              BackgroundColor="{StaticResource Ivory}">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="12">
             <Button Text="← Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
-            <Label Text="Step 2 of 2" Style="{StaticResource Eyebrow}" />
-            <Label Text="Payment" Style="{StaticResource ScreenTitle}" />
+            <Label Text="Langkah 2 dari 2" Style="{StaticResource Eyebrow}" />
+            <Label Text="Pembayaran" Style="{StaticResource ScreenTitle}" />
 
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="4">
@@ -51,7 +51,7 @@
                 </Border>
             </VerticalStackLayout>
 
-            <Button x:Name="PayBtn" Text="Complete Payment" Style="{StaticResource PrimaryButton}" Clicked="OnComplete" IsEnabled="False" />
+            <Button x:Name="PayBtn" Text="Selesaikan Pembayaran" Style="{StaticResource PrimaryButton}" Clicked="OnComplete" IsEnabled="False" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

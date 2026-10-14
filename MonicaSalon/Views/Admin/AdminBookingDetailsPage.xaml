@@ -16,11 +16,11 @@
                         <Label x:Name="StatusLabel" Text="Menunggu Konfirmasi" TextColor="{StaticResource PendingText}" FontSize="12" FontAttributes="Bold" />
                     </Border>
                     <Label x:Name="CancelNote" Text="Booking dibatalkan." TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="False" />
-                    <Button x:Name="ConfirmBtn" Text="Confirm Booking" Style="{StaticResource PrimaryButton}" Clicked="OnConfirm" />
-                    <Button x:Name="CompleteBtn" Text="Mark Completed" Style="{StaticResource PrimaryButton}" IsVisible="False" Clicked="OnComplete" />
-                    <Button x:Name="CashierBtn" Text="Proceed to Cashier" Style="{StaticResource PrimaryButton}" IsVisible="False" Clicked="OnCashier" />
-                    <Button x:Name="RescheduleBtn" Text="Change Schedule" Style="{StaticResource SecondaryButton}" Clicked="OnReschedule" />
-                    <Button x:Name="CancelBtn" Text="Cancel Booking" Style="{StaticResource GhostButton}" Clicked="OnCancel" />
+                    <Button x:Name="ConfirmBtn" Text="Konfirmasi Booking" Style="{StaticResource PrimaryButton}" Clicked="OnConfirm" />
+                    <Button x:Name="CompleteBtn" Text="Tandai Selesai" Style="{StaticResource PrimaryButton}" IsVisible="False" Clicked="OnComplete" />
+                    <Button x:Name="CashierBtn" Text="Lanjut ke Kasir" Style="{StaticResource PrimaryButton}" IsVisible="False" Clicked="OnCashier" />
+                    <Button x:Name="RescheduleBtn" Text="Ubah Jadwal" Style="{StaticResource SecondaryButton}" Clicked="OnReschedule" />
+                    <Button x:Name="CancelBtn" Text="Batalkan Booking" Style="{StaticResource GhostButton}" Clicked="OnCancel" />
                 </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">

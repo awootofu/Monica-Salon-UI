@@ -41,9 +41,9 @@
             </Border>
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
-                    <Label Text="Privasi Foto" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
-                    <Label x:Name="PhotoStatusLabel" Text="Foto simulasi tersimpan di perangkat ini." Style="{StaticResource MutedCopy}" />
-                    <Button x:Name="DeletePhotoButton" Text="Delete Simulation Photo" Style="{StaticResource SecondaryButton}" Clicked="OnDeletePhoto" />
+                    <Label Text="Referensi Gaya" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label x:Name="HairstyleStatusLabel" Text="Belum ada gaya favorit dipilih." Style="{StaticResource MutedCopy}" />
+                    <Button x:Name="BrowseStyleButton" Text="Lihat Buku Gaya" Style="{StaticResource SecondaryButton}" Clicked="OnBrowseStyles" />
                 </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">

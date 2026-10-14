@@ -9,7 +9,7 @@
             <Button Text="← Kembali" Style="{StaticResource GhostButton}" Clicked="OnBack" HorizontalOptions="Start" />
             <Label Text="Daftar" Style="{StaticResource Eyebrow}" />
             <Label Text="Buat akun cantikmu." Style="{StaticResource ScreenTitle}" />
-            <Label Text="Isi data di bawah untuk mulai booking dan mencoba simulasi."
+            <Label Text="Isi data di bawah untuk mulai booking dan melihat buku gaya."
                    Style="{StaticResource BodyCopy}" />
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="10">

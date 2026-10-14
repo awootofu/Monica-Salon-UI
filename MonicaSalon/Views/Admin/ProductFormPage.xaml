@@ -6,14 +6,14 @@
              BackgroundColor="{StaticResource Ivory}">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="12">
-            <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
-            <Label Text="CATALOGUE • PRODUCT FORM" Style="{StaticResource Eyebrow}" />
-            <Label Text="Product Form" Style="{StaticResource ScreenTitle}" />
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="Katalog" Style="{StaticResource Eyebrow}" />
+            <Label Text="Form Produk" Style="{StaticResource ScreenTitle}" />
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Product name" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
                     <Entry x:Name="NameEntry" Text="Sampo Premium" Style="{StaticResource FieldEntry}" />
-                    <Label Text="Category" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Kategori" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
                     <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
                         <Button Grid.Column="0" Text="Retail" Style="{StaticResource PrimaryButton}" HeightRequest="40" FontSize="11" Clicked="OnCategory" />
                         <Button Grid.Column="1" Text="Treatment" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnCategory" />
@@ -38,7 +38,7 @@
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
             </Border>
-            <Button Text="Save Product" Style="{StaticResource PrimaryButton}" Clicked="OnSave" />
+            <Button Text="Simpan Produk" Style="{StaticResource PrimaryButton}" Clicked="OnSave" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

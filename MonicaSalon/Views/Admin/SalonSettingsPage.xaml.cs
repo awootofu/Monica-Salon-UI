@@ -20,6 +20,6 @@ public partial class SalonSettingsPage : ContentPage
     private async void OnRemoveHaircut(object sender, EventArgs e) { ChipHaircut.IsVisible = false; await Task.CompletedTask; }
     private async void OnRemoveColor(object sender, EventArgs e) { ChipColor.IsVisible = false; await Task.CompletedTask; }
     private async void OnAddCategory(object sender, EventArgs e) => await Task.CompletedTask;
-    private async void OnStubToggled(object sender, ToggledEventArgs e) => await Task.CompletedTask;
+    private async void OnSettingToggled(object sender, ToggledEventArgs e) => await Task.CompletedTask;
     private async void OnSave(object sender, EventArgs e) => await Task.CompletedTask;
 }

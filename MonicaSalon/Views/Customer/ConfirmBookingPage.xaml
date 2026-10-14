@@ -36,7 +36,20 @@
                 </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">
-                <VerticalStackLayout Spacing="4">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Referensi Gaya" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                        <Image x:Name="HairstyleImage" Source="{Binding HairstyleImage}" WidthRequest="52" HeightRequest="52" Aspect="AspectFill" IsVisible="{Binding HasHairstyle}" />
+                        <VerticalStackLayout Spacing="2" VerticalOptions="Center" HorizontalOptions="Fill">
+                            <Label x:Name="HairstyleName" Text="{Binding HairstyleName}" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                            <Label x:Name="HairstyleNote" Text="{Binding HairstyleNote}" Style="{StaticResource MutedCopy}" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                    <Button x:Name="ChangeStyleBtn" Text="Pilih / Ubah Gaya" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="46" Clicked="OnChangeStyle" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="6">
                     <Label Text="Kontak" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
                     <Label Text="Bella Anisa" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
                     <Label Text="+62 812-3456-7890" Style="{StaticResource BodyCopy}" />

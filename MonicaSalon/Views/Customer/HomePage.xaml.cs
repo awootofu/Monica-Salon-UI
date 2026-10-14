@@ -15,7 +15,8 @@ public partial class HomePage : ContentPage
 
     private async void OnSimulate(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("simulation-intro");
+        Services.BookingContext.HairstyleReturnTo = "home";
+        await Shell.Current.GoToAsync("hairstyle-book");
     }
 
     private async void OnServiceSelected(object sender, SelectionChangedEventArgs e)

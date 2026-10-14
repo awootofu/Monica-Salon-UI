@@ -8,6 +8,6 @@ public partial class HelpPage : ContentPage
     private async void OnToggleInventory(object sender, EventArgs e) { InventoryBody.IsVisible = !InventoryBody.IsVisible; await Task.CompletedTask; }
     private async void OnToggleExport(object sender, EventArgs e) { ExportBody.IsVisible = !ExportBody.IsVisible; await Task.CompletedTask; }
     private async void OnLogout(object sender, EventArgs e) { LogoutConfirm.IsVisible = true; await Task.CompletedTask; }
-    private async void OnConfirmLogout(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-login");
+    private async void OnConfirmLogout(object sender, EventArgs e) => await Shell.Current.GoToAsync("login");
     private async void OnCancelLogout(object sender, EventArgs e) { LogoutConfirm.IsVisible = false; await Task.CompletedTask; }
 }

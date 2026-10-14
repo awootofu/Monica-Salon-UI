@@ -2,29 +2,29 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MonicaSalon.Views.Admin.SalonSettingsPage"
-             Title="Salon Settings"
+             Title="Pengaturan Salon"
              BackgroundColor="{StaticResource Ivory}">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="12">
-            <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
-            <Label Text="OPERATIONS • SETTINGS" Style="{StaticResource Eyebrow}" />
-            <Label Text="Salon Settings" Style="{StaticResource ScreenTitle}" />
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="Operasional" Style="{StaticResource Eyebrow}" />
+            <Label Text="Pengaturan Salon" Style="{StaticResource ScreenTitle}" />
             <Border Style="{StaticResource CardFrame}" BackgroundColor="{StaticResource PendingBg}">
-                <Label Text="Sample banner: changes here apply to booking and cashier flows." Style="{StaticResource BodyCopy}" FontSize="12" />
+                <Label Text="Perubahan di sini berlaku untuk alur booking dan kasir." Style="{StaticResource BodyCopy}" FontSize="12" />
             </Border>
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="6">
                     <HorizontalStackLayout Spacing="6">
-                        <Label Text="Operating Hours" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
-                        <Button Text="Edit" Style="{StaticResource GhostButton}" Clicked="OnEditHours" />
+                        <Label Text="Jam Operasional" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+                        <Button Text="Ubah" Style="{StaticResource GhostButton}" Clicked="OnEditHours" />
                     </HorizontalStackLayout>
-                    <Label Text="Mon - Sat • 09.00 - 19.00" Style="{StaticResource BodyCopy}" />
-                    <Label Text="Sun • 10.00 - 17.00" Style="{StaticResource MutedCopy}" />
+                    <Label Text="Senin - Sabtu • 09.00 - 19.00" Style="{StaticResource BodyCopy}" />
+                    <Label Text="Minggu • 10.00 - 17.00" Style="{StaticResource MutedCopy}" />
                 </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
-                    <Label Text="Capacity (chairs)" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Kapasitas (kursi)" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
                     <HorizontalStackLayout Spacing="12" HorizontalOptions="Center" VerticalOptions="Center">
                         <Button Text="-" Style="{StaticResource SecondaryButton}" WidthRequest="52" HeightRequest="44" Clicked="OnMinus" />
                         <Label x:Name="ChairsLabel" Text="6" FontSize="22" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" VerticalOptions="Center" />
@@ -35,19 +35,19 @@
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
                     <HorizontalStackLayout Spacing="6">
-                        <Label Text="Categories" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
-                        <Button Text="+ Add" Style="{StaticResource GhostButton}" Clicked="OnAddCategory" />
+                        <Label Text="Kategori" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+                        <Button Text="+ Tambah" Style="{StaticResource GhostButton}" Clicked="OnAddCategory" />
                     </HorizontalStackLayout>
                     <HorizontalStackLayout Spacing="8">
                         <Border x:Name="ChipHaircut" Stroke="#E7DDD6" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="10,6" BackgroundColor="White">
                             <HorizontalStackLayout Spacing="6">
-                                <Label Text="Haircut" FontSize="12" VerticalOptions="Center" />
+                                <Label Text="Potong Rambut" FontSize="12" VerticalOptions="Center" />
                                 <Button Text="x" FontSize="12" BackgroundColor="Transparent" TextColor="{StaticResource DangerText}" WidthRequest="30" HeightRequest="30" Clicked="OnRemoveHaircut" />
                             </HorizontalStackLayout>
                         </Border>
                         <Border x:Name="ChipColor" Stroke="#E7DDD6" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="10,6" BackgroundColor="White">
                             <HorizontalStackLayout Spacing="6">
-                                <Label Text="Coloring" FontSize="12" VerticalOptions="Center" />
+                                <Label Text="Pewarnaan" FontSize="12" VerticalOptions="Center" />
                                 <Button Text="x" FontSize="12" BackgroundColor="Transparent" TextColor="{StaticResource DangerText}" WidthRequest="30" HeightRequest="30" Clicked="OnRemoveColor" />
                             </HorizontalStackLayout>
                         </Border>
@@ -56,31 +56,31 @@
             </Border>
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
-                    <Label Text="Payment Methods" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Metode Pembayaran" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
                     <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto" RowSpacing="6">
-                        <Label Grid.Row="0" Grid.Column="0" Text="Cash" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
-                        <Switch Grid.Row="0" Grid.Column="1" IsToggled="True" Toggled="OnStubToggled" />
+                        <Label Grid.Row="0" Grid.Column="0" Text="Tunai" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
+                        <Switch Grid.Row="0" Grid.Column="1" IsToggled="True" Toggled="OnSettingToggled" />
                         <Label Grid.Row="1" Grid.Column="0" Text="QRIS" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
-                        <Switch Grid.Row="1" Grid.Column="1" IsToggled="True" Toggled="OnStubToggled" />
+                        <Switch Grid.Row="1" Grid.Column="1" IsToggled="True" Toggled="OnSettingToggled" />
                         <Label Grid.Row="2" Grid.Column="0" Text="Transfer" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
-                        <Switch Grid.Row="2" Grid.Column="1" IsToggled="False" Toggled="OnStubToggled" />
+                        <Switch Grid.Row="2" Grid.Column="1" IsToggled="False" Toggled="OnSettingToggled" />
                     </Grid>
                 </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
-                    <Label Text="Inventory Options" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Opsi Stok" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
                     <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto" RowSpacing="6">
-                        <Label Grid.Row="0" Grid.Column="0" Text="Auto deduct stock" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
-                        <Switch Grid.Row="0" Grid.Column="1" IsToggled="True" Toggled="OnStubToggled" />
-                        <Label Grid.Row="1" Grid.Column="0" Text="Low stock alert" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
-                        <Switch Grid.Row="1" Grid.Column="1" IsToggled="True" Toggled="OnStubToggled" />
-                        <Label Grid.Row="2" Grid.Column="0" Text="Allow negative stock" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
-                        <Switch Grid.Row="2" Grid.Column="1" IsToggled="False" Toggled="OnStubToggled" />
+                        <Label Grid.Row="0" Grid.Column="0" Text="Kurangi stok otomatis" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
+                        <Switch Grid.Row="0" Grid.Column="1" IsToggled="True" Toggled="OnSettingToggled" />
+                        <Label Grid.Row="1" Grid.Column="0" Text="Peringatan stok menipis" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
+                        <Switch Grid.Row="1" Grid.Column="1" IsToggled="True" Toggled="OnSettingToggled" />
+                        <Label Grid.Row="2" Grid.Column="0" Text="Izinkan stok minus" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
+                        <Switch Grid.Row="2" Grid.Column="1" IsToggled="False" Toggled="OnSettingToggled" />
                     </Grid>
                 </VerticalStackLayout>
             </Border>
-            <Button Text="Save Settings" Style="{StaticResource PrimaryButton}" Clicked="OnSave" />
+            <Button Text="Simpan Pengaturan" Style="{StaticResource PrimaryButton}" Clicked="OnSave" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

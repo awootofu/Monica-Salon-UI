@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.HairstyleBookPage"
+             Title="Buku Gaya"
+             BackgroundColor="{StaticResource Ivory}">
+    <Grid RowDefinitions="Auto,*">
+        <VerticalStackLayout Grid.Row="0" Padding="20,16,20,8" Spacing="10">
+            <Button Text="‹ Kembali"
+                    Style="{StaticResource GhostButton}"
+                    HorizontalOptions="Start"
+                    Clicked="OnBackClicked" />
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Seperti buku contoh di salon" Style="{StaticResource Eyebrow}" />
+                <Label Text="Buku Gaya Rambut" Style="{StaticResource ScreenTitle}" />
+            </VerticalStackLayout>
+            <Label Text="Pilih referensi gaya sebelum booking. Tunjukkan pilihanmu ke stylist saat datang."
+                   Style="{StaticResource BodyCopy}" />
+            <SearchBar x:Name="BookSearch" Placeholder="Cari gaya, mis. bob, layer..." Text="{Binding Query}" />
+            <Border Style="{StaticResource CardFrame}" Padding="12,0">
+                <Picker x:Name="CategoryPicker"
+                        Title="Semua gaya"
+                        FontSize="14"
+                        TextColor="{StaticResource DeepCocoa}"
+                        HeightRequest="48"
+                        VerticalOptions="Center"
+                        ItemsSource="{Binding Categories}"
+                        SelectedItem="{Binding SelectedCategory}" />
+            </Border>
+            <Label x:Name="CountLabel" Text="{Binding CountText}" Style="{StaticResource MutedCopy}" />
+        </VerticalStackLayout>
+
+        <CollectionView Grid.Row="1"
+                        x:Name="StyleList"
+                        ItemsSource="{Binding Styles}"
+                        SelectionMode="Single"
+                        SelectionChanged="OnStyleSelected">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.Header>
+                <BoxView HeightRequest="2" Color="Transparent" />
+            </CollectionView.Header>
+            <CollectionView.Footer>
+                <VerticalStackLayout Padding="16,4,16,16" Spacing="8">
+                    <Label Text="Referensi ini hanya contoh dari buku salon. Hasil akhir mengikuti kondisi rambut dan konsultasi dengan stylist."
+                           Style="{StaticResource MutedCopy}" />
+                </VerticalStackLayout>
+            </CollectionView.Footer>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource CardFrame}" Margin="16,0">
+                        <HorizontalStackLayout Spacing="12">
+                            <Image Source="{Binding Image}" WidthRequest="72" HeightRequest="72" Aspect="AspectFill" />
+                            <VerticalStackLayout VerticalOptions="Center" Spacing="2" HorizontalOptions="Fill">
+                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                                <Label Text="{Binding Category}" FontSize="11" FontAttributes="Bold" TextColor="{StaticResource RoseDark}" />
+                                <Label Text="{Binding SuitableNote}" Style="{StaticResource MutedCopy}" />
+                                <Label Text="{Binding DurationHint}" Style="{StaticResource MutedCopy}" FontSize="11" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

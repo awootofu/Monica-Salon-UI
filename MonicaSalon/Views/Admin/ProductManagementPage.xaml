@@ -6,11 +6,11 @@
              BackgroundColor="{StaticResource Ivory}">
     <Grid RowDefinitions="Auto,*,Auto" Padding="20,12" RowSpacing="10">
         <VerticalStackLayout Grid.Row="0" Spacing="10">
-            <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
-            <Label Text="CATALOGUE • PRODUCTS" Style="{StaticResource Eyebrow}" />
-            <Label Text="Product Management" Style="{StaticResource ScreenTitle}" />
-            <SearchBar x:Name="ProductSearch" Placeholder="Search products..." TextChanged="OnSearchChanged" BackgroundColor="White" />
-            <Button Text="+ Add Product" Style="{StaticResource PrimaryButton}" Clicked="OnAddProduct" />
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="Katalog" Style="{StaticResource Eyebrow}" />
+            <Label Text="Kelola Produk" Style="{StaticResource ScreenTitle}" />
+            <SearchBar x:Name="ProductSearch" Placeholder="Cari produk..." TextChanged="OnSearchChanged" BackgroundColor="White" />
+            <Button Text="+ Tambah Produk" Style="{StaticResource PrimaryButton}" Clicked="OnAddProduct" />
         </VerticalStackLayout>
         <CollectionView Grid.Row="1" x:Name="ProductsList" SelectionMode="None">
             <CollectionView.ItemTemplate>

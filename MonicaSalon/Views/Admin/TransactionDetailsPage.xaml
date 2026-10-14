@@ -9,7 +9,7 @@
             <Button Text="← Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
             <Label Text="TRX-261014-083" Style="{StaticResource Eyebrow}" />
             <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                <Label Text="Transaction Details" Style="{StaticResource ScreenTitle}" VerticalOptions="Center" />
+                <Label Text="Detail Transaksi" Style="{StaticResource ScreenTitle}" VerticalOptions="Center" />
                 <Border BackgroundColor="{StaticResource SuccessBg}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="10,4" VerticalOptions="Center">
                     <Label Text="Paid" TextColor="{StaticResource SuccessText}" FontSize="11" FontAttributes="Bold" />
                 </Border>
@@ -47,7 +47,7 @@
 
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="4">
-                    <Label Text="Payment" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Pembayaran" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
                     <Label Text="Metode: Cash" Style="{StaticResource BodyCopy}" />
                     <Label Text="Diterima Rp 300.000 • Kembalian Rp 21.000" Style="{StaticResource BodyCopy}" />
                     <Label Text="Status: Paid • 14 Okt 14.42" Style="{StaticResource MutedCopy}" />

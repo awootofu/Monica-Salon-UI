@@ -7,8 +7,8 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="12">
             <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBackClicked" />
-            <Label Text="A16 • Inventory" Style="{StaticResource Eyebrow}" />
-            <Label Text="Stock-In" Style="{StaticResource ScreenTitle}" />
+            <Label Text="Inventaris" Style="{StaticResource Eyebrow}" />
+            <Label Text="Stok Masuk" Style="{StaticResource ScreenTitle}" />
             <Label Text="Tambah stok masuk dari supplier atau koreksi." Style="{StaticResource BodyCopy}" />
 
             <Border Style="{StaticResource CardFrame}">
@@ -37,7 +37,7 @@
                 </VerticalStackLayout>
             </Border>
 
-            <Button Text="Save Stock-In" Style="{StaticResource PrimaryButton}" Clicked="OnSaveClicked" />
+            <Button Text="Simpan Stok Masuk" Style="{StaticResource PrimaryButton}" Clicked="OnSaveClicked" />
 
             <Border x:Name="SavedBox" Style="{StaticResource CardFrame}" IsVisible="False">
                 <VerticalStackLayout Spacing="8">

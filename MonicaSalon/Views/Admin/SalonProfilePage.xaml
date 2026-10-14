@@ -6,9 +6,9 @@
              BackgroundColor="{StaticResource Ivory}">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="12">
-            <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
-            <Label Text="OPERATIONS • PROFILE" Style="{StaticResource Eyebrow}" />
-            <Label Text="Salon Profile" Style="{StaticResource ScreenTitle}" />
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="Operasional" Style="{StaticResource Eyebrow}" />
+            <Label Text="Profil Salon" Style="{StaticResource ScreenTitle}" />
             <Border Style="{StaticResource CardFrame}" Padding="0">
                 <VerticalStackLayout Spacing="0">
                     <Image Source="monica_salon_interior.jpg" HeightRequest="160" Aspect="AspectFill" />
@@ -37,7 +37,7 @@
                     <Label Text="Hours" Style="{StaticResource MutedCopy}" />
                     <Entry x:Name="HoursEntry" Text="Mon - Sat 09.00 - 19.00" IsEnabled="False" Style="{StaticResource FieldEntry}" />
                     <Label Text="Note" Style="{StaticResource MutedCopy}" />
-                    <Editor x:Name="NoteEditor" Text="Placeholder note: update promo info here." IsEnabled="False" HeightRequest="80" BackgroundColor="#FDFBF9" TextColor="{StaticResource Charcoal}" />
+                    <Editor x:Name="NoteEditor" Text="Promo Oktober: gratis creambath untuk pewarnaan." IsEnabled="False" HeightRequest="80" BackgroundColor="#FDFBF9" TextColor="{StaticResource Charcoal}" />
                     <Button x:Name="SaveBtn" Text="Save" Style="{StaticResource PrimaryButton}" IsVisible="False" Clicked="OnSave" />
                 </VerticalStackLayout>
             </Border>

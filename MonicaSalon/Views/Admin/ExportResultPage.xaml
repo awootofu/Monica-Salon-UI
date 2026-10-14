@@ -2,50 +2,50 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MonicaSalon.Views.Admin.ExportResultPage"
-             Title="Export Result"
+             Title="Hasil Ekspor"
              BackgroundColor="{StaticResource Ivory}">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="12">
-            <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
-            <Label Text="A26 • EXPORT" Style="{StaticResource Eyebrow}" />
-            <Label Text="Export Result" Style="{StaticResource ScreenTitle}" />
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="Laporan" Style="{StaticResource Eyebrow}" />
+            <Label Text="Hasil Ekspor" Style="{StaticResource ScreenTitle}" />
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
-                    <Label Text="Demo switcher" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="12" />
+                    <Label Text="Status Ekspor" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="12" />
                     <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
-                        <Button Grid.Column="0" Text="Progress" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnShowProgress" />
-                        <Button Grid.Column="1" Text="Success" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnShowSuccess" />
-                        <Button Grid.Column="2" Text="Failure" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnShowFailure" />
+                        <Button Grid.Column="0" Text="Proses" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnShowProgress" />
+                        <Button Grid.Column="1" Text="Berhasil" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnShowSuccess" />
+                        <Button Grid.Column="2" Text="Gagal" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnShowFailure" />
                     </Grid>
                 </VerticalStackLayout>
             </Border>
             <Border x:Name="ProgressLayout" Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
-                    <Label Text="Exporting..." FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Mengekspor..." FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
                     <BoxView Color="{StaticResource IvoryDeep}" HeightRequest="10" CornerRadius="5" />
                     <BoxView Color="{StaticResource DustyRose}" HeightRequest="10" WidthRequest="160" CornerRadius="5" HorizontalOptions="Start" />
-                    <Label Text="Preparing datasets, please wait." Style="{StaticResource MutedCopy}" />
+                    <Label Text="Menyiapkan data, mohon tunggu." Style="{StaticResource MutedCopy}" />
                 </VerticalStackLayout>
             </Border>
             <Border x:Name="SuccessLayout" Style="{StaticResource CardFrame}" IsVisible="False">
                 <VerticalStackLayout Spacing="8">
                     <Border BackgroundColor="{StaticResource SuccessBg}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="10,4" HorizontalOptions="Start">
-                        <Label Text="Success" TextColor="{StaticResource SuccessText}" FontSize="11" FontAttributes="Bold" />
+                        <Label Text="Berhasil" TextColor="{StaticResource SuccessText}" FontSize="11" FontAttributes="Bold" />
                     </Border>
                     <Label Text="Monica_Salon_Report_2026-10-14.xlsx" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" />
                     <Label Text="3 datasets • 8-14 Okt 2026" Style="{StaticResource MutedCopy}" />
-                    <Button Text="Download" Style="{StaticResource PrimaryButton}" Clicked="OnDownload" />
-                    <Button Text="Back to Overview" Style="{StaticResource SecondaryButton}" Clicked="OnBackToOverview" />
+                    <Button Text="Unduh" Style="{StaticResource PrimaryButton}" Clicked="OnDownload" />
+                    <Button Text="Kembali ke Ringkasan" Style="{StaticResource SecondaryButton}" Clicked="OnBackToOverview" />
                 </VerticalStackLayout>
             </Border>
             <Border x:Name="FailureLayout" Style="{StaticResource CardFrame}" IsVisible="False">
                 <VerticalStackLayout Spacing="8">
                     <Border BackgroundColor="{StaticResource DangerBg}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="10,4" HorizontalOptions="Start">
-                        <Label Text="Failed" TextColor="{StaticResource DangerText}" FontSize="11" FontAttributes="Bold" />
+                        <Label Text="Gagal" TextColor="{StaticResource DangerText}" FontSize="11" FontAttributes="Bold" />
                     </Border>
-                    <Label Text="Export failed. Please check your connection and try again." Style="{StaticResource BodyCopy}" />
-                    <Button Text="Retry" Style="{StaticResource PrimaryButton}" Clicked="OnRetry" />
-                    <Button Text="Review Config" Style="{StaticResource SecondaryButton}" Clicked="OnReviewConfig" />
+                    <Label Text="Ekspor gagal. Periksa koneksi lalu coba lagi." Style="{StaticResource BodyCopy}" />
+                    <Button Text="Coba Lagi" Style="{StaticResource PrimaryButton}" Clicked="OnRetry" />
+                    <Button Text="Ubah Pengaturan" Style="{StaticResource SecondaryButton}" Clicked="OnReviewConfig" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

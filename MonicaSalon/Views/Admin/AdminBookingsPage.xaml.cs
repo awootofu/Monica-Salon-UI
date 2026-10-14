@@ -43,9 +43,9 @@ public partial class AdminBookingsPage : ContentPage
         await Task.CompletedTask;
     }
 
-    private async void OnDateStub(object sender, EventArgs e)
+    private async void OnDateSelected(object sender, EventArgs e)
     {
-        await DisplayAlert("Tanggal", "Filter tanggal demo: 14 Okt 2026.", "OK");
+        await DisplayAlert("Tanggal", "Menampilkan booking tanggal 14 Okt 2026.", "OK");
     }
 
     private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Customer.HairstyleDetailPage"
+             Title="Detail Gaya"
+             BackgroundColor="{StaticResource Ivory}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Button Text="‹ Kembali"
+                    Style="{StaticResource GhostButton}"
+                    HorizontalOptions="Start"
+                    Clicked="OnBack" />
+            <Border StrokeShape="RoundRectangle 18"
+                    Stroke="#E7DDD6"
+                    StrokeThickness="1"
+                    Padding="0"
+                    BackgroundColor="White">
+                <Image x:Name="StyleImage"
+                       Source="{Binding Image}"
+                       HeightRequest="240"
+                       Aspect="AspectFill" />
+            </Border>
+            <Border BackgroundColor="{StaticResource SoftBlush}"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="10,4"
+                    HorizontalOptions="Start">
+                <Label x:Name="CategoryBadge"
+                       Text="{Binding Category}"
+                       TextColor="{StaticResource DeepCocoa}"
+                       FontSize="11"
+                       FontAttributes="Bold" />
+            </Border>
+            <Label x:Name="NameLabel" Text="{Binding Name}" Style="{StaticResource ScreenTitle}" />
+            <HorizontalStackLayout Spacing="12">
+                <Label x:Name="DurationLabel"
+                       Text="{Binding DurationHint}"
+                       FontSize="13"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource RoseDark}" />
+                <Label x:Name="PriceLabel"
+                       Text="{Binding PriceHint}"
+                       Style="{StaticResource MutedCopy}"
+                       VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Tentang gaya ini" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                    <Label x:Name="DescLabel" Text="{Binding Description}" Style="{StaticResource BodyCopy}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Detail referensi" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="Panjang rambut" Style="{StaticResource MutedCopy}" />
+                        <Label x:Name="LengthLabel" Text="{Binding Length}" Style="{StaticResource BodyCopy}" />
+                    </VerticalStackLayout>
+                    <BoxView HeightRequest="1" Color="#E7DDD6" />
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="Bentuk wajah" Style="{StaticResource MutedCopy}" />
+                        <Label x:Name="FaceLabel" Text="{Binding FaceDisplay}" Style="{StaticResource BodyCopy}" />
+                    </VerticalStackLayout>
+                    <BoxView HeightRequest="1" Color="#E7DDD6" />
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="Perawatan" Style="{StaticResource MutedCopy}" />
+                        <Label x:Name="CareLabel" Text="{Binding CareDisplay}" Style="{StaticResource BodyCopy}" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <Label Text="Simpan sebagai referensi booking — tunjukkan ke stylist saat konsultasi agar hasilnya sesuai."
+                       Style="{StaticResource MutedCopy}" />
+            </Border>
+            <Button Text="Pilih Gaya Ini" Style="{StaticResource PrimaryButton}" Clicked="OnChoose" />
+            <Button Text="Kembali ke Buku Gaya" Style="{StaticResource SecondaryButton}" Clicked="OnBack" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

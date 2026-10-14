@@ -22,11 +22,12 @@
                     <Label Text="MON-261014-028" Style="{StaticResource MutedCopy}" />
                     <Label Text="Pewarnaan Rambut" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
                     <Label Text="14 Okt 2026 • 11.00 WIB" Style="{StaticResource BodyCopy}" />
+                    <Label x:Name="HairstyleRefLabel" Text="Referensi gaya: -" Style="{StaticResource MutedCopy}" />
                     <Label Text="Rp 200.000" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
                 </VerticalStackLayout>
             </Border>
-            <Button Text="View My Bookings" Style="{StaticResource PrimaryButton}" Clicked="OnViewBookings" />
-            <Button Text="Return Home" Style="{StaticResource SecondaryButton}" Clicked="OnReturnHome" />
+            <Button Text="Lihat Booking Saya" Style="{StaticResource PrimaryButton}" Clicked="OnViewBookings" />
+            <Button Text="Kembali ke Beranda" Style="{StaticResource SecondaryButton}" Clicked="OnReturnHome" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

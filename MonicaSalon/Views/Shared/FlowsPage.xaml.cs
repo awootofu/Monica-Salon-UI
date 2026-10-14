@@ -10,6 +10,6 @@ public partial class FlowsPage : ContentPage
 
     private async void OnAdminFlow(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("admin-login");
+        await Shell.Current.GoToAsync("admin-dashboard");
     }
 }

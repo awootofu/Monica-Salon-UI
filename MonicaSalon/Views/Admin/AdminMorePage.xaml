@@ -2,13 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MonicaSalon.Views.Admin.AdminMorePage"
-             Title="More"
+             Title="Lainnya"
              BackgroundColor="{StaticResource Ivory}">
     <Grid RowDefinitions="*,Auto">
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Padding="20" Spacing="12">
-                <Label Text="MORE" Style="{StaticResource Eyebrow}" />
-                <Label Text="More" Style="{StaticResource ScreenTitle}" />
+                <Label Text="Menu Owner" Style="{StaticResource Eyebrow}" />
+                <Label Text="Lainnya" Style="{StaticResource ScreenTitle}" />
                 <Border Style="{StaticResource CardFrame}">
                     <HorizontalStackLayout Spacing="12">
                         <Border BackgroundColor="{StaticResource DustyRose}" StrokeThickness="0" StrokeShape="RoundRectangle 24" WidthRequest="48" HeightRequest="48" Padding="0" VerticalOptions="Center">
@@ -20,42 +20,42 @@
                         </VerticalStackLayout>
                     </HorizontalStackLayout>
                 </Border>
-                <Label Text="Catalogue" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                <Label Text="Katalog" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
                 <Border Style="{StaticResource CardFrame}">
                     <VerticalStackLayout Spacing="4">
-                        <Button Text="Service Management ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnServices" />
+                        <Button Text="Kelola Layanan" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnServices" />
                         <BoxView HeightRequest="1" Color="#E7DDD6" />
-                        <Button Text="Product Management ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnProducts" />
+                        <Button Text="Kelola Produk" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnProducts" />
                     </VerticalStackLayout>
                 </Border>
-                <Label Text="Operations" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                <Label Text="Operasional" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
                 <Border Style="{StaticResource CardFrame}">
                     <VerticalStackLayout Spacing="4">
-                        <Button Text="Salon Settings ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnSalonSettings" />
+                        <Button Text="Pengaturan Salon" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnSalonSettings" />
                         <BoxView HeightRequest="1" Color="#E7DDD6" />
-                        <Button Text="User Management ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnUsers" />
+                        <Button Text="Kelola Pengguna" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnUsers" />
                         <BoxView HeightRequest="1" Color="#E7DDD6" />
-                        <Button Text="Salon Profile ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnSalonProfile" />
+                        <Button Text="Profil Salon" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnSalonProfile" />
                     </VerticalStackLayout>
                 </Border>
-                <Label Text="Reports" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
+                <Label Text="Laporan" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
                 <Border Style="{StaticResource CardFrame}">
                     <VerticalStackLayout Spacing="4">
-                        <Button Text="Financial ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnFinance" />
+                        <Button Text="Keuangan" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnFinance" />
                         <BoxView HeightRequest="1" Color="#E7DDD6" />
-                        <Button Text="Export ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnExport" />
+                        <Button Text="Ekspor Data" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnExport" />
                         <BoxView HeightRequest="1" Color="#E7DDD6" />
-                        <Button Text="Help ›" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnHelp" />
+                        <Button Text="Bantuan" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnHelp" />
                     </VerticalStackLayout>
                 </Border>
             </VerticalStackLayout>
         </ScrollView>
         <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="8,6" BackgroundColor="White">
-            <Button Grid.Column="0" Text="Dashboard" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavDashboard" />
-            <Button Grid.Column="1" Text="Bookings" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavBookings" />
-            <Button Grid.Column="2" Text="Cashier" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavCashier" />
-            <Button Grid.Column="3" Text="Inventory" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavInventory" />
-            <Button Grid.Column="4" Text="More" FontSize="11" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="{StaticResource DeepCocoa}" Clicked="OnNavMore" />
+            <Button Grid.Column="0" Text="Beranda" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavDashboard" />
+            <Button Grid.Column="1" Text="Booking" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavBookings" />
+            <Button Grid.Column="2" Text="Kasir" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavCashier" />
+            <Button Grid.Column="3" Text="Inventaris" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavInventory" />
+            <Button Grid.Column="4" Text="Lainnya" FontSize="11" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="{StaticResource DeepCocoa}" Clicked="OnNavMore" />
         </Grid>
     </Grid>
 </ContentPage>

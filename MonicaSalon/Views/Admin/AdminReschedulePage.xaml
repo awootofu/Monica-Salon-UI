@@ -8,7 +8,7 @@
         <VerticalStackLayout Padding="20" Spacing="12">
             <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
             <Label Text="Ubah Jadwal" Style="{StaticResource Eyebrow}" />
-            <Label Text="Reschedule" Style="{StaticResource ScreenTitle}" />
+            <Label Text="Ubah Jadwal" Style="{StaticResource ScreenTitle}" />
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="4">
                     <Label Text="Jadwal Saat Ini" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
@@ -20,10 +20,10 @@
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Tanggal Baru" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
                     <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Start" AlignItems="Start">
-                        <Button x:Name="DateBtn15" Text="15 Kam" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
-                        <Button x:Name="DateBtn16" Text="16 Jum" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
-                        <Button x:Name="DateBtn17" Text="17 Sab" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
-                        <Button x:Name="DateBtn18" Text="18 Min" IsEnabled="False" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn15" Text="15 Kam" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn16" Text="16 Jum" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn17" Text="17 Sab" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn18" Text="18 Min" IsEnabled="False" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" />
                     </FlexLayout>
                 </VerticalStackLayout>
             </Border>
@@ -31,21 +31,21 @@
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Jam Baru" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
                     <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Start" AlignItems="Start">
-                        <Button x:Name="TimeBtn0900" Text="09.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
-                        <Button x:Name="TimeBtn1000" Text="10.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
-                        <Button x:Name="TimeBtn1130" Text="11.30" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
-                        <Button x:Name="TimeBtn1300" Text="13.00 penuh" IsEnabled="False" WidthRequest="100" HeightRequest="44" FontSize="12" Margin="0,0,6,6" />
-                        <Button x:Name="TimeBtn1400" Text="14.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
-                        <Button x:Name="TimeBtn1600" Text="16.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn0900" Text="09.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn1000" Text="10.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn1130" Text="11.30" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn1300" Text="13.00 penuh" IsEnabled="False" WidthRequest="100" HeightRequest="44" FontSize="12" Margin="0,0,6,6" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn1400" Text="14.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
+                        <Button Style="{StaticResource SlotButton}" x:Name="TimeBtn1600" Text="16.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnTimeSelected" />
                     </FlexLayout>
                     <Label x:Name="ConflictLabel" Text="Pilih tanggal dan jam baru." Style="{StaticResource MutedCopy}" />
                 </VerticalStackLayout>
             </Border>
-            <Button x:Name="SaveBtn" Text="Save Changes" Style="{StaticResource PrimaryButton}" Clicked="OnSave" />
+            <Button x:Name="SaveBtn" Text="Simpan Perubahan" Style="{StaticResource PrimaryButton}" Clicked="OnSave" />
             <Border x:Name="SuccessBox" Style="{StaticResource CardFrame}" IsVisible="False">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Jadwal berhasil diubah." FontAttributes="Bold" FontSize="14" TextColor="{StaticResource SuccessText}" />
-                    <Button Text="Back to Detail" Style="{StaticResource SecondaryButton}" Clicked="OnBackToDetail" />
+                    <Button Text="Kembali ke Detail" Style="{StaticResource SecondaryButton}" Clicked="OnBackToDetail" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

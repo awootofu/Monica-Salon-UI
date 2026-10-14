@@ -2,17 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MonicaSalon.Views.Admin.AdminDashboardPage"
-             Title="Dashboard"
+             Title="Beranda"
              BackgroundColor="{StaticResource Ivory}">
     <Grid RowDefinitions="*,Auto">
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Padding="20" Spacing="12">
                 <Label Text="Senin 14 Oktober 2026" Style="{StaticResource MutedCopy}" />
-                <Label Text="Dashboard" Style="{StaticResource ScreenTitle}" />
+                <Label Text="Beranda" Style="{StaticResource ScreenTitle}" />
                 <Border Style="{StaticResource CardFrame}">
                     <HorizontalStackLayout Spacing="12">
                         <VerticalStackLayout Spacing="2" VerticalOptions="Center" HorizontalOptions="Fill">
-                            <Label Text="Welcome Monica Admin" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource DeepCocoa}" />
+                            <Label Text="Halo, Monica" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource DeepCocoa}" />
                             <Label Text="Ringkasan operasional hari ini." Style="{StaticResource MutedCopy}" />
                         </VerticalStackLayout>
                         <Border BackgroundColor="{StaticResource DustyRose}" StrokeThickness="0"
@@ -55,10 +55,10 @@
                 </Grid>
                 <Label Text="Aksi Cepat" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
                 <Grid ColumnDefinitions="*,*" ColumnSpacing="8" RowSpacing="8">
-                    <Button Grid.Row="0" Grid.Column="0" Text="New Booking" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="46" Clicked="OnNewBooking" />
-                    <Button Grid.Row="0" Grid.Column="1" Text="Cashier" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="46" Clicked="OnCashier" />
-                    <Button Grid.Row="1" Grid.Column="0" Text="Inventory" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="46" Clicked="OnInventory" />
-                    <Button Grid.Row="1" Grid.Column="1" Text="Reports" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="46" Clicked="OnReports" />
+                    <Button Grid.Row="0" Grid.Column="0" Text="Booking Baru" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="46" Clicked="OnNewBooking" />
+                    <Button Grid.Row="0" Grid.Column="1" Text="Kasir" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="46" Clicked="OnCashier" />
+                    <Button Grid.Row="1" Grid.Column="0" Text="Inventaris" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="46" Clicked="OnInventory" />
+                    <Button Grid.Row="1" Grid.Column="1" Text="Laporan" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="46" Clicked="OnReports" />
                 </Grid>
                 <Label Text="Jadwal Hari Ini" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
                 <CollectionView x:Name="TodayList" SelectionMode="Single" SelectionChanged="OnBookingTapped">
@@ -99,12 +99,12 @@
                 </Border>
             </VerticalStackLayout>
         </ScrollView>
-        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="4,8" BackgroundColor="White">
-            <Button Grid.Column="0" Text="Dashboard" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavDashboard" />
-            <Button Grid.Column="1" Text="Bookings" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavBookings" />
-            <Button Grid.Column="2" Text="Cashier" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavCashier" />
-            <Button Grid.Column="3" Text="Inventory" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavInventory" />
-            <Button Grid.Column="4" Text="More" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavMore" />
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="8,6" BackgroundColor="White">
+            <Button Grid.Column="0" Text="Beranda" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavDashboard" />
+            <Button Grid.Column="1" Text="Booking" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavBookings" />
+            <Button Grid.Column="2" Text="Kasir" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavCashier" />
+            <Button Grid.Column="3" Text="Inventaris" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavInventory" />
+            <Button Grid.Column="4" Text="Lainnya" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavMore" />
         </Grid>
     </Grid>
 </ContentPage>

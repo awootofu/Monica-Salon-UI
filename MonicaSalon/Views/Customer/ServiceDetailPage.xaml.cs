@@ -12,4 +12,10 @@ public partial class ServiceDetailPage : ContentPage
     {
         await Shell.Current.GoToAsync("schedule");
     }
+
+    private async void OnBrowseStyles(object sender, EventArgs e)
+    {
+        Services.BookingContext.HairstyleReturnTo = "details";
+        await Shell.Current.GoToAsync("hairstyle-book");
+    }
 }

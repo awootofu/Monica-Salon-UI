@@ -2,24 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MonicaSalon.Views.Admin.AdminBookingsPage"
-             Title="Bookings"
+             Title="Booking"
              BackgroundColor="{StaticResource Ivory}">
     <Grid RowDefinitions="*,Auto">
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Padding="20" Spacing="12">
-                <Label Text="Kelola Booking" Style="{StaticResource Eyebrow}" />
-                <Label Text="Bookings" Style="{StaticResource ScreenTitle}" />
+                <Label Text="Operasional" Style="{StaticResource Eyebrow}" />
+                <Label Text="Booking" Style="{StaticResource ScreenTitle}" />
                 <SearchBar x:Name="BookingSearch" Placeholder="Cari nama, ref, layanan..." TextChanged="OnSearch" />
-                <Button Text="14 Okt 2026" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="13" Clicked="OnDateStub" />
-                <HorizontalStackLayout Spacing="8">
-                    <Button x:Name="FilterAll" Text="Semua" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
-                    <Button x:Name="FilterPending" Text="Menunggu Konfirmasi" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Spacing="8">
-                    <Button x:Name="FilterConfirmed" Text="Dikonfirmasi" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
-                    <Button x:Name="FilterDone" Text="Selesai" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
-                    <Button x:Name="FilterCancelled" Text="Dibatalkan" FontSize="11" HeightRequest="38" Clicked="OnFilter" />
-                </HorizontalStackLayout>
+                <Button Text="14 Okt 2026" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="13" Clicked="OnDateSelected" />
+                <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Start" AlignItems="Center">
+                    <Button x:Name="FilterAll" Text="Semua" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" Clicked="OnFilter" />
+                    <Button x:Name="FilterPending" Text="Menunggu Konfirmasi" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" Clicked="OnFilter" />
+                    <Button x:Name="FilterConfirmed" Text="Dikonfirmasi" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" Clicked="OnFilter" />
+                    <Button x:Name="FilterDone" Text="Selesai" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" Clicked="OnFilter" />
+                    <Button x:Name="FilterCancelled" Text="Dibatalkan" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" Clicked="OnFilter" />
+                </FlexLayout>
                 <CollectionView x:Name="BookingsList" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
@@ -38,15 +36,15 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-                <Button Text="+ Add Booking" Style="{StaticResource PrimaryButton}" Clicked="OnAdd" />
+                <Button Text="+ Booking Baru" Style="{StaticResource PrimaryButton}" Clicked="OnAdd" />
             </VerticalStackLayout>
         </ScrollView>
-        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="4,8" BackgroundColor="White">
-            <Button Grid.Column="0" Text="Dashboard" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavDashboard" />
-            <Button Grid.Column="1" Text="Bookings" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavBookings" />
-            <Button Grid.Column="2" Text="Cashier" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavCashier" />
-            <Button Grid.Column="3" Text="Inventory" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavInventory" />
-            <Button Grid.Column="4" Text="More" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavMore" />
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="8,6" BackgroundColor="White">
+            <Button Grid.Column="0" Text="Beranda" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavDashboard" />
+            <Button Grid.Column="1" Text="Booking" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavBookings" />
+            <Button Grid.Column="2" Text="Kasir" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavCashier" />
+            <Button Grid.Column="3" Text="Inventaris" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavInventory" />
+            <Button Grid.Column="4" Text="Lainnya" Style="{StaticResource GhostButton}" FontSize="11" Clicked="OnNavMore" />
         </Grid>
     </Grid>
 </ContentPage>

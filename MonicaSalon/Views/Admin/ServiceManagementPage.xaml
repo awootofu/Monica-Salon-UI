@@ -6,11 +6,11 @@
              BackgroundColor="{StaticResource Ivory}">
     <Grid RowDefinitions="Auto,*,Auto" Padding="20,12" RowSpacing="10">
         <VerticalStackLayout Grid.Row="0" Spacing="10">
-            <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
-            <Label Text="CATALOGUE • SERVICES" Style="{StaticResource Eyebrow}" />
-            <Label Text="Service Management" Style="{StaticResource ScreenTitle}" />
-            <SearchBar x:Name="ServiceSearch" Placeholder="Search services..." TextChanged="OnSearchChanged" BackgroundColor="White" />
-            <Button Text="+ Add Service" Style="{StaticResource PrimaryButton}" Clicked="OnAddService" />
+            <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+            <Label Text="Katalog" Style="{StaticResource Eyebrow}" />
+            <Label Text="Kelola Layanan" Style="{StaticResource ScreenTitle}" />
+            <SearchBar x:Name="ServiceSearch" Placeholder="Cari layanan..." TextChanged="OnSearchChanged" BackgroundColor="White" />
+            <Button Text="+ Tambah Layanan" Style="{StaticResource PrimaryButton}" Clicked="OnAddService" />
         </VerticalStackLayout>
         <CollectionView Grid.Row="1" x:Name="ServicesList" SelectionMode="None">
             <CollectionView.ItemTemplate>

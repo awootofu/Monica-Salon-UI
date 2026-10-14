@@ -1,22 +1,12 @@
-using MonicaSalon.Services;
+using MonicaSalon.ViewModels;
 namespace MonicaSalon.Views.Customer;
 public partial class BookingHistoryPage : ContentPage
 {
     public BookingHistoryPage()
     {
         InitializeComponent();
-        HistoryList.ItemsSource = MockDataService.BookingHistory;
-    }
-
-    private async void OnFilter(object sender, EventArgs e)
-    {
-        if (sender is not Button b) return;
-        string f = b.Text;
-        if (f == "Semua")
-            HistoryList.ItemsSource = MockDataService.BookingHistory;
-        else
-            HistoryList.ItemsSource = MockDataService.BookingHistory.Where(x => x.Status == f).ToList();
-        await Task.CompletedTask;
+        BindingContext = new BookingHistoryViewModel();
+        StatusPicker.SelectedIndex = 0;
     }
 
     private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)

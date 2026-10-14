@@ -9,17 +9,23 @@
             <Button Text="← Kembali" Style="{StaticResource GhostButton}" Clicked="OnBack" HorizontalOptions="Start" />
             <Label Text="Selamat datang kembali" Style="{StaticResource Eyebrow}" />
             <Label Text="Saatnya kembali merawat dirimu." Style="{StaticResource ScreenTitle}" />
-            <Label Text="Masuk untuk booking, melihat riwayat, dan mencoba simulasi rambut."
+            <Label Text="Masuk untuk booking, melihat riwayat, dan membuka buku gaya rambut."
                    Style="{StaticResource BodyCopy}" />
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="10">
-                    <Label Text="Email / No. HP" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="EmailEntry" Placeholder="nama@email.com" Keyboard="Email" />
+                    <Label Text="Email" Style="{StaticResource MutedCopy}" />
+                    <Entry x:Name="EmailEntry" Placeholder="customer@email.com" Keyboard="Email" Text="{Binding Email}" />
                     <Label Text="Password" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="PasswordEntry" Placeholder="Minimal 6 karakter" IsPassword="True" />
-                    <Label x:Name="ErrorLabel" Text="" TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="False" />
+                    <Entry x:Name="PasswordEntry" Placeholder="Minimal 6 karakter" IsPassword="True" Text="{Binding Password}" />
+                    <Label x:Name="ErrorLabel" Text="{Binding ErrorMessage}" TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="{Binding HasError}" />
                     <Button Text="Lupa password?" Style="{StaticResource GhostButton}" Clicked="OnForgot" HorizontalOptions="End" />
-                    <Button Text="Login" Style="{StaticResource PrimaryButton}" Clicked="OnLogin" />
+                    <Button Text="Masuk" Style="{StaticResource PrimaryButton}" Clicked="OnLogin" />
+                </VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="Akun demo" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="customer@email.com masuk sebagai customer, owner@email.com masuk sebagai owner." Style="{StaticResource MutedCopy}" />
                 </VerticalStackLayout>
             </Border>
             <HorizontalStackLayout Spacing="4" HorizontalOptions="Center">

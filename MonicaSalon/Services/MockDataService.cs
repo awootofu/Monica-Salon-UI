@@ -74,5 +74,16 @@ public static class MockDataService
         new() { Id="FIN-261013-043", Type="expense", Date="13 Okt", Category="Utilities", Amount=180000, Description="Listrik", Reference="MAN-EXP-043", Source="manual" },
         new() { Id="FIN-261011-041", Type="expense", Date="11 Okt", Category="Operations", Amount=120000, Description="Laundry", Reference="MAN-EXP-041", Source="manual" },
     };
+    public static List<HairstyleItem> Hairstyles { get; } = new()
+    {
+        new() { Id="bob-classic", Name="Bob Classic", Category="Bob", Length="Sebahu", FaceShape="Oval, Bulat", Maintenance="Rendah", Image="haircut.jpg", DurationHint="45–60 mnt", PriceHint="Mulai Rp 50 rb", Description="Potongan bob rata sebahu yang rapi dan mudah diatur. Referensi paling aman untuk tampilan segar sehari-hari." },
+        new() { Id="soft-layer", Name="Soft Layer", Category="Layer", Length="Sedang", FaceShape="Oval, Panjang", Maintenance="Sedang", Image="styling.jpg", DurationHint="60–90 mnt", PriceHint="Mulai Rp 65 rb", Description="Layer lembut memberi volume alami tanpa memangkas terlalu pendek. Cocok untuk rambut tipis maupun tebal." },
+        new() { Id="long-wave", Name="Long Wave", Category="Panjang", Length="Sepunggung", FaceShape="Oval, Hati", Maintenance="Sedang", Image="styling.jpg", DurationHint="60–90 mnt", PriceHint="Mulai Rp 65 rb", Description="Rambut panjang dengan gelombang natural. Pilih referensi ini jika mau styling blow atau catok gelombang." },
+        new() { Id="sleek-straight", Name="Sleek Straight", Category="Pendek", Length="Sebahu", FaceShape="Oval, Kotak", Maintenance="Rendah", Image="haircut.jpg", DurationHint="45–60 mnt", PriceHint="Mulai Rp 55 rb", Description="Tampilan lurus rapi ala smoothing ringan. Tunjukkan ke stylist jika ingin hasil jatuh dan tidak mengembang." },
+        new() { Id="shoulder-bounce", Name="Shoulder Bounce", Category="Bob", Length="Sebahu", FaceShape="Bulat, Oval", Maintenance="Rendah", Image="treatment.jpg", DurationHint="45–60 mnt", PriceHint="Mulai Rp 60 rb", Description="Bob sebahu dengan ujung masuk (blow bouncy). Manis untuk wajah bulat karena memberi efek lebih tirus." },
+        new() { Id="curtain-fringe", Name="Curtain Fringe", Category="Layer", Length="Sedang", FaceShape="Panjang, Hati", Maintenance="Sedang", Image="color.jpg", DurationHint="60 mnt", PriceHint="Mulai Rp 50 rb", Description="Poni tirai yang membingkai wajah. Bisa dipadukan dengan layer atau bob tanpa mengubah panjang utama." },
+        new() { Id="loose-curls", Name="Loose Curls", Category="Keriting", Length="Sedang–Panjang", FaceShape="Oval, Bulat", Maintenance="Tinggi", Image="treatment.jpg", DurationHint="90–120 mnt", PriceHint="Mulai Rp 80 rb", Description="Ikal besar dan lembut untuk acara atau tampilan bervolume. Perlu styling ulang, cocok sebagai referensi catok." },
+        new() { Id="mocha-lob", Name="Mocha Lob", Category="Bob", Length="Sebahu", FaceShape="Semua bentuk", Maintenance="Sedang", Image="color.jpg", DurationHint="2–3 jam", PriceHint="Mulai Rp 200 rb", Description="Long bob dengan warna mocha. Pilih ini jika sekalian mau pewarnaan — tunjukkan warnanya ke stylist." },
+    };
     public static string FormatRupiah(int v) => $"Rp {v:N0}".Replace(",", ".");
 }

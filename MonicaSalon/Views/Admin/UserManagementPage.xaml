@@ -7,10 +7,10 @@
     <Grid>
         <ScrollView>
             <VerticalStackLayout Padding="20" Spacing="12">
-                <Button Text="‹ Back" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
-                <Label Text="OPERATIONS • USERS" Style="{StaticResource Eyebrow}" />
-                <Label Text="User Management" Style="{StaticResource ScreenTitle}" />
-                <Button Text="+ Add User" Style="{StaticResource PrimaryButton}" Clicked="OnAddUser" />
+                <Button Text="‹ Kembali" Style="{StaticResource GhostButton}" HorizontalOptions="Start" Clicked="OnBack" />
+                <Label Text="Operasional" Style="{StaticResource Eyebrow}" />
+                <Label Text="Kelola Pengguna" Style="{StaticResource ScreenTitle}" />
+                <Button Text="+ Tambah Pengguna" Style="{StaticResource PrimaryButton}" Clicked="OnAddUser" />
                 <Border Style="{StaticResource CardFrame}">
                     <VerticalStackLayout Spacing="8">
                         <HorizontalStackLayout Spacing="6">
@@ -33,7 +33,7 @@
                                 <Label Text="sari@salon.id" Style="{StaticResource MutedCopy}" FontSize="11" />
                             </VerticalStackLayout>
                             <Border BackgroundColor="{StaticResource PendingBg}" StrokeThickness="0" StrokeShape="RoundRectangle 10" Padding="8,4" VerticalOptions="Center">
-                                <Label Text="Cashier" TextColor="{StaticResource PendingText}" FontSize="10" FontAttributes="Bold" />
+                                <Label Text="Kasir" TextColor="{StaticResource PendingText}" FontSize="10" FontAttributes="Bold" />
                             </Border>
                         </HorizontalStackLayout>
                         <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
@@ -83,13 +83,13 @@
                 <VerticalStackLayout Spacing="8">
                     <Label x:Name="FormTitle" Text="Add User" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="16" />
                     <Label Text="Name" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="UserNameEntry" Placeholder="Full name" Style="{StaticResource FieldEntry}" />
+                    <Entry x:Name="UserNameEntry" Placeholder="Nama lengkap" Style="{StaticResource FieldEntry}" />
                     <Label Text="Email" Style="{StaticResource MutedCopy}" />
                     <Entry x:Name="UserEmailEntry" Placeholder="user@salon.id" Keyboard="Email" Style="{StaticResource FieldEntry}" />
                     <Label Text="Role" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="12" />
                     <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
                         <Button Grid.Column="0" Text="Admin" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnRolePicked" />
-                        <Button Grid.Column="1" Text="Cashier" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnRolePicked" />
+                        <Button Grid.Column="1" Text="Kasir" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnRolePicked" />
                         <Button Grid.Column="2" Text="Staff" Style="{StaticResource SecondaryButton}" HeightRequest="40" FontSize="11" Clicked="OnRolePicked" />
                     </Grid>
                     <Grid ColumnDefinitions="*,*" ColumnSpacing="8">

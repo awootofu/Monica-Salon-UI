@@ -10,12 +10,29 @@ public partial class AppShell : Shell
     {
         InitializeComponent();
         RegisterRoutes();
+#if WINDOWS
+        Navigated += OnShellNavigatedClearTitle;
+#endif
     }
+
+#if WINDOWS
+    private void OnShellNavigatedClearTitle(object? sender, ShellNavigatedEventArgs e)
+    {
+        try
+        {
+            if (Window?.Handler?.PlatformView is Microsoft.UI.Xaml.Window native)
+                native.Title = string.Empty;
+        }
+        catch (Exception)
+        {
+            // Title bar customization is best-effort only.
+        }
+    }
+#endif
 
     private static void RegisterRoutes()
     {
         // Reference / shell screens
-        Routing.RegisterRoute("roles", typeof(RoleSelectPage));
         Routing.RegisterRoute("system", typeof(DesignSystemPage));
         Routing.RegisterRoute("flows", typeof(FlowsPage));
 
@@ -32,15 +49,12 @@ public partial class AppShell : Shell
         Routing.RegisterRoute("history", typeof(BookingHistoryPage));
         Routing.RegisterRoute("booking-details", typeof(BookingDetailsPage));
         Routing.RegisterRoute("booking-feedback", typeof(BookingFeedbackPage));
-        Routing.RegisterRoute("simulation-intro", typeof(SimulationIntroPage));
-        Routing.RegisterRoute("photo-selection", typeof(PhotoSelectionPage));
-        Routing.RegisterRoute("hair-editor", typeof(HairEditorPage));
-        Routing.RegisterRoute("simulation-result", typeof(SimulationResultPage));
+        Routing.RegisterRoute("hairstyle-book", typeof(HairstyleBookPage));
+        Routing.RegisterRoute("hairstyle-detail", typeof(HairstyleDetailPage));
         Routing.RegisterRoute("profile", typeof(ProfilePage));
         Routing.RegisterRoute("settings", typeof(SettingsPage));
 
-        // Admin A01-A34 + More
-        Routing.RegisterRoute("admin-login", typeof(AdminLoginPage));
+        // Admin + More
         Routing.RegisterRoute("admin-dashboard", typeof(AdminDashboardPage));
         Routing.RegisterRoute("admin-bookings", typeof(AdminBookingsPage));
         Routing.RegisterRoute("admin-create-booking", typeof(AdminCreateBookingPage));

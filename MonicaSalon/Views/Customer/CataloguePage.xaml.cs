@@ -1,38 +1,12 @@
-using MonicaSalon.Models;
-using MonicaSalon.Services;
+using MonicaSalon.ViewModels;
 namespace MonicaSalon.Views.Customer;
 public partial class CataloguePage : ContentPage
 {
-    private string _filter = "Semua";
-    private string _query = string.Empty;
-
     public CataloguePage()
     {
         InitializeComponent();
-        ApplyFilter();
-    }
-
-    private void OnSearchChanged(object sender, TextChangedEventArgs e)
-    {
-        _query = e.NewTextValue ?? string.Empty;
-        ApplyFilter();
-    }
-
-    private void OnFilter(object sender, EventArgs e)
-    {
-        if (sender is Button b && b.CommandParameter is string c)
-            _filter = c;
-        ApplyFilter();
-    }
-
-    private void ApplyFilter()
-    {
-        IEnumerable<ServiceItem> q = MockDataService.Services;
-        if (_filter != "Semua")
-            q = q.Where(s => s.Category == _filter);
-        if (!string.IsNullOrWhiteSpace(_query))
-            q = q.Where(s => s.Name.Contains(_query, StringComparison.OrdinalIgnoreCase));
-        ServiceList.ItemsSource = q.ToList();
+        BindingContext = new CatalogueViewModel();
+        CategoryPicker.SelectedIndex = 0;
     }
 
     private async void OnServiceSelected(object sender, SelectionChangedEventArgs e)
