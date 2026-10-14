@@ -31,8 +31,6 @@
                 <Label Text="Operasional" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
                 <Border Style="{StaticResource CardFrame}">
                     <VerticalStackLayout Spacing="4">
-                        <Button Text="Pengaturan Salon" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnSalonSettings" />
-                        <BoxView HeightRequest="1" Color="#E7DDD6" />
                         <Button Text="Kelola Pengguna" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnUsers" />
                         <BoxView HeightRequest="1" Color="#E7DDD6" />
                         <Button Text="Profil Salon" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnSalonProfile" />

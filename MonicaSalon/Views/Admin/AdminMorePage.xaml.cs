@@ -4,7 +4,6 @@ public partial class AdminMorePage : ContentPage
     public AdminMorePage() => InitializeComponent();
     private async void OnServices(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-services");
     private async void OnProducts(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-products");
-    private async void OnSalonSettings(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-salon-settings");
     private async void OnUsers(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-users");
     private async void OnSalonProfile(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-salon-profile");
     private async void OnFinance(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-finance");

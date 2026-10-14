@@ -77,6 +77,24 @@ public class CashierViewModel : BaseViewModel
         private set => SetProperty(ref _cartLines, value);
     }
 
+    private List<string> _bookingOptions = new();
+    public List<string> BookingOptions
+    {
+        get => _bookingOptions;
+        private set => SetProperty(ref _bookingOptions, value);
+    }
+
+    private string _selectedBookingOption = string.Empty;
+    public string SelectedBookingOption
+    {
+        get => _selectedBookingOption;
+        set
+        {
+            if (SetProperty(ref _selectedBookingOption, value ?? string.Empty))
+                SelectBooking(_selectedBookingOption);
+        }
+    }
+
     private string _originText = "Booking: MON-261014-028 • Bella Anisa";
     public string OriginText
     {
@@ -105,14 +123,11 @@ public class CashierViewModel : BaseViewModel
         private set => SetProperty(ref _canProceed, value);
     }
 
-    private bool _isDraftSaved;
-    public bool IsDraftSaved
+    public CashierViewModel()
     {
-        get => _isDraftSaved;
-        private set => SetProperty(ref _isDraftSaved, value);
+        RefreshBookings();
+        Refresh();
     }
-
-    public CashierViewModel() => Refresh();
 
     public void SelectOrigin(string? buttonText) =>
         SelectedOrigin = (buttonText ?? string.Empty).Contains("Walk", StringComparison.OrdinalIgnoreCase)
@@ -128,7 +143,6 @@ public class CashierViewModel : BaseViewModel
     {
         if (string.IsNullOrEmpty(id)) return;
         _qty[id] = _qty.TryGetValue(id, out var q) ? q + 1 : 1;
-        IsDraftSaved = false;
         Refresh();
     }
 
@@ -139,7 +153,45 @@ public class CashierViewModel : BaseViewModel
         Refresh();
     }
 
-    public void SaveDraft() => IsDraftSaved = true;
+    public void RefreshBookings()
+    {
+        BookingOptions = MockDataService.AdminBookings
+            .Select(b => $"{b.Ref} • {b.Customer} • {b.Service}")
+            .ToList();
+        if (!string.IsNullOrEmpty(_selectedBookingOption) && !BookingOptions.Contains(_selectedBookingOption))
+            SelectedBookingOption = string.Empty;
+    }
+
+    public void SelectBooking(string? option)
+    {
+        var booking = FindBooking(option);
+        if (booking is null) return;
+        _qty.Clear();
+        foreach (var part in booking.Service.Split('+', StringSplitOptions.TrimEntries))
+        {
+            var saleId = MapServiceToSaleId(part);
+            if (saleId is not null)
+                _qty[saleId] = 1;
+        }
+        CashierContext.BookingRef = booking.Ref;
+        CashierContext.CustomerName = booking.Customer;
+        CashierContext.BookingWhen = $"{booking.Date} {booking.Time}";
+        Refresh();
+    }
+
+    private static Models.BookingItem? FindBooking(string? option)
+    {
+        var refPart = (option ?? string.Empty).Split('•')[0].Trim();
+        return MockDataService.AdminBookings.FirstOrDefault(b => b.Ref == refPart);
+    }
+
+    private static string? MapServiceToSaleId(string name)
+    {
+        var services = MockDataService.SaleItems.Where(x => x.Type == "service").ToList();
+        return services.FirstOrDefault(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase))?.Id
+            ?? services.FirstOrDefault(x => name.Contains(x.Name, StringComparison.OrdinalIgnoreCase)
+                || x.Name.Contains(name, StringComparison.OrdinalIgnoreCase))?.Id;
+    }
 
     private void Refresh()
     {
@@ -172,9 +224,25 @@ public class CashierViewModel : BaseViewModel
             });
         }
         CartLines = lines;
-        OriginText = _selectedOrigin == "booking"
-            ? "Booking: MON-261014-028 • Bella Anisa"
-            : "Walk-in customer";
+        if (_selectedOrigin == "booking" && FindBooking(_selectedBookingOption) is { } sel)
+        {
+            OriginText = $"Booking: {sel.Ref} • {sel.Customer}";
+            CashierContext.BookingRef = sel.Ref;
+            CashierContext.CustomerName = sel.Customer;
+            CashierContext.BookingWhen = $"{sel.Date} {sel.Time}";
+        }
+        else if (_selectedOrigin == "walkin")
+        {
+            OriginText = "Walk-in customer";
+            CashierContext.BookingRef = "Walk-in";
+            CashierContext.CustomerName = "Walk-in";
+            CashierContext.BookingWhen = string.Empty;
+        }
+        else
+        {
+            OriginText = "Pilih customer dahulu.";
+        }
+        CashierContext.Cart = _qty.ToDictionary(kv => kv.Key, kv => kv.Value);
         TotalText = $"Total: {MockDataService.FormatRupiah(total)}";
         IsCartEmpty = lines.Count == 0;
         CanProceed = lines.Count > 0;

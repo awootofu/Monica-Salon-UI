@@ -5,9 +5,9 @@ public partial class AddInventoryPage : ContentPage
     {
         InitializeComponent();
         CategoryPicker.ItemsSource = new List<string> { "Retail", "Treatment", "Coloring" };
-        CategoryPicker.SelectedIndex = 0;
+        CategoryPicker.SelectedItem = "Retail";
         UnitPicker.ItemsSource = new List<string> { "botol", "tube", "jar", "sachet" };
-        UnitPicker.SelectedIndex = 0;
+        UnitPicker.SelectedItem = "botol";
     }
 
     private void OnNameChanged(object sender, TextChangedEventArgs e)

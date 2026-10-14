@@ -4,13 +4,14 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:shared="clr-namespace:MonicaSalon.Views.Shared"
+    xmlns:customer="clr-namespace:MonicaSalon.Views.Customer"
     Title="Monica Salon"
     FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False">
 
     <ShellContent
-        Title="Cover"
-        ContentTemplate="{DataTemplate shared:CoverPage}"
-        Route="cover" />
+        Title="Welcome"
+        ContentTemplate="{DataTemplate customer:WelcomePage}"
+        Route="welcome" />
 
 </Shell>

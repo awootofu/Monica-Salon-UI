@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shared="clr-namespace:MonicaSalon.Views.Shared"
              x:Class="MonicaSalon.Views.Admin.FinancialRecordsPage"
              Title="Financial Records"
              BackgroundColor="{StaticResource Ivory}">
@@ -10,21 +11,45 @@
             <Label Text="Keuangan" Style="{StaticResource Eyebrow}" />
             <Label Text="Catatan Keuangan" Style="{StaticResource ScreenTitle}" />
             <Border Style="{StaticResource CardFrame}">
-                <HorizontalStackLayout Spacing="8">
-                    <Label Text="Tanggal:" Style="{StaticResource MutedCopy}" VerticalOptions="Center" />
-                    <Label Text="8-14 Okt 2026" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" VerticalOptions="Center" />
-                </HorizontalStackLayout>
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Rentang Tanggal" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label x:Name="RangeLabel" Text="8 Okt–14 Okt 2026" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Dari" Style="{StaticResource MutedCopy}" />
+                    <Border Stroke="#D9CFC4" StrokeThickness="1" StrokeShape="RoundRectangle 10" BackgroundColor="White" Padding="12,4">
+                        <DatePicker x:Name="StartPicker"
+                                    Date="10/08/2026"
+                                    MinimumDate="01/01/2026"
+                                    MaximumDate="12/31/2026"
+                                    DateSelected="OnRangeChanged"
+                                    FontSize="14"
+                                    TextColor="{StaticResource DeepCocoa}"
+                                    HeightRequest="48" />
+                    </Border>
+                    <Label Text="Sampai" Style="{StaticResource MutedCopy}" />
+                    <Border Stroke="#D9CFC4" StrokeThickness="1" StrokeShape="RoundRectangle 10" BackgroundColor="White" Padding="12,4">
+                        <DatePicker x:Name="EndPicker"
+                                    Date="10/14/2026"
+                                    MinimumDate="01/01/2026"
+                                    MaximumDate="12/31/2026"
+                                    DateSelected="OnRangeChanged"
+                                    FontSize="14"
+                                    TextColor="{StaticResource DeepCocoa}"
+                                    HeightRequest="48" />
+                    </Border>
+                </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Kategori" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="12" />
-                    <Border Style="{StaticResource CardFrame}" Padding="12,4">
-                        <Picker FontSize="14" TextColor="{StaticResource DeepCocoa}" HeightRequest="48" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" />
-                    </Border>
+                    <shared:SearchableDropdown ItemsSource="{Binding Categories}"
+                                                      SelectedItem="{Binding SelectedCategory}"
+                                                      Placeholder="Pilih kategori"
+                                                      SearchPlaceholder="Cari kategori..." />
                     <Label Text="Type" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="12" />
-                    <Border Style="{StaticResource CardFrame}" Padding="12,4">
-                        <Picker FontSize="14" TextColor="{StaticResource DeepCocoa}" HeightRequest="48" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" ItemsSource="{Binding Types}" SelectedItem="{Binding SelectedType}" />
-                    </Border>
+                    <shared:SearchableDropdown ItemsSource="{Binding Types}"
+                                                  SelectedItem="{Binding SelectedType}"
+                                                  Placeholder="Pilih tipe"
+                                                  SearchPlaceholder="Cari tipe..." />
                 </VerticalStackLayout>
             </Border>
             <CollectionView x:Name="RecordsList" ItemsSource="{Binding Records}" SelectionMode="Single" SelectionChanged="OnRecordSelected">

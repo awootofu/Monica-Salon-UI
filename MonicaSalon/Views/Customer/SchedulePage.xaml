@@ -17,14 +17,31 @@
                 <Label Text="3 Terkirim" Style="{StaticResource MutedCopy}" />
             </HorizontalStackLayout>
             <Border Style="{StaticResource CardFrame}">
-                <HorizontalStackLayout Spacing="12">
-                    <Image Source="color.jpg" WidthRequest="64" HeightRequest="64" Aspect="AspectFill" />
-                    <VerticalStackLayout Spacing="2" VerticalOptions="Center">
-                        <Label Text="Pewarnaan Rambut" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
-                        <Label Text="2-3 jam • Coloring" Style="{StaticResource MutedCopy}" />
-                        <Label Text="Rp 200.000" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Pilih Layanan" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Bisa pilih lebih dari 1, total dihitung otomatis."
+                           Style="{StaticResource MutedCopy}" />
+                    <VerticalStackLayout BindableLayout.ItemsSource="{Binding ServiceOptions}" Spacing="2">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <HorizontalStackLayout Spacing="10" Padding="0,6">
+                                    <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                                              Color="{StaticResource DustyRose}"
+                                              VerticalOptions="Center" />
+                                    <VerticalStackLayout Spacing="0" VerticalOptions="Center" HorizontalOptions="Fill">
+                                        <Label Text="{Binding Service.Name}" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" />
+                                        <Label Text="{Binding Service.Price}" Style="{StaticResource MutedCopy}" FontSize="11" />
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
                     </VerticalStackLayout>
-                </HorizontalStackLayout>
+                    <BoxView HeightRequest="1" Color="#E7DDD6" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="{Binding ServicesCountText}" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
+                        <Label Text="{Binding ServicesTotalText}" Grid.Column="1" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" VerticalOptions="Center" />
+                    </Grid>
+                </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
@@ -42,19 +59,21 @@
                 </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">
-                <VerticalStackLayout Spacing="10">
+                <VerticalStackLayout Spacing="8">
                     <Label Text="Pilih Tanggal" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
-                    <Label Text="Oktober 2026" Style="{StaticResource MutedCopy}" />
-                    <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Start" AlignItems="Start">
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn11" Text="11 Min" IsEnabled="False" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn12" Text="12 Sen" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn13" Text="13 Sel" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn14" Text="14 Rab" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn15" Text="15 Kam" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn16" Text="16 Jum" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn17" Text="17 Sab" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn18" Text="18 Min" WidthRequest="68" HeightRequest="52" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" />
-                    </FlexLayout>
+                    <Label Text="{Binding MonthLabel}" Style="{StaticResource MutedCopy}" />
+                    <Border Stroke="#D9CFC4" StrokeThickness="1" StrokeShape="RoundRectangle 10" BackgroundColor="White" Padding="12,4">
+                        <DatePicker x:Name="DatePicker"
+                                    Date="{Binding SelectedDate}"
+                                    MinimumDate="{Binding MinDate}"
+                                    MaximumDate="{Binding MaxDate}"
+                                    DateSelected="OnDateSelected"
+                                    FontSize="14"
+                                    TextColor="{StaticResource DeepCocoa}"
+                                    HeightRequest="48" />
+                    </Border>
+                    <Label Text="{Binding SelectedDateText}" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="Ketuk tanggal untuk membuka kalender." Style="{StaticResource MutedCopy}" FontSize="11" />
                 </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">
@@ -73,6 +92,14 @@
                 </VerticalStackLayout>
             </Border>
             <Label x:Name="SummaryLabel" Text="{Binding Summary}" Style="{StaticResource MutedCopy}" />
+            <Border Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Kebijakan Keterlambatan" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="• Terlambat 1–10 menit: booking tetap aktif, silakan tetap datang." Style="{StaticResource BodyCopy}" />
+                    <Label Text="• Terlambat 10–15 menit: hubungi salon. Admin menentukan layanan masih bisa dilakukan atau perlu dijadwalkan ulang." Style="{StaticResource BodyCopy}" />
+                    <Label Text="• Waktu layanan sudah tidak memungkinkan: admin menawarkan jadwal baru sesuai ketersediaan." Style="{StaticResource BodyCopy}" />
+                </VerticalStackLayout>
+            </Border>
             <Button Text="Lanjut" Style="{StaticResource PrimaryButton}" Clicked="OnContinue" />
         </VerticalStackLayout>
     </ScrollView>

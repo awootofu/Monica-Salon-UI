@@ -8,6 +8,13 @@ public partial class BookingHistoryPage : ContentPage
         BindingContext = new BookingHistoryViewModel();
     }
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        if (BindingContext is BookingHistoryViewModel vm)
+            vm.Refresh();
+    }
+
     private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (e.CurrentSelection.Count == 0) return;

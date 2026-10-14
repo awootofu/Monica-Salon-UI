@@ -20,7 +20,6 @@ public partial class PaymentPage : ContentPage
     private void RepaintMethods()
     {
         PaintMethod(CashBtn, Vm.Method == "Cash");
-        PaintMethod(TransferBtn, Vm.Method == "Transfer");
         PaintMethod(QrisBtn, Vm.Method == "QRIS");
     }
 

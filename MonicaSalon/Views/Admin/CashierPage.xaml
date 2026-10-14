@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shared="clr-namespace:MonicaSalon.Views.Shared"
              x:Class="MonicaSalon.Views.Admin.CashierPage"
              Title="Kasir"
              BackgroundColor="{StaticResource Ivory}">
@@ -18,6 +19,11 @@
                             <Button x:Name="OriginWalkinBtn" Grid.Column="1" Text="Walk-in" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnOriginSelected" />
                         </Grid>
                         <Label x:Name="OriginLabel" Text="{Binding OriginText}" Style="{StaticResource MutedCopy}" />
+                        <shared:SearchableDropdown IsVisible="{Binding IsBookingOrigin}"
+                                                      ItemsSource="{Binding BookingOptions}"
+                                                      SelectedItem="{Binding SelectedBookingOption, Mode=TwoWay}"
+                                                      Placeholder="Pilih customer"
+                                                      SearchPlaceholder="Cari ref / nama / layanan..." />
                     </VerticalStackLayout>
                 </Border>
 
@@ -63,8 +69,6 @@
                             </CollectionView.ItemTemplate>
                         </CollectionView>
                         <Label x:Name="TotalLabel" Text="{Binding TotalText}" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
-                        <Label x:Name="DraftLabel" Text="Draf tersimpan." TextColor="{StaticResource SuccessText}" FontSize="12" FontAttributes="Bold" IsVisible="{Binding IsDraftSaved}" />
-                        <Button Text="Simpan Transaksi" Style="{StaticResource SecondaryButton}" Clicked="OnSaveDraft" />
                         <Button x:Name="ProceedBtn" Text="Lanjut ke Pembayaran" Style="{StaticResource PrimaryButton}" Clicked="OnProceed" IsEnabled="{Binding CanProceed}" />
                     </VerticalStackLayout>
                 </Border>

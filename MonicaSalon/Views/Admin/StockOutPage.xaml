@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shared="clr-namespace:MonicaSalon.Views.Shared"
              x:Class="MonicaSalon.Views.Admin.StockOutPage"
              Title="Stock-Out"
              BackgroundColor="{StaticResource Ivory}">
@@ -28,7 +29,7 @@
                     <Label Text="14 Okt 2026" Style="{StaticResource BodyCopy}" />
 
                     <Label Text="Alasan" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
-                    <Picker x:Name="ReasonPicker" Title="Pilih alasan" ItemsSource="{Binding Reasons}" SelectedItem="{Binding SelectedReason}" />
+                    <shared:SearchableDropdown x:Name="ReasonDropdown" Placeholder="Pilih alasan" SearchPlaceholder="Cari alasan..." ItemsSource="{Binding Reasons}" SelectedItem="{Binding SelectedReason}" />
 
                     <Border x:Name="RelatedBox" Style="{StaticResource CardFrame}" Padding="10" IsVisible="{Binding IsRelatedVisible}">
                         <VerticalStackLayout Spacing="2">

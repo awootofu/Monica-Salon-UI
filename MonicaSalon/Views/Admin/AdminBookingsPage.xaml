@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shared="clr-namespace:MonicaSalon.Views.Shared"
              x:Class="MonicaSalon.Views.Admin.AdminBookingsPage"
              Title="Booking"
              BackgroundColor="{StaticResource Ivory}">
@@ -11,15 +12,10 @@
                 <Label Text="Booking" Style="{StaticResource ScreenTitle}" />
                 <SearchBar x:Name="BookingSearch" Placeholder="Cari nama, ref, layanan..." Text="{Binding Query}" />
                 <Button Text="24 Sept 2026" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="13" Clicked="OnDateSelected" />
-                <Border Style="{StaticResource CardFrame}" Padding="12,4">
-                    <Picker FontSize="14"
-                            TextColor="{StaticResource DeepCocoa}"
-                            HeightRequest="48"
-                            VerticalOptions="CenterAndExpand"
-                            VerticalTextAlignment="Center"
-                            ItemsSource="{Binding Statuses}"
-                            SelectedItem="{Binding SelectedStatus}" />
-                </Border>
+                <shared:SearchableDropdown ItemsSource="{Binding Statuses}"
+                                              SelectedItem="{Binding SelectedStatus}"
+                                              Placeholder="Pilih status"
+                                              SearchPlaceholder="Cari status..." />
                 <CollectionView x:Name="BookingsList" ItemsSource="{Binding Bookings}" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>

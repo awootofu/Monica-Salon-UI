@@ -10,10 +10,21 @@
             <Label Text="Keuangan" Style="{StaticResource Eyebrow}" />
             <Label Text="Tambah Pengeluaran" Style="{StaticResource ScreenTitle}" />
             <Border Style="{StaticResource CardFrame}">
-                <HorizontalStackLayout Spacing="8">
-                    <Label Text="Tanggal:" Style="{StaticResource MutedCopy}" VerticalOptions="Center" />
-                    <Label Text="14 Okt 2026" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" VerticalOptions="Center" />
-                </HorizontalStackLayout>
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Tanggal" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label x:Name="DateLabel" Text="14 Okt 2026" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Border Stroke="#D9CFC4" StrokeThickness="1" StrokeShape="RoundRectangle 10" BackgroundColor="White" Padding="12,4">
+                        <DatePicker x:Name="DatePicker"
+                                    Date="10/14/2026"
+                                    MinimumDate="01/01/2026"
+                                    MaximumDate="12/31/2026"
+                                    DateSelected="OnDateChanged"
+                                    FontSize="14"
+                                    TextColor="{StaticResource DeepCocoa}"
+                                    HeightRequest="48" />
+                    </Border>
+                    <Label Text="Ketuk tanggal untuk membuka kalender." Style="{StaticResource MutedCopy}" FontSize="11" />
+                </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">

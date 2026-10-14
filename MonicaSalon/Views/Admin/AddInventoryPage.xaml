@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shared="clr-namespace:MonicaSalon.Views.Shared"
              x:Class="MonicaSalon.Views.Admin.AddInventoryPage"
              Title="Add Inventory Item"
              BackgroundColor="{StaticResource Ivory}">
@@ -17,10 +18,10 @@
                     <Entry x:Name="NameEntry" Placeholder="cth: Conditioner Repair" Style="{StaticResource FieldEntry}" TextChanged="OnNameChanged" />
 
                     <Label Text="Kategori" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
-                    <Picker x:Name="CategoryPicker" Title="Pilih kategori" />
+                    <shared:SearchableDropdown x:Name="CategoryPicker" Placeholder="Pilih kategori" SearchPlaceholder="Cari kategori..." />
 
                     <Label Text="Satuan" FontAttributes="Bold" TextColor="{StaticResource Charcoal}" FontSize="13" />
-                    <Picker x:Name="UnitPicker" Title="Pilih satuan" />
+                    <shared:SearchableDropdown x:Name="UnitPicker" Placeholder="Pilih satuan" SearchPlaceholder="Cari satuan..." />
 
                     <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
                         <VerticalStackLayout Grid.Column="0" Spacing="4">

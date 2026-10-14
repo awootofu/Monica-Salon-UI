@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonicaSalon.Views.Shared.SearchableDropdown"
+             x:Name="Root">
+    <Border Style="{StaticResource CardFrame}" Padding="0">
+        <VerticalStackLayout Spacing="0">
+            <!-- Header: selalu kelihatan, ikon ⌄/⌃ penanda dropdown -->
+            <Grid ColumnDefinitions="*,Auto" Padding="12,4" HeightRequest="56">
+                <Label Grid.Column="0"
+                       Text="{Binding DisplayText, Source={x:Reference Root}}"
+                       FontSize="14"
+                       TextColor="{StaticResource DeepCocoa}"
+                       VerticalOptions="Center"
+                       LineBreakMode="TailTruncation" />
+                <Label Grid.Column="1"
+                       x:Name="ChevronLabel"
+                       Text="⌄"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource DeepCocoa}"
+                       VerticalOptions="Center" />
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHeaderTapped" />
+                </Grid.GestureRecognizers>
+            </Grid>
+            <BoxView HeightRequest="1"
+                     Color="#E7DDD6"
+                     IsVisible="{Binding IsOpen, Source={x:Reference Root}}" />
+            <!-- Panel inline (bukan popup): tidak menutupi layar, max 180 -->
+            <VerticalStackLayout IsVisible="{Binding IsOpen, Source={x:Reference Root}}"
+                                 Spacing="0"
+                                 Padding="8,4,8,8">
+                <Entry x:Name="SearchEntry"
+                       Placeholder="{Binding SearchPlaceholder, Source={x:Reference Root}}"
+                       PlaceholderColor="{StaticResource Muted}"
+                       TextColor="{StaticResource Charcoal}"
+                       FontSize="13"
+                       HeightRequest="44"
+                       TextChanged="OnSearchChanged" />
+                <CollectionView x:Name="OptionsList"
+                                ItemsSource="{Binding FilteredItems, Source={x:Reference Root}}"
+                                HeightRequest="180"
+                                SelectionMode="None">
+                    <CollectionView.EmptyView>
+                        <Label Text="Tidak ada yang cocok."
+                               Style="{StaticResource MutedCopy}"
+                               HorizontalTextAlignment="Center"
+                               Padding="0,8" />
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10,11">
+                                <Label Text="{Binding .}"
+                                       FontSize="13"
+                                       TextColor="{StaticResource Charcoal}" />
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnOptionTapped"
+                                                          CommandParameter="{Binding .}" />
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </Border>
+</ContentView>

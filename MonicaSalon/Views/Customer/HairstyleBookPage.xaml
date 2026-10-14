@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shared="clr-namespace:MonicaSalon.Views.Shared"
              x:Class="MonicaSalon.Views.Customer.HairstyleBookPage"
              Title="Buku Gaya"
              BackgroundColor="{StaticResource Ivory}">
@@ -17,16 +18,10 @@
             <Label Text="Pilih referensi gaya sebelum booking. Tunjukkan pilihanmu ke stylist saat datang."
                    Style="{StaticResource BodyCopy}" />
             <SearchBar x:Name="BookSearch" Placeholder="Cari gaya, mis. bob, layer..." Text="{Binding Query}" />
-            <Border Style="{StaticResource CardFrame}" Padding="12,4">
-                <Picker x:Name="CategoryPicker"
-                        FontSize="14"
-                        TextColor="{StaticResource DeepCocoa}"
-                        HeightRequest="48"
-                        VerticalOptions="CenterAndExpand"
-                        VerticalTextAlignment="Center"
-                        ItemsSource="{Binding Categories}"
-                        SelectedItem="{Binding SelectedCategory}" />
-            </Border>
+            <shared:SearchableDropdown ItemsSource="{Binding Categories}"
+                                          SelectedItem="{Binding SelectedCategory}"
+                                          Placeholder="Pilih kategori"
+                                          SearchPlaceholder="Cari kategori..." />
             <Label x:Name="CountLabel" Text="{Binding CountText}" Style="{StaticResource MutedCopy}" />
         </VerticalStackLayout>
 

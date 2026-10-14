@@ -20,10 +20,10 @@
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="6">
                     <Label Text="MON-261014-028" Style="{StaticResource MutedCopy}" />
-                    <Label Text="Pewarnaan Rambut" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
-                    <Label Text="14 Okt 2026 • 11.00 WIB" Style="{StaticResource BodyCopy}" />
+                    <Label Text="{Binding ServicesSummary}" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="{Binding BookingWhenText}" Style="{StaticResource BodyCopy}" />
                     <Label x:Name="HairstyleRefLabel" Text="{Binding HairstyleRefText}" Style="{StaticResource MutedCopy}" />
-                    <Label Text="Rp 200.000" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="{Binding ServicesTotalText}" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
                 </VerticalStackLayout>
             </Border>
             <Button Text="Lihat Booking Saya" Style="{StaticResource PrimaryButton}" Clicked="OnViewBookings" />

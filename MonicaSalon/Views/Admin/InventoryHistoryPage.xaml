@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shared="clr-namespace:MonicaSalon.Views.Shared"
              x:Class="MonicaSalon.Views.Admin.InventoryHistoryPage"
              Title="Movement History"
              BackgroundColor="{StaticResource Ivory}">
@@ -11,9 +12,10 @@
             <Label Text="Riwayat Stok" Style="{StaticResource ScreenTitle}" />
             <Label Text="Jejak stock-in, stock-out, dan retail sale." Style="{StaticResource BodyCopy}" />
 
-            <Border Style="{StaticResource CardFrame}" Padding="12,4">
-                <Picker FontSize="14" TextColor="{StaticResource DeepCocoa}" HeightRequest="48" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" ItemsSource="{Binding Types}" SelectedItem="{Binding SelectedType}" />
-            </Border>
+            <shared:SearchableDropdown ItemsSource="{Binding Types}"
+                                          SelectedItem="{Binding SelectedType}"
+                                          Placeholder="Pilih tipe"
+                                          SearchPlaceholder="Cari tipe..." />
 
             <CollectionView x:Name="MovementList" ItemsSource="{Binding Movements}">
                 <CollectionView.EmptyView>

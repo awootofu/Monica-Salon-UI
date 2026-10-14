@@ -12,11 +12,21 @@ public class TransactionReviewViewModel : BaseViewModel
         public string LineTotalText { get; set; } = string.Empty;
     }
 
-    private readonly Dictionary<string, int> _qty = new()
+    private readonly Dictionary<string, int> _qty = new();
+
+    private string _customerName = "Bella Anisa";
+    public string CustomerName
     {
-        ["coloring"] = 1,
-        ["shampoo"] = 1,
-    };
+        get => _customerName;
+        private set => SetProperty(ref _customerName, value);
+    }
+
+    private string _bookingLine = "MON-261014-028 • 14 Okt 11.00";
+    public string BookingLine
+    {
+        get => _bookingLine;
+        private set => SetProperty(ref _bookingLine, value);
+    }
 
     private List<ReviewLine> _lines = new();
     public List<ReviewLine> Lines
@@ -62,32 +72,47 @@ public class TransactionReviewViewModel : BaseViewModel
 
     public TransactionReviewViewModel() => Refresh();
 
+    public void Refresh()
+    {
+        _qty.Clear();
+        foreach (var kv in CashierContext.Cart)
+            _qty[kv.Key] = kv.Value;
+        if (_qty.Count == 0)
+        {
+            _qty["coloring"] = 1;
+            _qty["shampoo"] = 1;
+        }
+        CustomerName = CashierContext.CustomerName;
+        BookingLine = string.IsNullOrEmpty(CashierContext.BookingWhen)
+            ? CashierContext.BookingRef
+            : $"{CashierContext.BookingRef} • {CashierContext.BookingWhen}";
+        RefreshLines();
+    }
+
     public void Increase(string? id)
     {
         if (string.IsNullOrEmpty(id)) return;
         _qty[id] = _qty.TryGetValue(id, out var q) ? q + 1 : 1;
-        Refresh();
+        SyncCart();
+        RefreshLines();
     }
 
     public void Decrease(string? id)
     {
         if (string.IsNullOrEmpty(id)) return;
         _qty[id] = Math.Max(0, _qty.TryGetValue(id, out var q) ? q - 1 : 0);
-        Refresh();
+        SyncCart();
+        RefreshLines();
     }
 
-    public void RemoveItem(string? id)
-    {
-        if (string.IsNullOrEmpty(id)) return;
-        _qty[id] = 0;
-        Refresh();
-    }
+    private void SyncCart() =>
+        CashierContext.Cart = _qty.ToDictionary(kv => kv.Key, kv => kv.Value);
 
-    private void Refresh()
+    private void RefreshLines()
     {
         var lines = new List<ReviewLine>();
         int serviceSub = 0, productSub = 0;
-        foreach (var kv in _qty.Where(kv => kv.Value > 0))
+        foreach (var kv in _qty)
         {
             var item = MockDataService.SaleItems.FirstOrDefault(x => x.Id == kv.Key);
             if (item is null) continue;

@@ -11,6 +11,12 @@ public partial class TransactionReviewPage : ContentPage
         BindingContext = new TransactionReviewViewModel();
     }
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        Vm.Refresh();
+    }
+
     private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-cashier");
 
     private async void OnPlus(object? sender, EventArgs e)
@@ -24,13 +30,6 @@ public partial class TransactionReviewPage : ContentPage
     {
         if (sender is not Button b || b.CommandParameter is not string id) return;
         Vm.Decrease(id);
-        await Task.CompletedTask;
-    }
-
-    private async void OnTrash(object? sender, EventArgs e)
-    {
-        if (sender is not Button b || b.CommandParameter is not string id) return;
-        Vm.RemoveItem(id);
         await Task.CompletedTask;
     }
 

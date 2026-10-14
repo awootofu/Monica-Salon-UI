@@ -4,32 +4,57 @@
              x:Class="MonicaSalon.Views.Customer.LoginPage"
              Title="Login"
              BackgroundColor="{StaticResource Ivory}">
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="12">
-            <Button Text="← Kembali" Style="{StaticResource GhostButton}" Clicked="OnBack" HorizontalOptions="Start" />
-            <Label Text="Welcome Back!" Style="{StaticResource Eyebrow}" />
-            <Label Text="Saatnya kembali merawat dirimu." Style="{StaticResource ScreenTitle}" />
-            <Border Style="{StaticResource CardFrame}">
-                <VerticalStackLayout Spacing="10">
-                    <Label Text="Email" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="EmailEntry" Placeholder="customer@email.com" Keyboard="Email" Text="{Binding Email}" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
-                    <Label Text="Password" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="PasswordEntry" Placeholder="Minimal 6 karakter" IsPassword="True" Text="{Binding Password}" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
-                    <Label x:Name="ErrorLabel" Text="{Binding ErrorMessage}" TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="{Binding HasError}" />
-                    <Button Text="Lupa password?" Style="{StaticResource GhostButton}" Clicked="OnForgot" HorizontalOptions="End" />
-                    <Button Text="Masuk" Style="{StaticResource PrimaryButton}" Clicked="OnLogin" />
-                </VerticalStackLayout>
-            </Border>
-            <Border Style="{StaticResource CardFrame}">
-                <VerticalStackLayout Spacing="2">
-                    <Label Text="Akun demo" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" />
-                    <Label Text="customer@email.com masuk sebagai customer, owner@email.com masuk sebagai owner." Style="{StaticResource MutedCopy}" />
-                </VerticalStackLayout>
-            </Border>
-            <HorizontalStackLayout Spacing="4" HorizontalOptions="Center">
-                <Label Text="Belum punya akun?" Style="{StaticResource MutedCopy}" VerticalOptions="Center" />
-                <Button Text="Daftar sekarang" Style="{StaticResource GhostButton}" Clicked="OnGoRegister" />
-            </HorizontalStackLayout>
-        </VerticalStackLayout>
-    </ScrollView>
+    <Grid RowDefinitions="*,3*">
+        <!-- Banner 1/4 layar -->
+        <Grid>
+            <Image Source="monica_salon_interior.jpg" Aspect="AspectFill" />
+            <BoxView>
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#66000000" Offset="0.0" />
+                        <GradientStop Color="#CC5C332D" Offset="1.0" />
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <Button Text="← Kembali"
+                    Style="{StaticResource GhostButton}"
+                    TextColor="White"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    Margin="8,8,0,0"
+                    Clicked="OnBack" />
+            <VerticalStackLayout Padding="20,0,20,12" VerticalOptions="End" Spacing="2">
+                <Label Text="MONICA SALON · INDONESIA" TextColor="White" FontSize="10" FontAttributes="Bold" Opacity="0.85" />
+                <Label Text="Welcome Back!" TextColor="White" FontSize="22" FontAttributes="Bold" />
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Form compact, tidak kosong -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20,14,20,20" Spacing="10">
+                <Label Text="Saatnya kembali merawat dirimu." Style="{StaticResource BodyCopy}" />
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Email" Style="{StaticResource MutedCopy}" />
+                        <Entry x:Name="EmailEntry" Placeholder="customer@email.com" Keyboard="Email" Text="{Binding Email}" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
+                        <Label Text="Password" Style="{StaticResource MutedCopy}" />
+                        <Entry x:Name="PasswordEntry" Placeholder="Minimal 6 karakter" IsPassword="True" Text="{Binding Password}" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
+                        <Label x:Name="ErrorLabel" Text="{Binding ErrorMessage}" TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="{Binding HasError}" />
+                        <Button Text="Lupa password?" Style="{StaticResource GhostButton}" Clicked="OnForgot" HorizontalOptions="End" />
+                        <Button Text="Masuk" Style="{StaticResource PrimaryButton}" Clicked="OnLogin" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="Akun demo" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" />
+                        <Label Text="customer@email.com masuk sebagai customer, owner@email.com masuk sebagai owner." Style="{StaticResource MutedCopy}" />
+                    </VerticalStackLayout>
+                </Border>
+                <HorizontalStackLayout Spacing="4" HorizontalOptions="Center">
+                    <Label Text="Belum punya akun?" Style="{StaticResource MutedCopy}" VerticalOptions="Center" />
+                    <Button Text="Daftar sekarang" Style="{StaticResource GhostButton}" Clicked="OnGoRegister" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

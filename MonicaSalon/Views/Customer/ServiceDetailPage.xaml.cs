@@ -10,6 +10,11 @@ public partial class ServiceDetailPage : ContentPage
 
     private async void OnBook(object sender, EventArgs e)
     {
+        if (Services.BookingContext.SelectedServices.Count == 0)
+        {
+            var coloring = Services.MockDataService.Services.First(s => s.Name == "Pewarnaan Rambut");
+            Services.BookingContext.EnsureService(coloring);
+        }
         await Shell.Current.GoToAsync("schedule");
     }
 

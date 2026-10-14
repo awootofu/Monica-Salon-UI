@@ -5,6 +5,6 @@ public partial class DesignSystemPage : ContentPage
 
     private async void OnBack(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("cover");
+        await Shell.Current.GoToAsync("welcome");
     }
 }

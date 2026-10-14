@@ -9,6 +9,11 @@ public partial class AddExpensePage : ContentPage
         BindingContext = new AddExpenseViewModel();
     }
     private async void OnBack(object sender, EventArgs e) => await Shell.Current.GoToAsync("admin-finance");
+    private void OnDateChanged(object? sender, DateChangedEventArgs e)
+    {
+        if (DatePicker.Date is DateTime picked)
+            DateLabel.Text = picked.ToString("d MMM yyyy", new System.Globalization.CultureInfo("id-ID"));
+    }
     private void OnCategory(object sender, EventArgs e)
     {
         var b = (Button)sender;

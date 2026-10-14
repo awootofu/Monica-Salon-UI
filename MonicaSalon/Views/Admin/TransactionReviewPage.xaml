@@ -13,8 +13,8 @@
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="4">
                     <Label Text="Customer" Style="{StaticResource MutedCopy}" />
-                    <Label Text="Bella Anisa" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
-                    <Label Text="MON-261014-028 • 14 Okt 11.00" Style="{StaticResource BodyCopy}" />
+                    <Label Text="{Binding CustomerName}" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource DeepCocoa}" />
+                    <Label Text="{Binding BookingLine}" Style="{StaticResource BodyCopy}" />
                 </VerticalStackLayout>
             </Border>
 
@@ -29,7 +29,6 @@
                                     <Button Text="-" WidthRequest="40" HeightRequest="40" Style="{StaticResource SecondaryButton}" Clicked="OnMinus" CommandParameter="{Binding Id}" />
                                     <Label Text="{Binding Qty}" VerticalOptions="Center" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource Charcoal}" />
                                     <Button Text="+" WidthRequest="40" HeightRequest="40" Style="{StaticResource SecondaryButton}" Clicked="OnPlus" CommandParameter="{Binding Id}" />
-                                    <Button Text="Hapus" FontSize="11" HeightRequest="40" Style="{StaticResource SecondaryButton}" Clicked="OnTrash" CommandParameter="{Binding Id}" />
                                     <Label Text="{Binding LineTotalText}" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
                                 </HorizontalStackLayout>
                             </VerticalStackLayout>

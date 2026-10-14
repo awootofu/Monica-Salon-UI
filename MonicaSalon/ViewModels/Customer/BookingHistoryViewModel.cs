@@ -27,6 +27,8 @@ public class BookingHistoryViewModel : BaseViewModel
 
     public BookingHistoryViewModel() => ApplyFilter();
 
+    public void Refresh() => ApplyFilter();
+
     private void ApplyFilter()
     {
         Bookings = _selectedStatus == "Semua"

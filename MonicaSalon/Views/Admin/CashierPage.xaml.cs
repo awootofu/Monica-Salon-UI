@@ -11,6 +11,12 @@ public partial class CashierPage : ContentPage
         BindingContext = new CashierViewModel();
     }
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        Vm.RefreshBookings();
+    }
+
     private void PaintToggle(Button active, Button inactive)
     {
         if (Application.Current?.Resources.TryGetValue("PrimaryButton", out var p) == true && p is Style ps)
@@ -58,12 +64,6 @@ public partial class CashierPage : ContentPage
     {
         if (sender is not Button b || b.CommandParameter is not string id) return;
         Vm.RemoveItem(id);
-        await Task.CompletedTask;
-    }
-
-    private async void OnSaveDraft(object sender, EventArgs e)
-    {
-        Vm.SaveDraft();
         await Task.CompletedTask;
     }
 

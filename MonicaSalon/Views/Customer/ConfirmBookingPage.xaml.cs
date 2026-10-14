@@ -30,6 +30,33 @@ public partial class ConfirmBookingPage : ContentPage
 
     private async void OnSubmit(object sender, EventArgs e)
     {
+        var services = BookingContext.SelectedServices.ToList();
+        if (services.Count > 0)
+        {
+            var stamp = BookingContext.SelectedDate.ToString("yyMMdd");
+            var number = Random.Shared.Next(100, 1000);
+            var item = new Models.BookingItem
+            {
+                Ref = $"MON-{stamp}-{number}",
+                Service = BookingContext.ServicesSummary,
+                Date = BookingContext.SelectedDateShort,
+                Time = BookingContext.SelectedTime,
+                Price = BookingContext.ServicesTotalText,
+                Status = "Menunggu Konfirmasi",
+                Image = services[0].Image,
+                Customer = "Bella Anisa",
+            };
+            MockDataService.BookingHistory.Insert(0, item);
+            MockDataService.AdminBookings.Insert(0, new Models.BookingItem
+            {
+                Ref = item.Ref,
+                Customer = "Bella Anisa",
+                Service = item.Service,
+                Date = item.Date,
+                Time = item.Time,
+                Status = item.Status,
+            });
+        }
         await Shell.Current.GoToAsync("booking-success");
     }
 }

@@ -3,7 +3,6 @@ namespace MonicaSalon.Views.Customer;
 public partial class SchedulePage : ContentPage
 {
     private readonly ScheduleViewModel _vm = new();
-    private Button? _selectedDateBtn;
     private Button? _selectedTimeBtn;
 
     public SchedulePage()
@@ -26,15 +25,10 @@ public partial class SchedulePage : ContentPage
         btn.BackgroundColor = selected;
     }
 
-    private async void OnDateSelected(object sender, EventArgs e)
+    private void OnDateSelected(object sender, DateChangedEventArgs e)
     {
-        if (sender is Button b)
-        {
-            var date = b.Text.Replace(" Sen", "").Replace(" Sel", "").Replace(" Rab", "").Replace(" Kam", "").Replace(" Jum", "").Replace(" Sab", "").Replace(" Min", "");
-            _vm.SelectDate(date);
-            Highlight(b, ref _selectedDateBtn, (Color)Application.Current!.Resources["DustyRose"], Colors.White);
-        }
-        await Task.CompletedTask;
+        if (e.NewDate is DateTime picked)
+            _vm.SelectDate(picked);
     }
 
     private async void OnTimeSelected(object sender, EventArgs e)
@@ -57,11 +51,16 @@ public partial class SchedulePage : ContentPage
 
     private async void OnBack(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("details");
+        await Shell.Current.GoToAsync("home");
     }
 
     private async void OnContinue(object sender, EventArgs e)
     {
+        if (!_vm.HasServices)
+        {
+            await DisplayAlert("Pilih layanan", "Pilih minimal 1 layanan dahulu.", "OK");
+            return;
+        }
         await Shell.Current.GoToAsync("confirm");
     }
 }

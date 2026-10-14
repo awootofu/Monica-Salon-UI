@@ -19,10 +19,9 @@
             </Border>
 
             <Label Text="Metode pembayaran" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" />
-            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
                 <Button x:Name="CashBtn" Grid.Column="0" Text="Cash" Style="{StaticResource PrimaryButton}" HeightRequest="44" FontSize="12" Clicked="OnMethodSelected" />
-                <Button x:Name="TransferBtn" Grid.Column="1" Text="Transfer" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnMethodSelected" />
-                <Button x:Name="QrisBtn" Grid.Column="2" Text="QRIS" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnMethodSelected" />
+                <Button x:Name="QrisBtn" Grid.Column="1" Text="QRIS" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="12" Clicked="OnMethodSelected" />
             </Grid>
 
             <VerticalStackLayout x:Name="CashBox" Spacing="8" IsVisible="{Binding IsCash}">
