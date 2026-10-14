@@ -9,6 +9,8 @@ public partial class InventoryOverviewPage : ContentPage
     public InventoryOverviewPage()
     {
         InitializeComponent();
+        CategoryPicker.ItemsSource = new List<string> { "Semua", "Retail", "Coloring", "Treatment" };
+        CategoryPicker.SelectedIndex = 0;
         ApplyFilters();
     }
 
@@ -30,10 +32,9 @@ public partial class InventoryOverviewPage : ContentPage
         ApplyFilters();
     }
 
-    private void OnCategoryClicked(object sender, EventArgs e)
+    private void OnCategoryChanged(object sender, EventArgs e)
     {
-        if (sender is Button b)
-            _category = b.Text;
+        _category = CategoryPicker.SelectedItem?.ToString() ?? "Semua";
         ApplyFilters();
     }
 

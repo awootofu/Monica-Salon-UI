@@ -11,13 +11,13 @@
                 <Label Text="Beranda" Style="{StaticResource ScreenTitle}" />
                 <Border Style="{StaticResource CardFrame}">
                     <HorizontalStackLayout Spacing="12">
-                        <VerticalStackLayout Spacing="2" VerticalOptions="Center" HorizontalOptions="Fill">
-                            <Label Text="Halo, Monica" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource DeepCocoa}" />
-                            <Label Text="Ringkasan operasional hari ini." Style="{StaticResource MutedCopy}" />
+                        <VerticalStackLayout Spacing="2" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            <Label Text="Halo, Monica" FontAttributes="Bold" FontSize="20" TextColor="{StaticResource DeepCocoa}" VerticalOptions="Center" />
+                            
                         </VerticalStackLayout>
                         <Border BackgroundColor="{StaticResource DustyRose}" StrokeThickness="0"
                                 StrokeShape="RoundRectangle 24" WidthRequest="48" HeightRequest="48"
-                                VerticalOptions="Center">
+                                VerticalOptions="Start">
                             <Label Text="MA" FontAttributes="Bold" FontSize="14" TextColor="White"
                                    HorizontalOptions="Center" VerticalOptions="Center" />
                         </Border>

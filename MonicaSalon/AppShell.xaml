@@ -5,7 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:shared="clr-namespace:MonicaSalon.Views.Shared"
     Title="Monica Salon"
-    FlyoutBehavior="Disabled">
+    FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False">
 
     <ShellContent
         Title="Cover"

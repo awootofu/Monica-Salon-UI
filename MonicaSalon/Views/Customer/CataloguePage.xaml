@@ -10,13 +10,13 @@
                 <Label Text="Katalog" Style="{StaticResource Eyebrow}" />
                 <Label Text="Daftar Layanan" Style="{StaticResource ScreenTitle}" />
                 <SearchBar x:Name="CatalogueSearch" Placeholder="Cari layanan..." Text="{Binding Query}" />
-                <Border Style="{StaticResource CardFrame}" Padding="12,0">
+                <Border Style="{StaticResource CardFrame}" Padding="12,4">
                     <Picker x:Name="CategoryPicker"
-                            Title="Semua kategori"
                             FontSize="14"
                             TextColor="{StaticResource DeepCocoa}"
                             HeightRequest="48"
-                            VerticalOptions="Center"
+                            VerticalOptions="CenterAndExpand"
+                            VerticalTextAlignment="Center"
                             ItemsSource="{Binding Categories}"
                             SelectedItem="{Binding SelectedCategory}" />
                 </Border>

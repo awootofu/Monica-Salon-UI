@@ -7,16 +7,14 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="12">
             <Button Text="← Kembali" Style="{StaticResource GhostButton}" Clicked="OnBack" HorizontalOptions="Start" />
-            <Label Text="Selamat datang kembali" Style="{StaticResource Eyebrow}" />
+            <Label Text="Welcome Back!" Style="{StaticResource Eyebrow}" />
             <Label Text="Saatnya kembali merawat dirimu." Style="{StaticResource ScreenTitle}" />
-            <Label Text="Masuk untuk booking, melihat riwayat, dan membuka buku gaya rambut."
-                   Style="{StaticResource BodyCopy}" />
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Email" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="EmailEntry" Placeholder="customer@email.com" Keyboard="Email" Text="{Binding Email}" />
+                    <Entry x:Name="EmailEntry" Placeholder="customer@email.com" Keyboard="Email" Text="{Binding Email}" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
                     <Label Text="Password" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="PasswordEntry" Placeholder="Minimal 6 karakter" IsPassword="True" Text="{Binding Password}" />
+                    <Entry x:Name="PasswordEntry" Placeholder="Minimal 6 karakter" IsPassword="True" Text="{Binding Password}" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
                     <Label x:Name="ErrorLabel" Text="{Binding ErrorMessage}" TextColor="{StaticResource DangerText}" FontSize="12" IsVisible="{Binding HasError}" />
                     <Button Text="Lupa password?" Style="{StaticResource GhostButton}" Clicked="OnForgot" HorizontalOptions="End" />
                     <Button Text="Masuk" Style="{StaticResource PrimaryButton}" Clicked="OnLogin" />

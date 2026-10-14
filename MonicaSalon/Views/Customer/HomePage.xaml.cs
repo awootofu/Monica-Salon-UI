@@ -8,11 +8,6 @@ public partial class HomePage : ContentPage
         PopularList.ItemsSource = MockDataService.Services.Take(3).ToList();
     }
 
-    private async void OnCategory(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync("catalogue");
-    }
-
     private async void OnSimulate(object sender, EventArgs e)
     {
         Services.BookingContext.HairstyleReturnTo = "home";

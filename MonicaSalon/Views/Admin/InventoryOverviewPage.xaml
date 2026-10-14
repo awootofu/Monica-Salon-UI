@@ -15,15 +15,18 @@
                            Placeholder="Cari item..."
                            TextChanged="OnSearchTextChanged" />
 
-                <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="8">
-                    <Button Grid.Column="0" Text="Semua" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnCategoryClicked" />
-                    <Button Grid.Column="1" Text="Retail" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnCategoryClicked" />
-                    <Button Grid.Column="2" Text="Coloring" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnCategoryClicked" />
-                    <Button Grid.Column="3" Text="Treatment" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="44" Clicked="OnCategoryClicked" />
-                </Grid>
+                <Border Style="{StaticResource CardFrame}" Padding="12,4">
+                    <Picker x:Name="CategoryPicker"
+                            FontSize="14"
+                            TextColor="{StaticResource DeepCocoa}"
+                            HeightRequest="48"
+                            VerticalOptions="CenterAndExpand"
+                            VerticalTextAlignment="Center"
+                            SelectedIndexChanged="OnCategoryChanged" />
+                </Border>
 
                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                    <Label Text="Hanya stok menipis" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
+                    <Label Text="Hanya stok mau habis" Style="{StaticResource BodyCopy}" VerticalOptions="Center" />
                     <Switch x:Name="LowStockSwitch" Toggled="OnLowStockToggled" />
                 </HorizontalStackLayout>
 

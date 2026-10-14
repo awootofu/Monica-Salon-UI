@@ -48,6 +48,16 @@
                         <Button Text="Bantuan" Style="{StaticResource GhostButton}" HorizontalOptions="Fill" Clicked="OnHelp" />
                     </VerticalStackLayout>
                 </Border>
+                <Button Text="Logout" Style="{StaticResource GhostButton}" Clicked="OnLogout" />
+                <Border x:Name="LogoutConfirm" Style="{StaticResource CardFrame}" IsVisible="False">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Logout dari Monica Salon?" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" HorizontalTextAlignment="Center" />
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                            <Button Grid.Column="0" Text="Logout" Style="{StaticResource PrimaryButton}" FontSize="12" HeightRequest="38" Padding="8,0" Clicked="OnConfirmLogout" />
+                            <Button Grid.Column="1" Text="Batal" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="38" Padding="8,0" Clicked="OnCancelLogout" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
             </VerticalStackLayout>
         </ScrollView>
         <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" Padding="8,6" BackgroundColor="White">

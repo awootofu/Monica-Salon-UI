@@ -10,7 +10,6 @@ public partial class HairstyleBookPage : ContentPage
     {
         InitializeComponent();
         BindingContext = _vm;
-        CategoryPicker.SelectedIndex = 0;
     }
 
     protected override void OnAppearing()

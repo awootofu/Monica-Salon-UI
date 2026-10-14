@@ -6,7 +6,6 @@ public partial class CataloguePage : ContentPage
     {
         InitializeComponent();
         BindingContext = new CatalogueViewModel();
-        CategoryPicker.SelectedIndex = 0;
     }
 
     private async void OnServiceSelected(object sender, SelectionChangedEventArgs e)

@@ -27,7 +27,7 @@
                     <Label Text="Monica" FontSize="30" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
                     <Label Text="SALON" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" VerticalOptions="End" />
                 </HorizontalStackLayout>
-                <Label Text="Booking lebih mudah, pelayanan lebih dekat, dan operasional salon dalam satu aplikasi."
+                <Label Text="A little care, a lovely you."
                        Style="{StaticResource BodyCopy}" HorizontalTextAlignment="Center" />
                 <Button Text="Mulai sekarang →" Style="{StaticResource PrimaryButton}" Clicked="OnContinue" />
                 <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">

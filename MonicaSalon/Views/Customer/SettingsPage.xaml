@@ -56,9 +56,11 @@
             <Button Text="Logout" Style="{StaticResource GhostButton}" Clicked="OnLogout" />
             <Border x:Name="LogoutConfirm" Style="{StaticResource CardFrame}" IsVisible="False">
                 <VerticalStackLayout Spacing="8">
-                    <Label Text="Logout dari Monica Salon?" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
-                    <Button Text="Confirm Logout" Style="{StaticResource PrimaryButton}" Clicked="OnConfirmLogout" />
-                    <Button Text="Stay" Style="{StaticResource SecondaryButton}" Clicked="OnStay" />
+                    <Label Text="Logout dari Monica Salon?" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" HorizontalTextAlignment="Center" />
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <Button Grid.Column="0" Text="Logout" Style="{StaticResource PrimaryButton}" FontSize="12" HeightRequest="38" Padding="8,0" Clicked="OnConfirmLogout" />
+                        <Button Grid.Column="1" Text="Stay" Style="{StaticResource SecondaryButton}" FontSize="12" HeightRequest="38" Padding="8,0" Clicked="OnStay" />
+                    </Grid>
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

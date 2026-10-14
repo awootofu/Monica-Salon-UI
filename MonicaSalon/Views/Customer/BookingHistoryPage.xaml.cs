@@ -6,7 +6,6 @@ public partial class BookingHistoryPage : ContentPage
     {
         InitializeComponent();
         BindingContext = new BookingHistoryViewModel();
-        StatusPicker.SelectedIndex = 0;
     }
 
     private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)

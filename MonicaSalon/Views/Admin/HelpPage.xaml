@@ -40,25 +40,7 @@
                         <Label Text="Mon - Sat 09.00 - 19.00 • hello@monicasalon.id • 0812-3456-7890" Style="{StaticResource BodyCopy}" FontSize="12" />
                     </VerticalStackLayout>
                 </Border>
-                <Border Style="{StaticResource CardFrame}">
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="Akun" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" />
-                        <Button Text="Logout" Style="{StaticResource SecondaryButton}" Clicked="OnLogout" />
-                    </VerticalStackLayout>
-                </Border>
             </VerticalStackLayout>
         </ScrollView>
-        <Border x:Name="LogoutConfirm" IsVisible="False" BackgroundColor="#80000000" StrokeThickness="0" Padding="20" VerticalOptions="Fill" HorizontalOptions="Fill">
-            <Border Style="{StaticResource CardFrame}" VerticalOptions="Center">
-                <VerticalStackLayout Spacing="8">
-                    <Label Text="Keluar?" FontAttributes="Bold" TextColor="{StaticResource DeepCocoa}" FontSize="16" />
-                    <Label Text="Kamu akan kembali ke layar masuk admin." Style="{StaticResource BodyCopy}" />
-                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
-                        <Button Grid.Column="0" Text="Logout" Style="{StaticResource PrimaryButton}" Clicked="OnConfirmLogout" />
-                        <Button Grid.Column="1" Text="Batal" Style="{StaticResource SecondaryButton}" Clicked="OnCancelLogout" />
-                    </Grid>
-                </VerticalStackLayout>
-            </Border>
-        </Border>
     </Grid>
 </ContentPage>

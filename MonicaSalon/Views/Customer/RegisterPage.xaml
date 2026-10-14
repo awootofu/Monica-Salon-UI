@@ -14,15 +14,15 @@
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Nama lengkap" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="NameEntry" Placeholder="Bella Anisa" />
+                    <Entry x:Name="NameEntry" Placeholder="Bella Anisa" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
                     <Label Text="No. HP" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="PhoneEntry" Placeholder="08xx xxxx xxxx" Keyboard="Telephone" />
+                    <Entry x:Name="PhoneEntry" Placeholder="08xx xxxx xxxx" Keyboard="Telephone" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
                     <Label Text="Email" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="EmailEntry" Placeholder="nama@email.com" Keyboard="Email" />
+                    <Entry x:Name="EmailEntry" Placeholder="nama@email.com" Keyboard="Email" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
                     <Label Text="Password" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="PasswordEntry" Placeholder="Minimal 6 karakter" IsPassword="True" />
+                    <Entry x:Name="PasswordEntry" Placeholder="Minimal 6 karakter" IsPassword="True" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
                     <Label Text="Konfirmasi password" Style="{StaticResource MutedCopy}" />
-                    <Entry x:Name="ConfirmEntry" Placeholder="Ulangi password" IsPassword="True" />
+                    <Entry x:Name="ConfirmEntry" Placeholder="Ulangi password" IsPassword="True" TextColor="{StaticResource Charcoal}" PlaceholderColor="{StaticResource Muted}" />
                     <HorizontalStackLayout Spacing="8">
                         <CheckBox x:Name="TermsCheck" Color="{StaticResource DustyRose}" VerticalOptions="Center" />
                         <Label Text="Saya setuju dengan syarat &amp; ketentuan." Style="{StaticResource MutedCopy}" VerticalOptions="Center" />

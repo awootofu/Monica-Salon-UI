@@ -10,14 +10,16 @@
                 <Label Text="Operasional" Style="{StaticResource Eyebrow}" />
                 <Label Text="Booking" Style="{StaticResource ScreenTitle}" />
                 <SearchBar x:Name="BookingSearch" Placeholder="Cari nama, ref, layanan..." TextChanged="OnSearch" />
-                <Button Text="14 Okt 2026" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="13" Clicked="OnDateSelected" />
-                <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Start" AlignItems="Center">
-                    <Button x:Name="FilterAll" Text="Semua" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" Clicked="OnFilter" />
-                    <Button x:Name="FilterPending" Text="Menunggu Konfirmasi" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" Clicked="OnFilter" />
-                    <Button x:Name="FilterConfirmed" Text="Dikonfirmasi" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" Clicked="OnFilter" />
-                    <Button x:Name="FilterDone" Text="Selesai" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" Clicked="OnFilter" />
-                    <Button x:Name="FilterCancelled" Text="Dibatalkan" Style="{StaticResource SecondaryButton}" FontSize="11" HeightRequest="38" Margin="0,0,6,6" Clicked="OnFilter" />
-                </FlexLayout>
+                <Button Text="24 Sept 2026" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="13" Clicked="OnDateSelected" />
+                <Border Style="{StaticResource CardFrame}" Padding="12,4">
+                    <Picker x:Name="StatusPicker"
+                            FontSize="14"
+                            TextColor="{StaticResource DeepCocoa}"
+                            HeightRequest="48"
+                            VerticalOptions="CenterAndExpand"
+                            VerticalTextAlignment="Center"
+                            SelectedIndexChanged="OnStatusChanged" />
+                </Border>
                 <CollectionView x:Name="BookingsList" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>

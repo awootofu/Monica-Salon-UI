@@ -45,7 +45,7 @@ Run:
   dotnet build -f net10.0-windows10.0.19041.0 -t:Run
   ```
 
-Routes are registered in `AppShell.xaml.cs` via `Routing.RegisterRoute(...)`, e.g. `home`, `catalogue`, `schedule`, `simulation-intro`, `photo-selection`, `hair-editor`, `simulation-result`, `admin-dashboard`, etc. Navigation uses `Shell.Current.GoToAsync("//route")`.
+Routes are registered in `AppShell.xaml.cs` via `Routing.RegisterRoute(...)`, e.g. `home`, `catalogue`, `schedule`, `hairstyle-book`, `hairstyle-detail`, `admin-dashboard`, etc. Navigation uses relative pushes `Shell.Current.GoToAsync("route")` (registered routes are not in the Shell visual hierarchy, so absolute `//route` fails at runtime).
 
 ## Project Structure
 
@@ -79,15 +79,14 @@ Conventions: Ivory page background, `Border` (not `Frame`), images referenced by
 
 No real backend. All lists, bookings, inventory, and finance data come from an in-memory mock service (`Services/MockDataService`). No network calls, no persistence — restarting the app resets state. Photo pickers and saves are simulated with local UI state.
 
-## Hair Simulation Placeholder Note
+## Hairstyle Book Note
 
-The Hair Simulation flow (`simulation-intro` → `photo-selection` → `hair-editor` → `simulation-result`) is a **manual visual-consultation placeholder**:
+The hairstyle book flow (`hairstyle-book` → `hairstyle-detail`) is a **salon lookbook placeholder**:
 
 - No AI generation, no image processing, no upload.
-- `Take Photo` / `Choose Gallery` only toggle a local preview (`welcome.jpg`).
-- `HairEditorPage` overlays a static template label (“Template overlay adjustable”); Position/Size steppers only update `n / 4` labels.
-- Result page shows Before/After using the same stock image and a static selection card (Soft Layer, Mocha Brown).
-- Every screen carries a disclaimer: “alat bantu konsultasi visual, bukan AI generation” / “Preview simulasi, bukan hasil AI”.
+- 8 sample styles live in `Services/MockDataService.Hairstyles` (`Models/HairstyleItem`).
+- The customer's pick is kept in `Services/BookingContext.SelectedHairstyle` and shown on `schedule`, `confirm`, and `booking-success` as a stylist reference.
+- Every screen carries a note: referensi contoh, hasil akhir mengikuti konsultasi dengan stylist.
 
 Do not present this flow as AI output.
 

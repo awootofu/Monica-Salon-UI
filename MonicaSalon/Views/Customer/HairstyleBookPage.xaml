@@ -17,13 +17,13 @@
             <Label Text="Pilih referensi gaya sebelum booking. Tunjukkan pilihanmu ke stylist saat datang."
                    Style="{StaticResource BodyCopy}" />
             <SearchBar x:Name="BookSearch" Placeholder="Cari gaya, mis. bob, layer..." Text="{Binding Query}" />
-            <Border Style="{StaticResource CardFrame}" Padding="12,0">
+            <Border Style="{StaticResource CardFrame}" Padding="12,4">
                 <Picker x:Name="CategoryPicker"
-                        Title="Semua gaya"
                         FontSize="14"
                         TextColor="{StaticResource DeepCocoa}"
                         HeightRequest="48"
-                        VerticalOptions="Center"
+                        VerticalOptions="CenterAndExpand"
+                        VerticalTextAlignment="Center"
                         ItemsSource="{Binding Categories}"
                         SelectedItem="{Binding SelectedCategory}" />
             </Border>

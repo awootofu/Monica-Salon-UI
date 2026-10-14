@@ -8,6 +8,8 @@ public partial class AdminBookingsPage : ContentPage
     public AdminBookingsPage()
     {
         InitializeComponent();
+        StatusPicker.ItemsSource = new List<string> { "Semua", "Menunggu Konfirmasi", "Dikonfirmasi", "Selesai", "Dibatalkan" };
+        StatusPicker.SelectedIndex = 0;
         ApplyFilter();
     }
 
@@ -33,14 +35,10 @@ public partial class AdminBookingsPage : ContentPage
         await Task.CompletedTask;
     }
 
-    private async void OnFilter(object sender, EventArgs e)
+    private void OnStatusChanged(object sender, EventArgs e)
     {
-        if (sender is Button b)
-        {
-            _filter = b.Text;
-            ApplyFilter();
-        }
-        await Task.CompletedTask;
+        _filter = StatusPicker.SelectedItem?.ToString() ?? "Semua";
+        ApplyFilter();
     }
 
     private async void OnDateSelected(object sender, EventArgs e)
