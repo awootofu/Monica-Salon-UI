@@ -2,12 +2,22 @@ using MonicaSalon.ViewModels;
 namespace MonicaSalon.ViewModels.Admin;
 public class AdminRescheduleViewModel : BaseViewModel
 {
-    private string _selectedDate = string.Empty;
-    public string SelectedDate
+    public DateTime MinDate { get; } = new(2026, 10, 12);
+    public DateTime MaxDate { get; } = new(2026, 12, 31);
+
+    private DateTime _selectedDate = new(2026, 10, 15);
+    public DateTime SelectedDate
     {
         get => _selectedDate;
-        private set => SetProperty(ref _selectedDate, value ?? string.Empty);
+        private set
+        {
+            if (SetProperty(ref _selectedDate, value))
+                OnPropertyChanged(nameof(SelectedDateText));
+        }
     }
+
+    public string SelectedDateText =>
+        _selectedDate.ToString("dddd, d MMMM yyyy", new System.Globalization.CultureInfo("id-ID"));
 
     private string _selectedTime = string.Empty;
     public string SelectedTime
@@ -53,9 +63,21 @@ public class AdminRescheduleViewModel : BaseViewModel
 
     public AdminRescheduleViewModel() => UpdateState();
 
+    public void SelectDate(DateTime date)
+    {
+        SelectedDate = date.Date;
+        UpdateState();
+    }
+
+    // Kompatibilitas lama (tombol tanggal "15 Kam", ...).
     public void SelectDate(string? buttonText)
     {
-        SelectedDate = buttonText ?? string.Empty;
+        var day = new string((buttonText ?? string.Empty).TakeWhile(char.IsDigit).ToArray());
+        if (int.TryParse(day, out var d))
+        {
+            try { SelectDate(new DateTime(SelectedDate.Year, SelectedDate.Month, d)); return; }
+            catch (ArgumentOutOfRangeException) { }
+        }
         UpdateState();
     }
 
@@ -76,9 +98,9 @@ public class AdminRescheduleViewModel : BaseViewModel
             IsReady = false;
             CanSave = false;
         }
-        else if (!string.IsNullOrEmpty(_selectedDate) && !string.IsNullOrEmpty(_selectedTime))
+        else if (!string.IsNullOrEmpty(_selectedTime))
         {
-            ConflictText = $"Slot tersedia: {_selectedDate} • {_selectedTime} WIB.";
+            ConflictText = $"Slot tersedia: {SelectedDateText} • {_selectedTime} WIB.";
             IsConflict = false;
             IsReady = true;
             CanSave = true;

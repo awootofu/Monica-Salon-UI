@@ -31,6 +31,12 @@ public partial class AdminCreateBookingPage : ContentPage
         await Task.CompletedTask;
     }
 
+    private void OnDateChanged(object? sender, DateChangedEventArgs e)
+    {
+        if (e.NewDate is DateTime picked)
+            Vm.SelectDate(picked);
+    }
+
     private async void OnBack(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("admin-dashboard");

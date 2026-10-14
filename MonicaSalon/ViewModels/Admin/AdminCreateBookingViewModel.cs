@@ -51,6 +51,26 @@ public class AdminCreateBookingViewModel : BaseViewModel
         private set => SetProperty(ref _selectedSlot, value);
     }
 
+    public DateTime MinDate { get; } = new(2026, 10, 12);
+    public DateTime MaxDate { get; } = new(2026, 12, 31);
+
+    private DateTime _selectedDate = new(2026, 10, 14);
+    public DateTime SelectedDate
+    {
+        get => _selectedDate;
+        set
+        {
+            if (SetProperty(ref _selectedDate, value))
+            {
+                OnPropertyChanged(nameof(SelectedDateText));
+                Refresh();
+            }
+        }
+    }
+
+    public string SelectedDateText =>
+        _selectedDate.ToString("dddd, d MMMM yyyy", new System.Globalization.CultureInfo("id-ID"));
+
     private string _newName = string.Empty;
     public string NewName
     {
@@ -111,9 +131,14 @@ public class AdminCreateBookingViewModel : BaseViewModel
         Refresh();
     }
 
+    public void SelectDate(DateTime date)
+    {
+        SelectedDate = date.Date;
+    }
+
     private void Refresh()
     {
-        SummaryText = $"{_customer} • {_service} {_price} • 14 Okt {_slot}";
+        SummaryText = $"{_customer} • {_service} {_price} • {_selectedDate.ToString("d MMM", new System.Globalization.CultureInfo("id-ID"))} {_slot}";
         IsNewCustomer = _customer == "Pelanggan baru";
     }
 }

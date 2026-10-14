@@ -70,7 +70,17 @@
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Jadwal" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
-                    <Label Text="Rabu, 14 Oktober 2026" Style="{StaticResource MutedCopy}" />
+                    <Label Text="{Binding SelectedDateText}" Style="{StaticResource MutedCopy}" />
+                    <Border Stroke="#D9CFC4" StrokeThickness="1" StrokeShape="RoundRectangle 10" BackgroundColor="White" Padding="12,4">
+                        <DatePicker x:Name="DatePicker"
+                                    Date="{Binding SelectedDate}"
+                                    MinimumDate="{Binding MinDate}"
+                                    MaximumDate="{Binding MaxDate}"
+                                    DateSelected="OnDateChanged"
+                                    FontSize="14"
+                                    TextColor="{StaticResource DeepCocoa}"
+                                    HeightRequest="48" />
+                    </Border>
                     <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Start" AlignItems="Start">
                         <Button Style="{StaticResource SlotButton}" x:Name="Slot0900" Text="09.00" WidthRequest="76" HeightRequest="44" FontSize="12" Margin="0,0,6,6" Clicked="OnSlotSelected" CommandParameter="09.00">
                             <Button.Triggers>

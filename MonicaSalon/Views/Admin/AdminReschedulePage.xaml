@@ -19,30 +19,18 @@
             <Border Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="8">
                     <Label Text="Tanggal Baru" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DeepCocoa}" />
-                    <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Start" AlignItems="Start">
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn15" Text="15 Kam" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" CommandParameter="15 Kam">
-                            <Button.Triggers>
-                                <DataTrigger TargetType="Button" Binding="{Binding SelectedDate}" Value="15 Kam">
-                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
-                                </DataTrigger>
-                            </Button.Triggers>
-                        </Button>
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn16" Text="16 Jum" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" CommandParameter="16 Jum">
-                            <Button.Triggers>
-                                <DataTrigger TargetType="Button" Binding="{Binding SelectedDate}" Value="16 Jum">
-                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
-                                </DataTrigger>
-                            </Button.Triggers>
-                        </Button>
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn17" Text="17 Sab" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" Clicked="OnDateSelected" CommandParameter="17 Sab">
-                            <Button.Triggers>
-                                <DataTrigger TargetType="Button" Binding="{Binding SelectedDate}" Value="17 Sab">
-                                    <Setter Property="BackgroundColor" Value="{StaticResource DustyRose}" />
-                                </DataTrigger>
-                            </Button.Triggers>
-                        </Button>
-                        <Button Style="{StaticResource SlotButton}" x:Name="DateBtn18" Text="18 Min" IsEnabled="False" WidthRequest="76" HeightRequest="46" FontSize="12" Margin="0,0,6,6" />
-                    </FlexLayout>
+                    <Label Text="{Binding SelectedDateText}" FontAttributes="Bold" FontSize="13" TextColor="{StaticResource DeepCocoa}" />
+                    <Border Stroke="#D9CFC4" StrokeThickness="1" StrokeShape="RoundRectangle 10" BackgroundColor="White" Padding="12,4">
+                        <DatePicker x:Name="DatePicker"
+                                    Date="{Binding SelectedDate}"
+                                    MinimumDate="{Binding MinDate}"
+                                    MaximumDate="{Binding MaxDate}"
+                                    DateSelected="OnDateSelected"
+                                    FontSize="14"
+                                    TextColor="{StaticResource DeepCocoa}"
+                                    HeightRequest="48" />
+                    </Border>
+                    <Label Text="Ketuk tanggal untuk membuka kalender." Style="{StaticResource MutedCopy}" FontSize="11" />
                 </VerticalStackLayout>
             </Border>
             <Border Style="{StaticResource CardFrame}">

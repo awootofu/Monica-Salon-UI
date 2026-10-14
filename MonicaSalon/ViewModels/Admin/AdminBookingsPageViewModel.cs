@@ -29,6 +29,28 @@ public class AdminBookingsPageViewModel : BaseViewModel
         }
     }
 
+    public DateTime MinDate { get; } = new(2026, 7, 1);
+    public DateTime MaxDate { get; } = new(2026, 12, 31);
+
+    private DateTime? _filterDate;
+    public DateTime? FilterDate
+    {
+        get => _filterDate;
+        set
+        {
+            if (SetProperty(ref _filterDate, value))
+            {
+                OnPropertyChanged(nameof(DateFilterText));
+                ApplyFilter();
+            }
+        }
+    }
+
+    public string DateFilterText => _filterDate?.ToString("d MMM yyyy", new System.Globalization.CultureInfo("id-ID"))
+        ?? "Semua tanggal";
+
+    public void ClearDateFilter() => FilterDate = null;
+
     private List<BookingItem> _bookings = new();
     public List<BookingItem> Bookings
     {
@@ -43,6 +65,11 @@ public class AdminBookingsPageViewModel : BaseViewModel
         var list = MockDataService.AdminBookings.AsEnumerable();
         if (_selectedStatus != "Semua")
             list = list.Where(x => x.Status == _selectedStatus);
+        if (_filterDate.HasValue)
+        {
+            var day = _filterDate.Value.ToString("d MMM", new System.Globalization.CultureInfo("id-ID"));
+            list = list.Where(x => x.Date == day);
+        }
         if (!string.IsNullOrWhiteSpace(_query))
         {
             var q = _query.ToLowerInvariant();

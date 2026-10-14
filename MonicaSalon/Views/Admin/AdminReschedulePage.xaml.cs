@@ -10,11 +10,10 @@ public partial class AdminReschedulePage : ContentPage
         BindingContext = new AdminRescheduleViewModel();
     }
 
-    private async void OnDateSelected(object sender, EventArgs e)
+    private void OnDateSelected(object? sender, DateChangedEventArgs e)
     {
-        if (sender is Button b)
-            Vm.SelectDate(b.CommandParameter as string ?? b.Text);
-        await Task.CompletedTask;
+        if (e.NewDate is DateTime picked)
+            Vm.SelectDate(picked);
     }
 
     private async void OnTimeSelected(object sender, EventArgs e)

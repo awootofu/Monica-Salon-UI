@@ -8,9 +8,9 @@ public partial class AdminBookingsPage : ContentPage
         BindingContext = new AdminBookingsPageViewModel();
     }
 
-    private async void OnDateSelected(object sender, EventArgs e)
+    private void OnClearDate(object sender, EventArgs e)
     {
-        await DisplayAlert("Tanggal", "Menampilkan booking tanggal 14 Okt 2026.", "OK");
+        ((AdminBookingsPageViewModel)BindingContext).ClearDateFilter();
     }
 
     private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
